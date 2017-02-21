@@ -1,0 +1,22 @@
+{
+  "name": "mongo",
+  "version": "1.0.0",
+  "description": "MongoDB backend for the Controversies of Science API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worldviewer/controversy-api.git"
+  },
+  "author": "Chris Reeve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/worldviewer/controversy-api/issues"
+  },
+  "homepage": "https://github.com/worldviewer/controversy-api#readme",
+  "dependencies": {
+    "mongodb": "^2.2.24"
+  }
+}
