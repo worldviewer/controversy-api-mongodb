@@ -3,7 +3,8 @@ const
 	Server = require('mongodb').Server,
 	MongoClient = require('mongodb').MongoClient,
 	url = "mongodb://localhost:27017/controversies",
-	assert = require('assert');
+	assert = require('assert'),
+	GPlus = require('./gplus').default;
 
 let db = null;
 
@@ -42,6 +43,44 @@ function collectionExists(db, collection) {
 	});
 }
 
+function syncCollection() {
+	console.log('\nSynchronizing backend with Google Plus collection ...');
+
+	// scrape controversy cards from G+ collection
+	let gplus = new GPlus();
+	gplus.init();
+
+	let getPage = function() {
+		var gplusPromise = new Promise(
+			(resolve, reject) => {
+				gplus.getNextCards(resolve, reject);
+			}
+		);
+
+		gplusPromise.then(
+			(scrapedCollection) => {
+				// Send back an array of the card titles which have been added
+				if (gplus.nextPageToken && gplus.more) {
+					getPage();
+				} else {
+					console.log('\nScrape Results:\n');
+					console.log([...gplus.titlesAdded]);
+
+					// return gplus.updateBackend(gplus.collection, req, res);
+				}
+			}
+		)
+		.catch(
+			(reason) => {
+				console.log('\nScrape Error:');
+				console.log(reason);
+			}
+		);
+	}
+
+	getPage();
+}
+
 create();
 
 open()
@@ -55,10 +94,16 @@ open()
 		} else {
 			console.log("Collection does not exist.");
 		}
-
-		close(db);
+	})
+	.then(() => {
+		syncCollection();
+	})
+	.then(() => {
+		close(db);		
 	})
 	.catch((error) => {
-		console.log("Error opening MongoDB at " + url);
+		console.log("An error has occurred ...");
 		console.log(error);
+
+		close(db);
 	});
