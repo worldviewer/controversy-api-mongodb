@@ -5,7 +5,7 @@ This is the new backend db and controller for the Controversies of Science API. 
 To set up and populate the Mongodb database with controversy data, run:
 
     npm run build
-    node setup.js
+    node src/js/setup.js
 
 ## State of the Project
 
