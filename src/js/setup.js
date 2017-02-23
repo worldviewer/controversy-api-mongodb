@@ -7,10 +7,13 @@ var Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
     url = "mongodb://localhost:27017/controversies",
     assert = require('assert'),
-    GPlus = require('./gplus').default;
+    GPlus = require('./gplus').default,
+    METACARDS = 'metacards';
 
 var db = null,
-    collection = void 0;
+    gplusMetacards = void 0,
+    mongoMetacards = void 0,
+    savedCount = void 0;
 
 function create() {
 	db = new Db("controversies", new Server('localhost', 27017));
@@ -78,18 +81,51 @@ open().then(function (database) {
 	db = database;
 	return database;
 }).then(function (database) {
-	if (collectionExists(db, "controversies")) {
-		console.log("\nCollection controversies exists");
+	if (collectionExists(db, METACARDS)) {
+		console.log("\nMetacards collection exists");
+
+		return new Promise(function (resolve, reject) {
+			resolve(db.collection(METACARDS));
+		});
 	} else {
-		console.log("\nCollection does not exist.");
+		console.log("\nMetacards collection does not exist, will create.");
+
+		return new Promise(function (resolve, reject) {
+			resolve(db.createCollection(METACARDS));
+		});
 	}
+}).then(function (collection) {
+	mongoMetacards = collection;
 }).then(function () {
+	console.log("\nScraping G+ Collection.");
+
 	return new Promise(function (resolve, reject) {
 		scrapeCollection(resolve, reject);
 	});
 }).then(function (collection) {
-	console.log(collection);
-	console.log('all done!');
+	gplusMetacards = collection;
+
+	return new Promise(function (resolve, reject) {
+		resolve(mongoMetacards.count());
+	});
+}).then(function (count) {
+	savedCount = count;
+
+	console.log("\nThere are currently " + savedCount + " cards in the controversies collection.");
+
+	return new Promise(function (resolve, reject) {
+		if (savedCount === 0) {
+			console.log("\nSaving Scraped data to MongoDB");
+
+			resolve(mongoMetacards.insertMany(gplusMetacards));
+		} else if (gplusMetacards.length > savedCount) {
+			console.log("\nThere are new G+ posts since last scrape.");
+			resolve();
+		} else {
+			console.log("\nThere are no new G+ posts since last scrape.");
+			resolve();
+		}
+	});
 }).then(function () {
 	close(db);
 }).catch(function (error) {

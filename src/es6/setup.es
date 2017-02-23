@@ -4,10 +4,13 @@ const
 	MongoClient = require('mongodb').MongoClient,
 	url = "mongodb://localhost:27017/controversies",
 	assert = require('assert'),
-	GPlus = require('./gplus').default;
+	GPlus = require('./gplus').default,
+	METACARDS = 'metacards';
 
 let db = null,
-	collection;
+	gplusMetacards,
+	mongoMetacards,
+	savedCount;
 
 function create() {
 	db = new Db("controversies", new Server('localhost', 27017));
@@ -79,20 +82,55 @@ open()
 		return database;
 	})
 	.then((database) => {
-		if (collectionExists(db, "controversies")) {
-			console.log("\nCollection controversies exists");
+		if (collectionExists(db, METACARDS)) {
+			console.log("\nMetacards collection exists");
+
+			return new Promise((resolve, reject) => {
+				resolve(db.collection(METACARDS));
+			});
 		} else {
-			console.log("\nCollection does not exist.");
+			console.log("\nMetacards collection does not exist, will create.");
+
+			return new Promise((resolve, reject) => {
+				resolve(db.createCollection(METACARDS));
+			})
 		}
 	})
+	.then((collection) => {
+		mongoMetacards = collection;
+	})
 	.then(() => {
+		console.log("\nScraping G+ Collection.");
+
 		return new Promise((resolve, reject) => {
 			scrapeCollection(resolve, reject);
 		});
 	})
 	.then((collection) => {
-		console.log(collection);
-		console.log('all done!');
+		gplusMetacards = collection;
+
+		return new Promise((resolve, reject) => {
+			resolve(mongoMetacards.count());
+		});
+	})
+	.then((count) => {
+		savedCount = count;
+
+		console.log("\nThere are currently " + savedCount + " cards in the controversies collection.");
+
+		return new Promise((resolve, reject) => {
+			if (savedCount === 0) {
+				console.log("\nSaving Scraped data to MongoDB");
+
+				resolve(mongoMetacards.insertMany(gplusMetacards));
+			} else if (gplusMetacards.length > savedCount) {
+				console.log("\nThere are new G+ posts since last scrape.");
+				resolve();
+			} else {
+				console.log("\nThere are no new G+ posts since last scrape.");
+				resolve();
+			}
+		});
 	})
 	.then(() => {
 		close(db);		
