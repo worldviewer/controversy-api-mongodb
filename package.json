@@ -4,7 +4,7 @@
   "description": "MongoDB backend for the Controversies of Science API",
   "main": "index.js",
   "scripts": {
-    "setup": "node setup.js",
+    "scrape": "node src/js/scrape.js",
     "build": "babel src/es6 --out-dir src/js"
   },
   "repository": {

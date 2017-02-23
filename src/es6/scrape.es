@@ -8,7 +8,7 @@ const
 	METACARDS = 'metacards';
 
 let db = null,
-	gplusMetacards,
+	gplusMetacards, // Controversy card metadata
 	mongoMetacards,
 	savedCount;
 
@@ -82,19 +82,17 @@ open()
 		return database;
 	})
 	.then((database) => {
-		if (collectionExists(db, METACARDS)) {
-			console.log("\nMetacards collection exists");
+		return new Promise((resolve, reject) => {
+			if (collectionExists(db, METACARDS)) {
+				console.log("\nMetacards collection exists");
 
-			return new Promise((resolve, reject) => {
 				resolve(db.collection(METACARDS));
-			});
-		} else {
-			console.log("\nMetacards collection does not exist, will create.");
+			} else {
+				console.log("\nMetacards collection does not exist, will create.");
 
-			return new Promise((resolve, reject) => {
 				resolve(db.createCollection(METACARDS));
-			})
-		}
+			}
+		});
 	})
 	.then((collection) => {
 		mongoMetacards = collection;
@@ -116,7 +114,8 @@ open()
 	.then((count) => {
 		savedCount = count;
 
-		console.log("\nThere are currently " + savedCount + " cards in the controversies collection.");
+		console.log("\nThere are currently " + savedCount +
+			" metacards in the controversies collection.");
 
 		return new Promise((resolve, reject) => {
 			if (savedCount === 0) {
