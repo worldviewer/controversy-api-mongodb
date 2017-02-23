@@ -9,7 +9,8 @@ var Db = require('mongodb').Db,
     assert = require('assert'),
     GPlus = require('./gplus').default;
 
-var db = null;
+var db = null,
+    collection = void 0;
 
 function create() {
 	db = new Db("controversies", new Server('localhost', 27017));
@@ -46,19 +47,16 @@ function collectionExists(db, collection) {
 	});
 }
 
-function syncCollection() {
+function scrapeCollection(resolve, reject) {
 	console.log('\nSynchronizing backend with Google Plus collection ...');
 
-	// scrape controversy cards from G+ collection
 	var gplus = new GPlus();
 	gplus.init();
 
+	// Recursive promise chain to deal with API pagination
+	// GPlus class handles aggregation of data
 	var getPage = function getPage() {
-		var gplusPromise = new Promise(function (resolve, reject) {
-			gplus.scrapeCards(resolve, reject);
-		});
-
-		gplusPromise.then(function (scrapedCollection) {
+		gplus.scrapeCards().then(function () {
 			// Send back an array of the card titles which have been added
 			if (gplus.nextPageToken && gplus.more) {
 				getPage();
@@ -66,11 +64,8 @@ function syncCollection() {
 				console.log('\nScrape Results:\n');
 				console.log([].concat(_toConsumableArray(gplus.titlesAdded)));
 
-				// return gplus.updateBackend(gplus.collection, req, res);
+				resolve(gplus.getCollection());
 			}
-		}).catch(function (reason) {
-			console.log('\nScrape Error:');
-			console.log(reason);
 		});
 	};
 
@@ -84,16 +79,21 @@ open().then(function (database) {
 	return database;
 }).then(function (database) {
 	if (collectionExists(db, "controversies")) {
-		console.log("Collection constroversies exists");
+		console.log("\nCollection controversies exists");
 	} else {
-		console.log("Collection does not exist.");
+		console.log("\nCollection does not exist.");
 	}
 }).then(function () {
-	syncCollection();
+	return new Promise(function (resolve, reject) {
+		scrapeCollection(resolve, reject);
+	});
+}).then(function (collection) {
+	console.log(collection);
+	console.log('all done!');
 }).then(function () {
 	close(db);
 }).catch(function (error) {
-	console.log("An error has occurred ...");
+	console.log("\nAn error has occurred ...");
 	console.log(error);
 
 	close(db);

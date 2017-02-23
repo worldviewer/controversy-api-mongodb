@@ -164,26 +164,32 @@ export default class GPlus {
 	}
 
 	// Scrapes a batch of 20 Google Plus controversy cards
-	scrapeCards(resolve, reject) {
-		request(this.constructRequest(), (error, response, body) => {
-			if (!error && response.statusCode == 200) {
-				let gplusJSON = JSON.parse(body),
-					nextPageToken = gplusJSON['nextPageToken'] || null;
+	scrapeCards() {
+		return new Promise((resolve, reject) => {
+			request(this.constructRequest(), (error, response, body) => {
+				if (!error && response.statusCode == 200) {
+					let gplusJSON = JSON.parse(body),
+						nextPageToken = gplusJSON['nextPageToken'] || null;
 
-				for (var gcard of gplusJSON['items']) {
-					if (this.more) {
-						this.scrapeCard(gcard);
-					}
-				}			
+					for (var gcard of gplusJSON['items']) {
+						if (this.more) {
+							this.scrapeCard(gcard);
+						}
+					}			
 
-				this.nextPageToken = nextPageToken ?
-					'&pageToken=' + nextPageToken :
-					null;
+					this.nextPageToken = nextPageToken ?
+						'&pageToken=' + nextPageToken :
+						null;
 
-				return resolve(this.collection);
-			} else {
-				return reject(error);
-			}
+					resolve(this.collection);
+				} else {
+					reject(error);
+				}
+			});
 		});
+	}
+
+	getCollection() {
+		return this.collection;
 	}
 }

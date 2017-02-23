@@ -205,48 +205,55 @@ var GPlus = function () {
 
 	}, {
 		key: 'scrapeCards',
-		value: function scrapeCards(resolve, reject) {
+		value: function scrapeCards() {
 			var _this = this;
 
-			request(this.constructRequest(), function (error, response, body) {
-				if (!error && response.statusCode == 200) {
-					var gplusJSON = JSON.parse(body),
-					    nextPageToken = gplusJSON['nextPageToken'] || null;
+			return new Promise(function (resolve, reject) {
+				request(_this.constructRequest(), function (error, response, body) {
+					if (!error && response.statusCode == 200) {
+						var gplusJSON = JSON.parse(body),
+						    nextPageToken = gplusJSON['nextPageToken'] || null;
 
-					var _iteratorNormalCompletion2 = true;
-					var _didIteratorError2 = false;
-					var _iteratorError2 = undefined;
+						var _iteratorNormalCompletion2 = true;
+						var _didIteratorError2 = false;
+						var _iteratorError2 = undefined;
 
-					try {
-						for (var _iterator2 = gplusJSON['items'][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-							var gcard = _step2.value;
-
-							if (_this.more) {
-								_this.scrapeCard(gcard);
-							}
-						}
-					} catch (err) {
-						_didIteratorError2 = true;
-						_iteratorError2 = err;
-					} finally {
 						try {
-							if (!_iteratorNormalCompletion2 && _iterator2.return) {
-								_iterator2.return();
+							for (var _iterator2 = gplusJSON['items'][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+								var gcard = _step2.value;
+
+								if (_this.more) {
+									_this.scrapeCard(gcard);
+								}
 							}
+						} catch (err) {
+							_didIteratorError2 = true;
+							_iteratorError2 = err;
 						} finally {
-							if (_didIteratorError2) {
-								throw _iteratorError2;
+							try {
+								if (!_iteratorNormalCompletion2 && _iterator2.return) {
+									_iterator2.return();
+								}
+							} finally {
+								if (_didIteratorError2) {
+									throw _iteratorError2;
+								}
 							}
 						}
+
+						_this.nextPageToken = nextPageToken ? '&pageToken=' + nextPageToken : null;
+
+						resolve(_this.collection);
+					} else {
+						reject(error);
 					}
-
-					_this.nextPageToken = nextPageToken ? '&pageToken=' + nextPageToken : null;
-
-					return resolve(_this.collection);
-				} else {
-					return reject(error);
-				}
+				});
 			});
+		}
+	}, {
+		key: 'getCollection',
+		value: function getCollection() {
+			return this.collection;
 		}
 	}]);
 
