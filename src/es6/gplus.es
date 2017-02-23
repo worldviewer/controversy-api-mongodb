@@ -6,6 +6,8 @@ export default class GPlus {
 		this.userId = process.env.GPLUS_USER_ID;
 		this.APIKey = process.env.GPLUS_API_KEY;
 
+		// This is the first card in the Controversies of Science collection,
+		// and the point at which we want to stop scraping
 		this.lastCard = 'Gerald Pollack';
 
 		this.cardCategories = [
@@ -104,8 +106,8 @@ export default class GPlus {
 		return cardTitle.split(':')[0];
 	}
 
-	// Saves an individual Google Plus controversy card to GPlus object
-	saveCard(gcard) {
+	// Scrapes an individual Google Plus controversy card, saving it to collection
+	scrapeCard(gcard) {
 		try {
 			let gcardObject = gcard['object'],
 				gcardHTML = gcardObject['content'];
@@ -161,23 +163,18 @@ export default class GPlus {
 		}
 	}
 
-	// Saves a batch of 20 Google Plus controversy cards to the GPlus object
-	saveCards(gcards) {
-		for (var gcard of gcards['items']) {
-			if (this.more) {
-				this.saveCard(gcard);
-			}
-		}
-	}
-
 	// Scrapes a batch of 20 Google Plus controversy cards
-	getNextCards(resolve, reject) {
+	scrapeCards(resolve, reject) {
 		request(this.constructRequest(), (error, response, body) => {
 			if (!error && response.statusCode == 200) {
 				let gplusJSON = JSON.parse(body),
 					nextPageToken = gplusJSON['nextPageToken'] || null;
 
-				this.saveCards(gplusJSON);
+				for (var gcard of gplusJSON['items']) {
+					if (this.more) {
+						this.scrapeCard(gcard);
+					}
+				}			
 
 				this.nextPageToken = nextPageToken ?
 					'&pageToken=' + nextPageToken :
@@ -189,70 +186,4 @@ export default class GPlus {
 			}
 		});
 	}
-
-	getNames(collection) {
-		return collection.map(card => card['name']);
-	}
-
-	getCardsByName(collection, cardNames) {
-		var newCards = [];
-
-		console.log('\nGetting cards by name ...\n');
-
-		for (var card of collection) {
-			let name = card['name'];
-			if (cardNames.find((name) => {return name;})) {
-				newCards.push(card);
-			}
-		}
-
-		return newCards;
-	}
-
-	// Identifies cards that are not already in the Google Plus card collection, and
-	// adds them to the collection
-	// updateBackend(scrapedCollection, req, res) {
-	// 	let backend = new Backend();
-
-	// 	var backendPromise = new Promise(
-	// 		(resolve, reject) => {
-	// 			backend.getMetaCards(resolve, reject);
-	// 		}
-	// 	)
-
-	// 	backendPromise.then(
-	// 		(backendCollection) => {
-	// 			let newCardNames = this.calculateNewCardTitles(backendCollection, scrapedCollection);
-
-	// 			var addtoPromise = new Promise(
-	// 				(resolve, reject) => {
-	// 					backend.addtoCollection(this.getCardsByName(scrapedCollection, newCardNames),
-	// 						resolve, reject);
-	// 				}
-	// 			);
-
-	// 			addtoPromise.then(
-	// 				() => {
-	// 					res.json(newCardNames);
-	// 				}
-	// 			)
-	// 			.catch(
-	// 				(reason) => {
-	// 					console.log('Error updating backend collection with scrape');
-	// 					console.log(reason);
-	// 				}
-	// 			);
-	// 		}
-	// 	)
-	// 	.catch(
-	// 		(reason) => {
-	// 			console.log('\nBackend Error:');
-	// 			console.log(reason);
-	// 		}
-	// 	);		
-	// }
-
-	saveAllCards(scrapedCollection, req, res) {
-
-	}	
 }

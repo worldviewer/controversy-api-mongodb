@@ -53,7 +53,7 @@ function syncCollection() {
 	let getPage = function() {
 		var gplusPromise = new Promise(
 			(resolve, reject) => {
-				gplus.getNextCards(resolve, reject);
+				gplus.scrapeCards(resolve, reject);
 			}
 		);
 

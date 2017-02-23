@@ -19,6 +19,8 @@ var GPlus = function () {
 		this.userId = process.env.GPLUS_USER_ID;
 		this.APIKey = process.env.GPLUS_API_KEY;
 
+		// This is the first card in the Controversies of Science collection,
+		// and the point at which we want to stop scraping
 		this.lastCard = 'Gerald Pollack';
 
 		this.cardCategories = ['ongoing', 'historical', 'critique', 'reform', 'thinking', 'person'];
@@ -142,11 +144,11 @@ var GPlus = function () {
 			return cardTitle.split(':')[0];
 		}
 
-		// Saves an individual Google Plus controversy card to GPlus object
+		// Scrapes an individual Google Plus controversy card, saving it to collection
 
 	}, {
-		key: 'saveCard',
-		value: function saveCard(gcard) {
+		key: 'scrapeCard',
+		value: function scrapeCard(gcard) {
 			try {
 				var gcardObject = gcard['object'],
 				    gcardHTML = gcardObject['content'];
@@ -199,44 +201,11 @@ var GPlus = function () {
 			}
 		}
 
-		// Saves a batch of 20 Google Plus controversy cards to the GPlus object
-
-	}, {
-		key: 'saveCards',
-		value: function saveCards(gcards) {
-			var _iteratorNormalCompletion2 = true;
-			var _didIteratorError2 = false;
-			var _iteratorError2 = undefined;
-
-			try {
-				for (var _iterator2 = gcards['items'][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-					var gcard = _step2.value;
-
-					if (this.more) {
-						this.saveCard(gcard);
-					}
-				}
-			} catch (err) {
-				_didIteratorError2 = true;
-				_iteratorError2 = err;
-			} finally {
-				try {
-					if (!_iteratorNormalCompletion2 && _iterator2.return) {
-						_iterator2.return();
-					}
-				} finally {
-					if (_didIteratorError2) {
-						throw _iteratorError2;
-					}
-				}
-			}
-		}
-
 		// Scrapes a batch of 20 Google Plus controversy cards
 
 	}, {
-		key: 'getNextCards',
-		value: function getNextCards(resolve, reject) {
+		key: 'scrapeCards',
+		value: function scrapeCards(resolve, reject) {
 			var _this = this;
 
 			request(this.constructRequest(), function (error, response, body) {
@@ -244,7 +213,32 @@ var GPlus = function () {
 					var gplusJSON = JSON.parse(body),
 					    nextPageToken = gplusJSON['nextPageToken'] || null;
 
-					_this.saveCards(gplusJSON);
+					var _iteratorNormalCompletion2 = true;
+					var _didIteratorError2 = false;
+					var _iteratorError2 = undefined;
+
+					try {
+						for (var _iterator2 = gplusJSON['items'][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+							var gcard = _step2.value;
+
+							if (_this.more) {
+								_this.scrapeCard(gcard);
+							}
+						}
+					} catch (err) {
+						_didIteratorError2 = true;
+						_iteratorError2 = err;
+					} finally {
+						try {
+							if (!_iteratorNormalCompletion2 && _iterator2.return) {
+								_iterator2.return();
+							}
+						} finally {
+							if (_didIteratorError2) {
+								throw _iteratorError2;
+							}
+						}
+					}
 
 					_this.nextPageToken = nextPageToken ? '&pageToken=' + nextPageToken : null;
 
@@ -254,99 +248,6 @@ var GPlus = function () {
 				}
 			});
 		}
-	}, {
-		key: 'getNames',
-		value: function getNames(collection) {
-			return collection.map(function (card) {
-				return card['name'];
-			});
-		}
-	}, {
-		key: 'getCardsByName',
-		value: function getCardsByName(collection, cardNames) {
-			var newCards = [];
-
-			console.log('\nGetting cards by name ...\n');
-
-			var _iteratorNormalCompletion3 = true;
-			var _didIteratorError3 = false;
-			var _iteratorError3 = undefined;
-
-			try {
-				for (var _iterator3 = collection[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-					var card = _step3.value;
-
-					var name = card['name'];
-					if (cardNames.find(function (name) {
-						return name;
-					})) {
-						newCards.push(card);
-					}
-				}
-			} catch (err) {
-				_didIteratorError3 = true;
-				_iteratorError3 = err;
-			} finally {
-				try {
-					if (!_iteratorNormalCompletion3 && _iterator3.return) {
-						_iterator3.return();
-					}
-				} finally {
-					if (_didIteratorError3) {
-						throw _iteratorError3;
-					}
-				}
-			}
-
-			return newCards;
-		}
-
-		// Identifies cards that are not already in the Google Plus card collection, and
-		// adds them to the collection
-		// updateBackend(scrapedCollection, req, res) {
-		// 	let backend = new Backend();
-
-		// 	var backendPromise = new Promise(
-		// 		(resolve, reject) => {
-		// 			backend.getMetaCards(resolve, reject);
-		// 		}
-		// 	)
-
-		// 	backendPromise.then(
-		// 		(backendCollection) => {
-		// 			let newCardNames = this.calculateNewCardTitles(backendCollection, scrapedCollection);
-
-		// 			var addtoPromise = new Promise(
-		// 				(resolve, reject) => {
-		// 					backend.addtoCollection(this.getCardsByName(scrapedCollection, newCardNames),
-		// 						resolve, reject);
-		// 				}
-		// 			);
-
-		// 			addtoPromise.then(
-		// 				() => {
-		// 					res.json(newCardNames);
-		// 				}
-		// 			)
-		// 			.catch(
-		// 				(reason) => {
-		// 					console.log('Error updating backend collection with scrape');
-		// 					console.log(reason);
-		// 				}
-		// 			);
-		// 		}
-		// 	)
-		// 	.catch(
-		// 		(reason) => {
-		// 			console.log('\nBackend Error:');
-		// 			console.log(reason);
-		// 		}
-		// 	);		
-		// }
-
-	}, {
-		key: 'saveAllCards',
-		value: function saveAllCards(scrapedCollection, req, res) {}
 	}]);
 
 	return GPlus;
