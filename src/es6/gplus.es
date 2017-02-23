@@ -1,14 +1,12 @@
 var he = require('he'), // for encoding/decoding special HTML characters
 	request = require('request');
 
-require('dotenv').config();
-
-// import Backend from './backend';
-
 export default class GPlus {
 	constructor() {
 		this.userId = process.env.GPLUS_USER_ID;
 		this.APIKey = process.env.GPLUS_API_KEY;
+
+		this.lastCard = 'Gerald Pollack';
 
 		this.cardCategories = [
 			'ongoing',
@@ -89,6 +87,7 @@ export default class GPlus {
 		return 'unknown';
 	}
 
+	// Do not save announcement cards to db -- identify and skip
 	isAnnouncementCard(gcardHTML) {
 		return gcardHTML.indexOf('<b>~') === 0;
 	}
@@ -146,13 +145,14 @@ export default class GPlus {
 					category: category
 				};
 
+				// Avoid adding dupes, like when a card was posted to another collection
 				if (!this.titlesAdded.has(gName)) {
 					this.collection.push(metaCard);
 					this.titlesAdded.add(gName);
 				}
 
 				// Stop at the last card in the Controversies of Science Collection
-				if (gName == 'Gerald Pollack') {
+				if (gName == this.lastCard) {
 					this.more = false;
 				}
 			}
@@ -193,16 +193,6 @@ export default class GPlus {
 	getNames(collection) {
 		return collection.map(card => card['name']);
 	}
-
-	// Return only the new cards which should be added to the collection
-	// calculateNewCardTitles(backendCollection, scrapedCollection) {
-	// 	console.log('\nCalculating new card titles ...');
-
-	// 	let backendNames = this.getNames(backendCollection),
-	// 		scrapedNames = this.getNames(scrapedCollection);
-
-	// 	return scrapedNames.filter(name => !backendNames.find((name) => {return name;}));
-	// }
 
 	getCardsByName(collection, cardNames) {
 		var newCards = [];
@@ -261,4 +251,8 @@ export default class GPlus {
 	// 		}
 	// 	);		
 	// }
+
+	saveAllCards(scrapedCollection, req, res) {
+
+	}	
 }
