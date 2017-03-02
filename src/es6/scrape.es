@@ -8,9 +8,10 @@ const
 	METACARDS = 'metacards';
 
 let db = null,
-	gplusMetacards, // Controversy card metadata
+	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards,
-	savedCount;
+	savedCount,
+	shouldScrape = false;
 
 function create() {
 	db = new Db("controversies", new Server('localhost', 27017));
@@ -34,18 +35,18 @@ function close(db) {
 	}
 }
 
-function collectionExists(db, collection) {
-	return new Promise((resolve, reject) => {
-		db.collection(collection, (err, db) => {
-			if (err) {
-				console.log(err);
-				reject(false);
-			} else {
-				resolve(true);
-			}
-		})
-	});
-}
+// function createCollection(db, collection) {
+// 	return new Promise((resolve, reject) => {
+// 		db.collection(collection, (err, db) => {
+// 			if (err) {
+// 				console.log(err);
+// 				reject(false);
+// 			} else {
+// 				resolve(true);
+// 			}
+// 		})
+// 	});
+// }
 
 function scrapeCollection(resolve, reject) {
 	console.log('\nSynchronizing backend with Google Plus collection ...');
@@ -79,29 +80,31 @@ create();
 open()
 	.then((database) => {
 		db = database;
+		shouldScrape = GPlus.keysExist();
+
 		return database;
 	})
 	.then((database) => {
 		return new Promise((resolve, reject) => {
-			if (collectionExists(db, METACARDS)) {
-				console.log("\nMetacards collection exists");
-
-				resolve(db.collection(METACARDS));
-			} else {
-				console.log("\nMetacards collection does not exist, will create.");
-
-				resolve(db.createCollection(METACARDS));
-			}
+			resolve(db.collection(METACARDS));
 		});
 	})
 	.then((collection) => {
 		mongoMetacards = collection;
 	})
 	.then(() => {
-		console.log("\nScraping G+ Collection.");
+		console.log("\nChecking for Google+ API Keys in local environment.");
 
 		return new Promise((resolve, reject) => {
-			scrapeCollection(resolve, reject);
+			if (!shouldScrape) {
+				console.log("\nNo keys found, will not scrape metadata.");
+
+				resolve(null);
+			} else {
+				console.log("\nScraping G+ Collection.");
+
+				scrapeCollection(resolve, reject);
+			}
 		});
 	})
 	.then((collection) => {
@@ -118,16 +121,19 @@ open()
 			" metacards in the controversies collection.");
 
 		return new Promise((resolve, reject) => {
-			if (savedCount === 0) {
+			if (savedCount === 0 && shouldScrape) {
 				console.log("\nSaving Scraped data to MongoDB");
 
 				resolve(mongoMetacards.insertMany(gplusMetacards));
-			} else if (gplusMetacards.length > savedCount) {
+			} else if (gplusMetacards && gplusMetacards.length > savedCount) {
 				console.log("\nThere are new G+ posts since last scrape.");
 				resolve();
-			} else {
+			} else if (gplusMetacards && gplusMetacards.length === savedCount) {
 				console.log("\nThere are no new G+ posts since last scrape.");
 				resolve();
+			} else if (!shouldScrape) {
+				console.log("\nWill set up backend without G+ metadata.  See README for more information.");
+				resolve(null);
 			}
 		});
 	})

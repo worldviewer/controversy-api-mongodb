@@ -30,6 +30,10 @@ export default class GPlus {
 		};
 	}
 
+	static keysExist() {
+		return process.env.GPLUS_USER_ID && process.env.GPLUS_API_KEY;
+	}
+
 	init() {
 		// format as '&pageToken=Cg0Q2ZKay9WG0QIgACgBEhQIABCwmrv244XRAhj4tLOxgs3QAhgCIBQozLeC4OPFzoP9AQ'
 		this.nextPageToken = '';
