@@ -245,7 +245,7 @@ var GPlus = function () {
 
 						resolve(_this.collection);
 					} else {
-						reject(error);
+						reject({ error: error, statusCode: response.statusCode });
 					}
 				});
 			});

@@ -187,7 +187,7 @@ export default class GPlus {
 
 					resolve(this.collection);
 				} else {
-					reject(error);
+					reject({error: error, statusCode: response.statusCode});
 				}
 			});
 		});

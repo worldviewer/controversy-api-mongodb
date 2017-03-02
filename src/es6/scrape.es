@@ -35,19 +35,6 @@ function close(db) {
 	}
 }
 
-// function createCollection(db, collection) {
-// 	return new Promise((resolve, reject) => {
-// 		db.collection(collection, (err, db) => {
-// 			if (err) {
-// 				console.log(err);
-// 				reject(false);
-// 			} else {
-// 				resolve(true);
-// 			}
-// 		})
-// 	});
-// }
-
 function scrapeCollection(resolve, reject) {
 	console.log('\nSynchronizing backend with Google Plus collection ...');
 
@@ -58,7 +45,7 @@ function scrapeCollection(resolve, reject) {
 	// GPlus class handles aggregation of data
 	let getPage = function() {
 		gplus.scrapeCards().then(
-			() => {
+			(data) => {
 				// Send back an array of the card titles which have been added
 				if (gplus.nextPageToken && gplus.more) {
 					getPage();
@@ -69,7 +56,14 @@ function scrapeCollection(resolve, reject) {
 					resolve(gplus.getCollection());
 				}
 			}
-		);
+		)
+		.catch((data) => {
+			console.log("\nAlthough keys do indeed exist to access the G+ API, either the keys are invalid or the request has failed. If you wish to proceed without scraping the G+ API, consider removing the keys from your environment variables.");
+			console.log("Status Code: " + data.statusCode);
+			console.log("Error: " + data.error);
+
+			reject();
+		});
 	}
 
 	getPage();
@@ -141,7 +135,7 @@ open()
 
 				console.log("\nWill set up backend without G+ metadata.  See README for more information.");
 				resolve();
-				
+
 			}
 		});
 	})
@@ -160,7 +154,10 @@ open()
 	})
 	.catch((error) => {
 		console.log("\nAn error has occurred ...");
-		console.log(error);
+
+		if (error) {
+			console.log(error);
+		}
 
 		close(db);
 	});
