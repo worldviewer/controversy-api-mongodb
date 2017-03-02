@@ -12,8 +12,10 @@ var Db = require('mongodb').Db,
 
 var db = null,
     gplusMetacards = void 0,
-    mongoMetacards = void 0,
-    savedCount = void 0;
+    // Controversy card metadata from G+
+mongoMetacards = void 0,
+    savedCount = void 0,
+    shouldScrape = false;
 
 function create() {
 	db = new Db("controversies", new Server('localhost', 27017));
@@ -37,18 +39,18 @@ function close(db) {
 	}
 }
 
-function collectionExists(db, collection) {
-	return new Promise(function (resolve, reject) {
-		db.collection(collection, function (err, db) {
-			if (err) {
-				console.log(err);
-				reject(false);
-			} else {
-				resolve(true);
-			}
-		});
-	});
-}
+// function createCollection(db, collection) {
+// 	return new Promise((resolve, reject) => {
+// 		db.collection(collection, (err, db) => {
+// 			if (err) {
+// 				console.log(err);
+// 				reject(false);
+// 			} else {
+// 				resolve(true);
+// 			}
+// 		})
+// 	});
+// }
 
 function scrapeCollection(resolve, reject) {
 	console.log('\nSynchronizing backend with Google Plus collection ...');
@@ -79,28 +81,28 @@ create();
 
 open().then(function (database) {
 	db = database;
+	shouldScrape = GPlus.keysExist();
+
 	return database;
 }).then(function (database) {
-	if (collectionExists(db, METACARDS)) {
-		console.log("\nMetacards collection exists");
-
-		return new Promise(function (resolve, reject) {
-			resolve(db.collection(METACARDS));
-		});
-	} else {
-		console.log("\nMetacards collection does not exist, will create.");
-
-		return new Promise(function (resolve, reject) {
-			resolve(db.createCollection(METACARDS));
-		});
-	}
+	return new Promise(function (resolve, reject) {
+		resolve(db.collection(METACARDS));
+	});
 }).then(function (collection) {
 	mongoMetacards = collection;
 }).then(function () {
-	console.log("\nScraping G+ Collection.");
+	console.log("\nChecking for Google+ API Keys in local environment.");
 
 	return new Promise(function (resolve, reject) {
-		scrapeCollection(resolve, reject);
+		if (!shouldScrape) {
+			console.log("\nNo keys found, will not scrape metadata.");
+
+			resolve(null);
+		} else {
+			console.log("\nScraping G+ Collection.");
+
+			scrapeCollection(resolve, reject);
+		}
 	});
 }).then(function (collection) {
 	gplusMetacards = collection;
@@ -111,22 +113,36 @@ open().then(function (database) {
 }).then(function (count) {
 	savedCount = count;
 
-	console.log("\nThere are currently " + savedCount + " cards in the controversies collection.");
-
 	return new Promise(function (resolve, reject) {
-		if (savedCount === 0) {
-			console.log("\nSaving Scraped data to MongoDB");
+		if (savedCount === 0 && shouldScrape) {
 
+			console.log("\nThere are currently " + savedCount + " metacards in the controversies collection.");
+			console.log("\nSaving Scraped data to MongoDB");
 			resolve(mongoMetacards.insertMany(gplusMetacards));
-		} else if (gplusMetacards.length > savedCount) {
+		} else if (gplusMetacards && gplusMetacards.length > savedCount) {
+
+			console.log("\nThere are currently " + savedCount + " metacards in the controversies collection.");
 			console.log("\nThere are new G+ posts since last scrape.");
 			resolve();
-		} else {
+		} else if (gplusMetacards && gplusMetacards.length === savedCount) {
+
 			console.log("\nThere are no new G+ posts since last scrape.");
+			resolve();
+		} else if (!shouldScrape) {
+
+			console.log("\nWill set up backend without G+ metadata.  See README for more information.");
 			resolve();
 		}
 	});
 }).then(function () {
+	return new Promise(function (resolve, reject) {
+		resolve(mongoMetacards.count());
+	});
+}).then(function (count) {
+	savedCount = count;
+
+	console.log("\nThere are now " + savedCount + " metacards in the controversies collection.");
+
 	close(db);
 }).catch(function (error) {
 	console.log("\nAn error has occurred ...");

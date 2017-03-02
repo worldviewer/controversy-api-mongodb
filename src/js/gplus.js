@@ -255,6 +255,11 @@ var GPlus = function () {
 		value: function getCollection() {
 			return this.collection;
 		}
+	}], [{
+		key: 'keysExist',
+		value: function keysExist() {
+			return process.env.GPLUS_USER_ID && process.env.GPLUS_API_KEY;
+		}
 	}]);
 
 	return GPlus;

@@ -117,27 +117,45 @@ open()
 	.then((count) => {
 		savedCount = count;
 
-		console.log("\nThere are currently " + savedCount +
-			" metacards in the controversies collection.");
-
 		return new Promise((resolve, reject) => {
 			if (savedCount === 0 && shouldScrape) {
-				console.log("\nSaving Scraped data to MongoDB");
 
+				console.log("\nThere are currently " + savedCount +
+					" metacards in the controversies collection.");
+				console.log("\nSaving Scraped data to MongoDB");
 				resolve(mongoMetacards.insertMany(gplusMetacards));
+
 			} else if (gplusMetacards && gplusMetacards.length > savedCount) {
+
+				console.log("\nThere are currently " + savedCount +
+					" metacards in the controversies collection.");				
 				console.log("\nThere are new G+ posts since last scrape.");
 				resolve();
+
 			} else if (gplusMetacards && gplusMetacards.length === savedCount) {
+
 				console.log("\nThere are no new G+ posts since last scrape.");
 				resolve();
+
 			} else if (!shouldScrape) {
+
 				console.log("\nWill set up backend without G+ metadata.  See README for more information.");
-				resolve(null);
+				resolve();
+				
 			}
 		});
 	})
 	.then(() => {
+		return new Promise((resolve, reject) => {
+			resolve(mongoMetacards.count());
+		});
+	})	
+	.then((count) => {
+		savedCount = count;
+
+		console.log("\nThere are now " + savedCount +
+			" metacards in the controversies collection.");
+
 		close(db);		
 	})
 	.catch((error) => {
