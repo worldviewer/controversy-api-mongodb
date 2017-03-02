@@ -8,7 +8,10 @@ var Db = require('mongodb').Db,
     url = "mongodb://localhost:27017/controversies",
     assert = require('assert'),
     GPlus = require('./gplus').default,
-    METACARDS = 'metacards';
+    loadJsonFile = require('load-json-file'),
+    METACARDS = 'metacards',
+    CARDS = 'cards',
+    controversyJSON = 'json/halton-arp.json';
 
 var db = null,
     gplusMetacards = void 0,
@@ -136,6 +139,12 @@ open().then(function (database) {
 
 	console.log("\nThere are now " + savedCount + " metacards in the controversies collection.");
 
+	return new Promise(function (resolve, reject) {
+		resolve(loadJsonFile(controversyJSON));
+	});
+}).then(function (json) {
+	console.log(json);
+}).then(function () {
 	close(db);
 }).catch(function (error) {
 	console.log("\nAn error has occurred ...");
