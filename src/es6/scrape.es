@@ -14,7 +14,8 @@ let db = null,
 	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards,
 	savedCount,
-	shouldScrape = false;
+	shouldScrape = false,
+	prototypeCard;
 
 function create() {
 	db = new Db("controversies", new Server('localhost', 27017));
@@ -158,7 +159,7 @@ open()
 		});
 	})
 	.then((json) => {
-		console.log(json);
+		prototypeCard = json;
 	})
 	.then(() => {
 		close(db);	
