@@ -90,8 +90,7 @@ open()
 	})
 	.then((collection) => {
 		mongoMetacards = collection;
-	})
-	.then(() => {
+
 		console.log("\nChecking for Google+ API Keys in local environment.");
 
 		return new Promise((resolve, reject) => {

@@ -88,7 +88,7 @@ open().then(function (database) {
 	});
 }).then(function (collection) {
 	mongoMetacards = collection;
-}).then(function () {
+
 	console.log("\nChecking for Google+ API Keys in local environment.");
 
 	return new Promise(function (resolve, reject) {
