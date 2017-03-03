@@ -38,11 +38,33 @@ This will set up the backend with enough data to use the React frontend at https
 
 I am currently in the midst of setting up the Node/Express backend for deployment to AWS.
 
+What I am thinking with this project, in order to give it a boost, is to wrap my existing React app into a Hackathon starter, like here:
+
+    https://github.com/reactGo/reactGo
+    Your One-Stop solution for a full-stack app with ES6/ES2015 React.js featuring universal Redux, React Router, React Router Redux Hot reloading, CSS modules, Express 4.x, and multiple ORMs.
+
+I've also got my eye on some of the packages used -- especially authentication -- here:
+
+    https://github.com/sahat/hackathon-starter
+    Hackathon Starter: A kickstarter for Node.js web applications
+
+The README at that second starter also details how to set up API keys for all of the OAuth services.
+
 ## Next Steps
 
+- Scaffold React hackathon starter
+- Import existing project into this starter in a fresh repo
 - Set up Express with routes to return this detailed card data for prototype
-- Deploy to AWS
-- Refactor w/ Redux
+- Use that data to load the overlays and image pyramid
+- Switch deployment in hackathon starter from heroku to AWS
+- Refactor app w/ Redux
+- Drop in authentication/authorization from starter for Github, Google+, Twitter, Facebook
+- Tweak authentication to suit app
+- Improve splash screen
+- Add swipes UI into React using React Router
+- Create tests
+- Create slideshow that summarizes most important points of text
+- Wait to experiment with annotating the canvas as long as possible, look for a drop-in solution, or some combination of drop-in solutions
 
 ## Data Source
 
