@@ -141,6 +141,7 @@ open().then(function (database) {
 
 	console.log("\nThere are now " + savedCount + " metacards in the controversies collection.");
 	console.log("\nNow adding prototype card data for Halton Arp controversy card.");
+	console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 	return new Promise(function (resolve, reject) {
 		resolve(loadJsonFile(controversyJSON));

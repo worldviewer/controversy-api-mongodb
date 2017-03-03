@@ -36,13 +36,10 @@ This will set up the backend with enough data to use the React frontend at https
 
 ## State of the Project
 
-I am currently in the midst of porting this backend over.  I'm able to grab the G+ Collection, as before, and have now persisted the card metadata into MongoDB (which provides a high-level view of each controversy card).
-
-The most immediate task is to check that these environment variables are set, and set up mock data to test the frontend with -- just in case user does not want to procure G+ API keys.
+I am currently in the midst of setting up the Node/Express backend for deployment to AWS.
 
 ## Next Steps
 
-- Create the script to set up the `cards` collection, and populate it with data and overlay images for my prototype Halton Arp card
 - Set up Express with routes to return this detailed card data for prototype
 - Deploy to AWS
 - Refactor w/ Redux
