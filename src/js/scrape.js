@@ -11,14 +11,16 @@ var Db = require('mongodb').Db,
     loadJsonFile = require('load-json-file'),
     METACARDS = 'metacards',
     CARDS = 'cards',
-    controversyJSON = 'json/halton-arp.json';
+    controversyJSON = 'json/halton-arp.json'; // relative to root
 
 var db = null,
     gplusMetacards = void 0,
     // Controversy card metadata from G+
 mongoMetacards = void 0,
+    mongoCards = void 0,
     savedCount = void 0,
-    shouldScrape = false;
+    shouldScrape = false,
+    prototypeCard = void 0;
 
 function create() {
 	db = new Db("controversies", new Server('localhost', 27017));
@@ -138,13 +140,38 @@ open().then(function (database) {
 	savedCount = count;
 
 	console.log("\nThere are now " + savedCount + " metacards in the controversies collection.");
+	console.log("\nNow adding prototype card data for Halton Arp controversy card.");
 
 	return new Promise(function (resolve, reject) {
 		resolve(loadJsonFile(controversyJSON));
 	});
 }).then(function (json) {
-	console.log(json);
+	prototypeCard = json;
+
+	return new Promise(function (resolve, reject) {
+		resolve(db.collection(CARDS));
+	});
+}).then(function (collection) {
+	mongoCards = collection;
+
+	return new Promise(function (resolve, reject) {
+		resolve(mongoCards.count());
+	});
+}).then(function (count) {
+	return new Promise(function (resolve, reject) {
+		if (count === 0) {
+			console.log("\nThere is no prototype controversy card to test frontend with.  Adding.");
+
+			resolve(mongoCards.insertOne(prototypeCard));
+		} else {
+			console.log("\nThe prototype controversy card has already been added.");
+
+			resolve();
+		}
+	});
 }).then(function () {
+	console.log("\nAll done and no issues.");
+
 	close(db);
 }).catch(function (error) {
 	console.log("\nAn error has occurred ...");

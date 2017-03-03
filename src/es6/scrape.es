@@ -13,6 +13,7 @@ const
 let db = null,
 	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards,
+	mongoCards,
 	savedCount,
 	shouldScrape = false,
 	prototypeCard;
@@ -153,6 +154,7 @@ open()
 
 		console.log("\nThere are now " + savedCount +
 			" metacards in the controversies collection.");
+		console.log("\nNow adding prototype card data for Halton Arp controversy card.");
 
 		return new Promise((resolve, reject) => {
 			resolve(loadJsonFile(controversyJSON));
@@ -160,8 +162,34 @@ open()
 	})
 	.then((json) => {
 		prototypeCard = json;
+
+		return new Promise((resolve, reject) => {
+			resolve(db.collection(CARDS));
+		});		
+	})
+	.then((collection) => {
+		mongoCards = collection;
+
+		return new Promise((resolve, reject) => {
+			resolve(mongoCards.count());
+		});		
+	})
+	.then((count) => {
+		return new Promise((resolve, reject) => {
+			if (count === 0) {
+				console.log("\nThere is no prototype controversy card to test frontend with.  Adding.")
+
+				resolve(mongoCards.insertOne(prototypeCard));
+			} else {
+				console.log("\nThe prototype controversy card has already been added.");
+
+				resolve();
+			}
+		});		
 	})
 	.then(() => {
+		console.log("\nAll done and no issues.");
+
 		close(db);	
 	})
 	.catch((error) => {
