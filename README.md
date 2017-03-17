@@ -34,6 +34,31 @@ Either way -- with or without metadata -- to set up and populate the Mongodb dat
 
 This will set up the backend with enough data to use the React frontend at https://github.com/worldviewer/react-worldviewer-prototype.
 
+## Setting up a Public Endpoint
+
+At this current stage, we have a very simple backend.  So, my tech stack will bias towards ease-of-deployment and, for now, zero cost.  I was a little bit drawn by the sophistication of the Strongloop toolset, but for now I'm going with AWS Lambda using the Serverless API.  It's simple and free, and there is an example of how to connect Serverless to a MongoDB backend here:
+
+https://github.com/pcorey/serverless-mongodb/
+
+Explanation here:
+
+http://www.east5th.co/blog/2016/06/06/mongodb-with-serverless/
+
+The first step is to set up an account at mLab and create a new deployment that is Single-node, Standard Line Sandbox.  Name the db:
+
+    controversiesofscience
+
+Pay close attention to the MongoDB version which mLab is hosting.  This must match your own local db version.  For my install, mLab is using 3.2.x.  So, I had to revert my own local MongoDB version with homebrew, as follows ...
+
+    brew install homebrew/versions/mongodb32
+
+... then ...
+
+    brew unlink mongodb
+    brew link --overwrite mongodb32
+
+I found that the prior data was still there, so it was not necessary to re-scrape.  But I did just in case.
+
 ## State of the Project
 
 I am currently in the midst of setting up the Node/Express backend for deployment to AWS.
