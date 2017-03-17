@@ -103,7 +103,7 @@ export default class GPlus {
 	}
 
 	titleIsSummary(cardTitle) {
-		return cardTitle.indexOf(': ') === -1;
+		return cardTitle.includes(': ') === false;
 	}
 
 	getCardName(cardTitle) {
@@ -148,7 +148,7 @@ export default class GPlus {
 					thumbnail: gcardThumbnailImageURL,
 					publishDate: gcardPublishDate,
 					updateDate: gcardUpdateDate,
-					category: category
+					category
 				};
 
 				// Avoid adding dupes, like when a card was posted to another collection

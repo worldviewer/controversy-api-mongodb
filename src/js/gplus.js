@@ -136,7 +136,7 @@ var GPlus = function () {
 	}, {
 		key: 'titleIsSummary',
 		value: function titleIsSummary(cardTitle) {
-			return cardTitle.indexOf(': ') === -1;
+			return cardTitle.includes(': ') === false;
 		}
 	}, {
 		key: 'getCardName',
