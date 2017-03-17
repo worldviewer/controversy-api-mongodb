@@ -67,11 +67,17 @@ The next step is to transfer the db to mLab, first with export from the local ..
 
     mongoexport -h localhost:27017 -d controversies -c metacards -o metacards.db
 
+Make sure to attach a user login and password to the database on mLab.
+
 ... and then import into the remote ...
 
     mongoimport -h ds023550.mlab.com:23550 -d controversiesofscience -c metacards -u <user> -p <password> --file metacards.db
 
     mongoimport -h ds023550.mlab.com:23550 -d controversiesofscience -c cards -u <user> -p <password> --file cards.db
+
+Now, to connect to the db on mLab ...
+
+    mongodb://<dbuser>:<dbpassword>@ds023550.mlab.com:23550/controversiesofscience
 
 ## State of the Project
 
