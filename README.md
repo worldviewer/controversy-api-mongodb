@@ -59,6 +59,20 @@ Pay close attention to the MongoDB version which mLab is hosting.  This must mat
 
 I found that the prior data was still there, so it was not necessary to re-scrape.  But I did just in case.
 
+You can now click the button at mLab for `Create new MongoDB deployment`.
+
+The next step is to transfer the db to mLab, first with export from the local ...
+
+    mongoexport -h localhost:27017 -d controversies -c cards -o cards.db
+
+    mongoexport -h localhost:27017 -d controversies -c metacards -o metacards.db
+
+... and then import into the remote ...
+
+    mongoimport -h ds023550.mlab.com:23550 -d controversiesofscience -c metacards -u <user> -p <password> --file metacards.db
+
+    mongoimport -h ds023550.mlab.com:23550 -d controversiesofscience -c cards -u <user> -p <password> --file cards.db
+
 ## State of the Project
 
 I am currently in the midst of setting up the Node/Express backend for deployment to AWS.
