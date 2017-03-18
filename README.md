@@ -34,15 +34,9 @@ Either way -- with or without metadata -- to set up and populate the Mongodb dat
 
 This will set up the backend with enough data to use the React frontend at https://github.com/worldviewer/react-worldviewer-prototype.
 
-## Setting up a Public Endpoint
+## Setting up an mLab Backend
 
-At this current stage, we have a very simple backend.  So, my tech stack will bias towards ease-of-deployment and, for now, zero cost.  I was a little bit drawn by the sophistication of the Strongloop toolset, but for now I'm going with AWS Lambda using the Serverless API.  It's simple and free, and there is an example of how to connect Serverless to a MongoDB backend here:
-
-https://github.com/pcorey/serverless-mongodb/
-
-Explanation here:
-
-http://www.east5th.co/blog/2016/06/06/mongodb-with-serverless/
+At this current stage, we have a very simple backend.  So, my tech stack will bias towards ease-of-deployment and, for now, zero cost.  I was a little bit drawn by the sophistication of the Strongloop toolset, but for now I'm going with AWS Lambda using the Serverless API.  It's simple and free.
 
 The first step is to set up an account at mLab and create a new deployment that is Single-node, Standard Line Sandbox.  Name the db:
 
@@ -78,6 +72,39 @@ Make sure to attach a user login and password to the database on mLab.
 Now, to connect to the db on mLab ...
 
     mongodb://<dbuser>:<dbpassword>@ds023550.mlab.com:23550/controversiesofscience
+
+## Setting up the Lambda AWS API Gateway
+
+To install the Serverless CLI:
+
+    npm install -g serverless
+
+Then, scaffold the project:
+
+    sls create --template aws-nodejs
+
+Add from the package.json directory, install the node_modules ...
+
+    npm install
+
+The code expects an environment variable MLABDB to be set.  This should contain the mLab database connection info with login and password embedded into the request.  It should be set in ~/.bash_profile or something similar, like so:
+
+    export MLABDB="mongodb://<dbuser>:<dbpassword>@ds023550.mlab.com:23550/controversiesofscience"
+
+
+
+
+Instructions for seting up a Serverless API gateway for a DynamoDB backend, which we will adapt to MongoDB ...
+
+https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamodb
+
+A MongoDB adaptation is here ...
+
+https://github.com/pcorey/serverless-mongodb/
+
+Explanation here ...
+
+http://www.east5th.co/blog/2016/06/06/mongodb-with-serverless/
 
 ## State of the Project
 
