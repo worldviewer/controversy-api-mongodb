@@ -34,7 +34,7 @@ Either way -- with or without metadata -- to set up and populate the Mongodb dat
 
 This will set up the backend with enough data to use the React frontend at https://github.com/worldviewer/react-worldviewer-prototype.
 
-## The MongoDB Backend
+## The MongoDB / AWS Lambda Backend MicroServices
 
 I will be using AWS Lambda Node deployments for the time being to serve controversy card data, the image pyramid and the image assets.  This is being migrated from a former Usergrid implementation.
 
@@ -42,9 +42,13 @@ I will be using AWS Lambda Node deployments for the time being to serve controve
 
     https://y3uwecnnmb.execute-api.us-east-1.amazonaws.com/dev/metacards
 
+This repository is at https://github.com/worldviewer/aws-lambda-mongo-metacards-api.
+
 ### Controversy /card/{id} Endpoint
 
     https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17
+
+This repository is at https://github.com/worldviewer/aws-lambda-mongo-cards-api.
 
 ## State of the Project
 
@@ -56,9 +60,13 @@ The first two endpoints are now up.  The next two endpoints should look somethin
 
     https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17/overlays
 
-Most immediately, I now need to refactor my app to use these endpoints.
+Most immediately, I now need to refactor my app to use these endpoints -- completing the migration from Usergrid to MongoDB.  This may require considerable refactoring of my image caching.
 
 The /metacards endpoint should allow for a category query parameter according to the categories listed below in "Data Source".
+
+Then, the next step is to refactor app to use Redux.
+
+Only then should I proceed to wrap my frontend into the hackathon starter.
 
 ## Next Steps
 
