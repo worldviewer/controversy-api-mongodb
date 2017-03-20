@@ -34,93 +34,31 @@ Either way -- with or without metadata -- to set up and populate the Mongodb dat
 
 This will set up the backend with enough data to use the React frontend at https://github.com/worldviewer/react-worldviewer-prototype.
 
-## Setting up an mLab Backend
+## The MongoDB Backend
 
-At this current stage, we have a very simple backend.  So, my tech stack will bias towards ease-of-deployment and, for now, zero cost.  I was a little bit drawn by the sophistication of the Strongloop toolset, but for now I'm going with AWS Lambda using the Serverless API.  It's simple and free.
+I will be using AWS Lambda Node deployments for the time being to serve controversy card data, the image pyramid and the image assets.  This is being migrated from a former Usergrid implementation.
 
-The first step is to set up an account at mLab and create a new deployment that is Single-node, Standard Line Sandbox.  Name the db:
+### Controversy Card /metadata Endpoint
 
-    controversiesofscience
+    https://y3uwecnnmb.execute-api.us-east-1.amazonaws.com/dev/metacards
 
-Pay close attention to the MongoDB version which mLab is hosting.  This must match your own local db version.  For my install, mLab is using 3.2.x.  So, I had to revert my own local MongoDB version with homebrew, as follows ...
+### Controversy /card/{id} Endpoint
 
-    brew install homebrew/versions/mongodb32
-
-... then ...
-
-    brew unlink mongodb
-    brew link --overwrite mongodb32
-
-I found that the prior data was still there, so it was not necessary to re-scrape.  But I did just in case.
-
-You can now click the button at mLab for `Create new MongoDB deployment`.
-
-The next step is to transfer the db to mLab, first with export from the local ...
-
-    mongoexport -h localhost:27017 -d controversies -c cards -o cards.db
-
-    mongoexport -h localhost:27017 -d controversies -c metacards -o metacards.db
-
-Make sure to attach a user login and password to the database on mLab.
-
-... and then import into the remote ...
-
-    mongoimport -h ds023550.mlab.com:23550 -d controversiesofscience -c metacards -u <user> -p <password> --file metacards.db
-
-    mongoimport -h ds023550.mlab.com:23550 -d controversiesofscience -c cards -u <user> -p <password> --file cards.db
-
-Now, to connect to the db on mLab ...
-
-    mongodb://<dbuser>:<dbpassword>@ds023550.mlab.com:23550/controversiesofscience
-
-## Setting up the Lambda AWS API Gateway
-
-To install the Serverless CLI:
-
-    npm install -g serverless
-
-Then, scaffold the project:
-
-    sls create --template aws-nodejs
-
-Add from the package.json directory, install the node_modules ...
-
-    npm install
-
-The code expects an environment variable MLABDB to be set.  This should contain the mLab database connection info with login and password embedded into the request.  It should be set in ~/.bash_profile or something similar, like so:
-
-    export MLABDB="mongodb://<dbuser>:<dbpassword>@ds023550.mlab.com:23550/controversiesofscience"
-
-
-
-
-Instructions for seting up a Serverless API gateway for a DynamoDB backend, which we will adapt to MongoDB ...
-
-https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamodb
-
-A MongoDB adaptation is here ...
-
-https://github.com/pcorey/serverless-mongodb/
-
-Explanation here ...
-
-http://www.east5th.co/blog/2016/06/06/mongodb-with-serverless/
+    https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17
 
 ## State of the Project
 
-I am currently in the midst of setting up the Node/Express backend for deployment to AWS.
+The first two endpoints are now up.  The next two endpoints should look something like ...
 
-What I am thinking with this project, in order to give it a boost, is to wrap my existing React app into a Hackathon starter, like here:
+    https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17/pyramid
 
-    https://github.com/reactGo/reactGo
-    Your One-Stop solution for a full-stack app with ES6/ES2015 React.js featuring universal Redux, React Router, React Router Redux Hot reloading, CSS modules, Express 4.x, and multiple ORMs.
+... and ...
 
-I've also got my eye on some of the packages used -- especially authentication -- here:
+    https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17/overlays
 
-    https://github.com/sahat/hackathon-starter
-    Hackathon Starter: A kickstarter for Node.js web applications
+Most immediately, I now need to refactor my app to use these endpoints.
 
-The README at that second starter also details how to set up API keys for all of the OAuth services.
+The /metacards endpoint should allow for a category query parameter according to the categories listed below in "Data Source".
 
 ## Next Steps
 
