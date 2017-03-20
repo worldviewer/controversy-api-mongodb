@@ -50,15 +50,36 @@ This repository is at https://github.com/worldviewer/aws-lambda-mongo-metacards-
 
 This repository is at https://github.com/worldviewer/aws-lambda-mongo-cards-api.
 
+### Making the Image Pyramid and Overlay Assets Publicly Available on AWS S3
+
+This is best done with the Cyberduck software (which only requires the two AWS keys to log in) -- because Cyberduck simplifies the process of uploading large batches of files.
+
+To make the files publicly accessible, it's necessary to set the bucket policy:
+
+    {
+        "Version": "2008-10-17",
+        "Statement": [
+            {
+                "Sid": "AllowPublicRead",
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": "*"
+                },
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::controversy-cards-assets/*"
+            }
+        ]
+    }
+
+To get the image pyramid files ...
+
+    https://s3-us-west-1.amazonaws.com/controversy-cards-assets/58b8f1f7b2ef4ddae2fb8b17/pyramid_files
+
+To get the other assets, the base URL will be ...
+
+    https://s3-us-west-1.amazonaws.com/controversy-cards-assets/58b8f1f7b2ef4ddae2fb8b17/assets
+
 ## State of the Project
-
-The first two endpoints are now up.  The next two endpoints should look something like ...
-
-    https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17/pyramid
-
-... and ...
-
-    https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17/overlays
 
 Most immediately, I now need to refactor my app to use these endpoints -- completing the migration from Usergrid to MongoDB.  This may require considerable refactoring of my image caching.
 
