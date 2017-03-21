@@ -5,6 +5,7 @@ const
 	Db = require('mongodb').Db,
 	Server = require('mongodb').Server,
 	MongoClient = require('mongodb').MongoClient,
+	ObjectId = require('mongodb').ObjectId,
 	port = 27017,
 	host = "localhost",
 	dbName = "controversies",
@@ -14,6 +15,7 @@ const
 	loadJsonFile = require('load-json-file'),
 	METACARDS = 'metacards',
 	CARDS = 'cards',
+	prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
 	controversyJSON = 'json/halton-arp.json'; // relative to root
 
 let db = null,
@@ -171,7 +173,7 @@ create()
 	})
 	.then((json) => {
 		// Fix the prototype ObjectId
-		prototypeCard = Object.assign({}, json, {"_id": "58b8f1f7b2ef4ddae2fb8b17"});
+		prototypeCard = Object.assign({}, json, {"_id": new ObjectId(prototypeObjectId)});
 
 		return new Promise((resolve, reject) => {
 			resolve(db.collection(CARDS));
