@@ -2,10 +2,16 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+// TODO: Consider just dropping table every time, then recreating.
+// TODO: Refactor to also update mLab database
+
 var Db = require('mongodb').Db,
     Server = require('mongodb').Server,
     MongoClient = require('mongodb').MongoClient,
-    url = "mongodb://localhost:27017/controversies",
+    port = 27017,
+    host = "localhost",
+    dbName = "controversies",
+    url = 'mongodb://' + host + ':' + port + '/' + dbName,
     assert = require('assert'),
     GPlus = require('./gplus').default,
     loadJsonFile = require('load-json-file'),
@@ -23,16 +29,18 @@ mongoMetacards = void 0,
     prototypeCard = void 0;
 
 function create() {
-	db = new Db("controversies", new Server('localhost', 27017));
+	return new Promise(function (resolve, reject) {
+		resolve(new Db(dbName, new Server(host, port)));
+	});
 }
 
 function open() {
 	return new Promise(function (resolve, reject) {
-		MongoClient.connect(url, function (err, db) {
+		MongoClient.connect(url, function (err, database) {
 			if (err) {
 				reject(err);
 			} else {
-				resolve(db);
+				resolve(database);
 			}
 		});
 	});
@@ -75,9 +83,9 @@ function scrapeCollection(resolve, reject) {
 	getPage();
 }
 
-create();
-
-open().then(function (database) {
+create().then(function () {
+	return open();
+}).then(function (database) {
 	db = database;
 	shouldScrape = GPlus.keysExist();
 
@@ -147,7 +155,8 @@ open().then(function (database) {
 		resolve(loadJsonFile(controversyJSON));
 	});
 }).then(function (json) {
-	prototypeCard = json;
+	// Fix the prototype ObjectId
+	prototypeCard = Object.assign({}, json, { "_id": "58b8f1f7b2ef4ddae2fb8b17" });
 
 	return new Promise(function (resolve, reject) {
 		resolve(db.collection(CARDS));

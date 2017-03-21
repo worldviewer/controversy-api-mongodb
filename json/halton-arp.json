@@ -7,7 +7,22 @@
 		"bio" : "(MC) Master of Controversies",
 		"lastTimeOnline" : "1985-04-12T23:20:50.52Z"
 	},
-	"name" : "Halton Arp, the Modern Galileo",
+	"name" : {
+		"raw": "Halton Arp, the Modern Galileo",
+		"type": "left-right split",
+		"display": {
+			"left": {
+				"markup": "Halton<br>Arp",
+				"top": "6.3vw",
+				"left": "7.8vw"
+			},
+			"right": {
+				"markup": "The<br>Modern<br>Galileo",
+				"top": "10.5vw",
+				"right": "7.8vw"
+			}
+		}
+	},
 	"summary" : "He Was a Professional Astronomer Who Began his Career as Edwin Hubble's Assistant / While Compiling a List of Peculiar Galaxies, Arp Discovered that High-Redshift Quasars are Commonly Associated with or Even Connected by Filaments to Lower-Redshift Galaxies / Since the Big Bang Requires that Differences in Redshift Place the Objects at Different Locations, Astronomers Commonly Reject Arp's Claims / But if he is Right, then there Was No Big Bang",
 	"category" : "person",
 	"gplus" : {

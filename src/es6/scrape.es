@@ -1,8 +1,14 @@
+// TODO: Consider just dropping table every time, then recreating.
+// TODO: Refactor to also update mLab database
+
 const
 	Db = require('mongodb').Db,
 	Server = require('mongodb').Server,
 	MongoClient = require('mongodb').MongoClient,
-	url = "mongodb://localhost:27017/controversies",
+	port = 27017,
+	host = "localhost",
+	dbName = "controversies",
+	url = `mongodb://${host}:${port}/${dbName}`,
 	assert = require('assert'),
 	GPlus = require('./gplus').default,
 	loadJsonFile = require('load-json-file'),
@@ -19,16 +25,18 @@ let db = null,
 	prototypeCard;
 
 function create() {
-	db = new Db("controversies", new Server('localhost', 27017));
+	return new Promise((resolve, reject) => {
+		resolve(new Db(dbName, new Server(host, port)));		
+	})
 }
 
 function open() {
 	return new Promise((resolve, reject) => {
-		MongoClient.connect(url, (err, db) => {
+		MongoClient.connect(url, (err, database) => {
 			if (err) {
 				reject(err);
 			} else {
-				resolve(db);
+				resolve(database);
 			}
 		});
 	});
@@ -74,9 +82,10 @@ function scrapeCollection(resolve, reject) {
 	getPage();
 }
 
-create();
-
-open()
+create()
+	.then(() => {
+		return open();	
+	})
 	.then((database) => {
 		db = database;
 		shouldScrape = GPlus.keysExist();
@@ -162,7 +171,7 @@ open()
 	})
 	.then((json) => {
 		// Fix the prototype ObjectId
-		prototypeCard = Object.assign({}, ...json, {"_id": "58b8f1f7b2ef4ddae2fb8b17"});
+		prototypeCard = Object.assign({}, json, {"_id": "58b8f1f7b2ef4ddae2fb8b17"});
 
 		return new Promise((resolve, reject) => {
 			resolve(db.collection(CARDS));
