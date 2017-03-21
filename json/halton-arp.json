@@ -19,8 +19,9 @@
 	},
 	"graphic" : {
 		"type" : "Bubble Overlay",
+		"icon" :
+				{ "source" : "icon.png", "left" : "78vw", "top" : "67vw", "width" : "13vw" }, 
 		"overlays" : {
-			"directory" : "assets/halton_arp/overlay_files/",
 			"assets" : [
 				{ "source" : "bubble0.png", "left" : "7vw", "top" : "23vw", "width" : "24vw", "numleft" : "20vw", "numtop" : "4.5vw" },
 				{ "source" : "bubble1.png", "left" : "6vw", "top" : "55vw", "width" : "14vw", "numleft" : "5.5vw", "numtop" : "-1vw" },
@@ -29,12 +30,8 @@
 				{ "source" : "bubble4.png", "left" : "52vw", "top" : "27vw", "width" : "16vw", "numleft" : "14vw", "numtop" : "6.5vw" },
 				{ "source" : "bubble5.png", "left" : "70vw", "top" : "36vw", "width" : "9vw", "numleft" : "0vw", "numtop" : "0vw" },
 				{ "source" : "bubble6.png", "left" : "69vw", "top" : "46vw", "width" : "9vw", "numleft" : "0.5vw", "numtop" : "6.5vw" },
-				{ "source" : "bubble7.png", "left" : "78vw", "top" : "49vw", "width" : "16vw", "numleft" : "11vw", "numtop" : "0.5vw" },
-				{ "source" : "icon.png", "left" : "78vw", "top" : "67vw", "width" : "13vw " }
+				{ "source" : "bubble7.png", "left" : "78vw", "top" : "49vw", "width" : "16vw", "numleft" : "11vw", "numtop" : "0.5vw" }
 			]
-		},
-		"pyramid" : {
-			"directory" : "assets/halton_arp/pyramid_files/"
 		},
 		"footnotes" : [
 			"http://www.spaceflightnow.com/news/n0210/04hubble/",

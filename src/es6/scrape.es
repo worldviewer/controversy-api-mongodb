@@ -161,7 +161,8 @@ open()
 		});
 	})
 	.then((json) => {
-		prototypeCard = json;
+		// Fix the prototype ObjectId
+		prototypeCard = Object.assign({}, ...json, {"_id": "58b8f1f7b2ef4ddae2fb8b17"});
 
 		return new Promise((resolve, reject) => {
 			resolve(db.collection(CARDS));
