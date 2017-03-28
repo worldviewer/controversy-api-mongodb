@@ -48,18 +48,7 @@
 				{ "source" : "bubble7.png", "left" : "78vw", "top" : "49vw", "width" : "16vw", "numleft" : "11vw", "numtop" : "0.5vw" }
 			]
 		},
-		"footnotes" : [
-			"http://electric-cosmos.org/arp.htm",
-			"https://rinabrundu.com/2016/04/17/galassia-ngc-4319-e-quasar-markarian-205-houston-avete-un-problema-ne-e-convinto/",
-			"http://electric-cosmos.org/arp.htm",
-			"http://www.areopage.net/Fusion93.html",
-			"https://apod.nasa.gov/apod/ap140327.html",
-			"http://electric-cosmos.org/arp.htm",
-			"http://annesastronomynews.com/photo-gallery-ii/galaxies-clusters/ngc-1232/",
-			"http://electric-cosmos.org/arp.htm",
-			"https://apod.nasa.gov/apod/ap990601.html",
-			"https://johnhartnettdotorg.files.wordpress.com/2013/12/fig02.jpg"
-		],
+		"footnotes" : [],
 		"slideshow" : [
 			{
 				"text" : null,
@@ -396,7 +385,7 @@
 				"quotes" : null,
 				"footnotes" : [
 					{
-						"markup" : "[Figure 66] Credit: Lopez-Corredoira and Gutierrez 2002 70a Credit Lopez-Corredoira and Gutierrez 2002 70b Credit: X-ray: NASA / CXC / INAF-Brera / G. Trinchieri et al.; Optical: Palomar Obervatory / DSS"
+						"markup" : "[Figure 66] Credit: Lopez-Corredoira and Gutierrez 2002 70a Credit Lopez-Corredoira and Gutierrez 2002 70b Credit: X-ray: NASA / CXC / INAF-Brera / G. Trinchieri et al.; Optical: Palomar Obervatory / DSS.  Some discussion also <a href='http://www.areopage.net/Fusion93.html'>here</a>."
 					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
@@ -524,6 +513,9 @@
 						"markup" : "<a href='https://www.amazon.com/Quasars-Redshifts-Controversies-Halton-Arp/dp/0511564856/'><i>Quasars, Redshifts, and Controversies</i></a> by Halton Arp"
 					},
 					{
+						"markup" : "[Figure 67] Some mainstream discussion of these objects <a href='https://apod.nasa.gov/apod/ap140327.html'>here</a>."
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -606,6 +598,9 @@
 				"audio" : null,
 				"quotes" : null,
 				"footnotes" : [
+					{
+						"markup" : "[Figure 69] Some mainstream discussion <a href='https://www.eso.org/public/usa/images/eso9845d/'>here</a>."
+					},
 					{
 						"markup" : "[172]: <a href='https://www.amazon.com/Quasars-Redshifts-Controversies-Halton-Arp/dp/0511564856/'><i>Quasars, Redshifts, and Controversies</i></a> by Halton Arp, 1987, pp88-89."
 					},
@@ -758,6 +753,9 @@
 				],
 				"footnotes" : [
 					{
+						"markup" : "[Reference 13] There is some additional information <a href='https://www.thunderbolts.info/tpod/2006/arch06/061204arpejection.htm'>here</a>."
+					},
+					{
 						"markup" : "[176] BL Lacertae objects (BL Lac for short) exhibit no emission lines but have a strong continuum stretching from radio frequencies through X-ray frequencies."
 					},
 					{
@@ -844,6 +842,9 @@
 					}
 				],
 				"footnotes" : [
+					{
+						"markup" : "[Reference 11] Some mainstream discussion <a href='https://apod.nasa.gov/apod/ap990601.html'>here</a>."
+					},
 					{
 						"markup" : "[186] See the section on Gravitational Lensing in chapter 4 of <i>The Electric Sky</i>"
 					},
