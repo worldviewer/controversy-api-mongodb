@@ -49,8 +49,6 @@
 			]
 		},
 		"footnotes" : [
-			"http://www.spaceflightnow.com/news/n0210/04hubble/",
-			"http://www.astr.ua.edu/keel/galaxies/arp.html",
 			"http://electric-cosmos.org/arp.htm",
 			"https://rinabrundu.com/2016/04/17/galassia-ngc-4319-e-quasar-markarian-205-houston-avete-un-problema-ne-e-convinto/",
 			"http://electric-cosmos.org/arp.htm",
@@ -60,7 +58,6 @@
 			"http://annesastronomynews.com/photo-gallery-ii/galaxies-clusters/ngc-1232/",
 			"http://electric-cosmos.org/arp.htm",
 			"https://apod.nasa.gov/apod/ap990601.html",
-			"https://www.thunderbolts.info/tpod/2004/arch/041018fingers-god.htm",
 			"https://johnhartnettdotorg.files.wordpress.com/2013/12/fig02.jpg"
 		],
 		"slideshow" : [
@@ -96,12 +93,18 @@
 			},			
 			{
 				"text" : {
-					"unicode" : "\u003ci\u003eThe Electric Sky\u003c/i\u003e\u003cbr /\u003eChapter 17: Redshift and the Big Bang\u003cbr /\u003eby Don Scott\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003e&quot;Dr. Halton C. Arp is a professional astronomer who began his career as Edwin Hubble&#39;s assistant.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e Arp has earned the Helen B. Warner Prize, the Newcomb Cleveland award, and the Alexander von Humboldt Senior Scientist Award. For years he worked at the Mt. Palomar and Mt. Wilson observatories. \u003c/i\u003e\u003cb\u003e\u003ci\u003eWhile there, he assembled his well-known Catalog of Peculiar Galaxies -- galaxies that are misshapen or irregular in appearance.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eWhile compiling his catalog, Arp discovered that many pairs of quasars (&#39;quasi-stellar objects,&#39; or QSOs), which have enormously high redshift values, are physically associated with galaxies that have low redshift values.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eThese quasars are symmetrically located on either side of, and usually near the spin axis of, what he suggests are their parent low-redshift galaxies. According to astronomical doctrine, the high-redshift quasars must be located at the far edges of the universe, and the low-redshift galaxies must be relatively close by.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThe astronomical establishment reflexively explains away Arp&#39;s observations of connected galaxies and quasars as being \u003c/i\u003e\u003cb\u003e\u003ci\u003e&#39;lensing illusions&#39;\u003c/i\u003e\u003c/b\u003e\u003ci\u003e [158] or \u003c/i\u003e\u003cb\u003e\u003ci\u003e&#39;coincidences of apparent location.&#39;\u003c/i\u003e\u003c/b\u003e\u003ci\u003e But the large number of physically closely associated quasars and low-redshift galaxies that he has photographed and cataloged defies that evasion. \u003c/i\u003e\u003cb\u003e\u003ci\u003eIt happens much too often to be a chance association.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eArp has also photographed actual physical connections between low-redshift galaxies and higher-redshift companion galaxies. If two objects are connected, they cannot be cosmically distant from one another. It is just that simple. \u003c/i\u003e\u003cb\u003e\u003ci\u003eArp&#39;s photographs disprove both the &#39;redshift equals distance&#39; and &#39;redshift equals recessional velocity&#39; assumptions.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eResearcher Amy Acheson pointed out:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Halton Arp&#39;s observations show that the assumption that high redshift implies velocity never really was valid. \u003c/i\u003e\u003cb\u003e\u003ci\u003eArp shows, one galaxy grouping at a time, that the smaller and fainter (high-redshift) galaxies really are smaller and fainter, but not necessarily farther away.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e They are connected to, interacting with, and possibly ejected from the larger and brighter (low-redshift) galaxies. The expanding universe theory fails because higher redshift isn&#39;t only a measure of velocity. \u003c/i\u003e\u003cb\u003e\u003ci\u003eHigh redshift is an intrinsic property of small faint (recently born) galaxies. As the galaxy grows and evolves, the redshift changes.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e The light from high-redshift faint galaxies has traveled the same distance as the light from their low-redshift parent galaxies.&#39;\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eBecause of Arp&#39;s photos, the assumption that high-redshift objects have to be far away -- which motivates the Big Bang theory and all of presently accepted expanding-universe cosmology -- is demonstrated to be wrong. It is a paradigm-shattering result."
+					"unicode" : "\u003ci\u003eThe Electric Sky\u003c/i\u003e\u003cbr /\u003eChapter 17: Redshift and the Big Bang\u003cbr /\u003eby Don Scott\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003e&quot;Dr. Halton C. Arp is a professional astronomer who began his career as Edwin Hubble&#39;s assistant.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e Arp has earned the Helen B. Warner Prize, the Newcomb Cleveland award, and the Alexander von Humboldt Senior Scientist Award. For years he worked at the Mt. Palomar and Mt. Wilson observatories. \u003c/i\u003e\u003cb\u003e\u003ci\u003eWhile there, he assembled his well-known Catalog of Peculiar Galaxies [link in Footnote A] -- galaxies that are misshapen or irregular in appearance.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eWhile compiling his catalog, Arp discovered that many pairs of quasars (&#39;quasi-stellar objects,&#39; or QSOs), which have enormously high redshift values, are physically associated with galaxies that have low redshift values.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eThese quasars are symmetrically located on either side of, and usually near the spin axis of, what he suggests are their parent low-redshift galaxies. According to astronomical doctrine, the high-redshift quasars must be located at the far edges of the universe, and the low-redshift galaxies must be relatively close by.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThe astronomical establishment reflexively explains away Arp&#39;s observations of connected galaxies and quasars as being \u003c/i\u003e\u003cb\u003e\u003ci\u003e&#39;lensing illusions&#39;\u003c/i\u003e\u003c/b\u003e\u003ci\u003e [158] or \u003c/i\u003e\u003cb\u003e\u003ci\u003e&#39;coincidences of apparent location.&#39;\u003c/i\u003e\u003c/b\u003e\u003ci\u003e But the large number of physically closely associated quasars and low-redshift galaxies that he has photographed and cataloged defies that evasion. \u003c/i\u003e\u003cb\u003e\u003ci\u003eIt happens much too often to be a chance association.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eArp has also photographed actual physical connections between low-redshift galaxies and higher-redshift companion galaxies. If two objects are connected, they cannot be cosmically distant from one another. It is just that simple. \u003c/i\u003e\u003cb\u003e\u003ci\u003eArp&#39;s photographs disprove both the &#39;redshift equals distance&#39; and &#39;redshift equals recessional velocity&#39; assumptions.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eResearcher Amy Acheson pointed out:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Halton Arp&#39;s observations show that the assumption that high redshift implies velocity never really was valid. \u003c/i\u003e\u003cb\u003e\u003ci\u003eArp shows, one galaxy grouping at a time, that the smaller and fainter (high-redshift) galaxies really are smaller and fainter, but not necessarily farther away.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e They are connected to, interacting with, and possibly ejected from the larger and brighter (low-redshift) galaxies. The expanding universe theory fails because higher redshift isn&#39;t only a measure of velocity. \u003c/i\u003e\u003cb\u003e\u003ci\u003eHigh redshift is an intrinsic property of small faint (recently born) galaxies. As the galaxy grows and evolves, the redshift changes.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e The light from high-redshift faint galaxies has traveled the same distance as the light from their low-redshift parent galaxies.&#39;\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eBecause of Arp&#39;s photos, the assumption that high-redshift objects have to be far away -- which motivates the Big Bang theory and all of presently accepted expanding-universe cosmology -- is demonstrated to be wrong. It is a paradigm-shattering result."
 				},
 				"bubble" : null,
 				"audio" : null,
 				"quotes" : null,
 				"footnotes" : [
+					{
+						"markup" : "[A] Halton Arp's <a href='http://arpgalaxy.com/'>Catalog of Peculiar Galaxies</a>"
+					},
+					{
+						"markup" : "[158] Don Scott directs the reader to chapter 4 of <i>The Electric Sky</i>.  For those who don't have the book, some of the same content can be read at <a href='https://www.thunderbolts.info/tpod/2005/arch05/050816glmisuse.htm'>Gravitational Lensing Misused Again</a>"
+					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
@@ -136,6 +139,9 @@
 				],
 				"footnotes" : [
 					{
+						"markup" : "[159] NGC 4319: z = 0.0045 or 1357 km/s. Mrk 205: z = 0.071 or 21, 237 km/s."
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -157,13 +163,19 @@
 				"quotes" : null,
 				"footnotes" : [
 					{
+						"markup" : "[Figure 64] Credit: John Smith -- Hidden Loft Observatory, also at Don Scott's webpage on <a href='http://electric-cosmos.org/arp.htm'>Redshift</a>"
+					},
+					{
+						"markup" : "[160] Digital image processing such as was used here is standard technique. The images were treated globally -- nothing was done to one part of the image that was not done to the entire frame. The technique only emphasizes what is already there in the image -- it adds nothing that was not there originally."
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
 			},
 			{
 				"text" : {
-					"unicode" : "\u003ci\u003eOn October 7, 2002, the Astronomy Picture of the Day (APOD) published an HST161 image of these same objects. The orientation is different, but the connection is again clearly visible. After processing the HST image exactly as was done with the first amateur image, I obtained the image shown in figure 65. It is obvious the larger galaxy (NGC 4319) in these images is physically connected to its small companion quasar. Notice, in figure 65, the three small clumps of matter situated along the line connecting the center of Mrk 205 to the larger galaxy.\u003c/i\u003e"
+					"unicode" : "\u003ci\u003eOn October 7, 2002, the Astronomy Picture of the Day (APOD) published an HST [161] image of these same objects. The orientation is different, but the connection is again clearly visible. After processing the HST image exactly as was done with the first amateur image, I obtained the image shown in figure 65. It is obvious the larger galaxy (NGC 4319) in these images is physically connected to its small companion quasar. Notice, in figure 65, the three small clumps of matter situated along the line connecting the center of Mrk 205 to the larger galaxy.\u003c/i\u003e"
 				},
 				"bubble" : {
 					"number" : 0,
@@ -189,6 +201,12 @@
 					}
 				],
 				"footnotes" : [
+					{
+						"markup" : "[161] Hubble Space Telescope"
+					},
+					{
+						"markup" : "[Figure 65] Original image: R. Knacke (Penn State Erie) et al., Hubble Heritage Team, NASA, also at Don Scott's webpage on <a href='http://electric-cosmos.org/arp.htm'>Redshift</a>"
+					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
@@ -283,6 +301,9 @@
 				],
 				"footnotes" : [
 					{
+						"markup" : "[162] <a href='https://www.amazon.com/Quasars-Redshifts-Controversies-Halton-Arp/dp/0511564856/'><i>Quasars, Redshifts, and Controversies</i></a> by Halton Arp, p36"
+					},
+					{
 						"markup" : "<a href='http://www.spaceflightnow.com/news/n0210/04hubble/'>Spaceflight Now article</a>"
 					},
 					{
@@ -375,6 +396,9 @@
 				"quotes" : null,
 				"footnotes" : [
 					{
+						"markup" : "[Figure 66] Credit: Lopez-Corredoira and Gutierrez 2002 70a Credit Lopez-Corredoira and Gutierrez 2002 70b Credit: X-ray: NASA / CXC / INAF-Brera / G. Trinchieri et al.; Optical: Palomar Obervatory / DSS"
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -408,6 +432,18 @@
 				],
 				"footnotes" : [
 					{
+						"markup" : "[163] <a href='https://arxiv.org/abs/astro-ph/0203466'>'Two emission line objects with z > 0.2 in the optical filament apparently connecting the Seyfert galaxy NGC 7603 to its companion.'</a> Authors: M. Lopez-Corredoira, Carlos M. Gutierrez."
+					},
+					{
+						"markup" : "[165] <a href='https://www.amazon.com/Seeing-Red-Redshifts-Cosmology-Academic/dp/0968368905/'>Seeing Red</a>, by Halton Arp, p14-15"
+					},
+					{
+						"markup" : "[166] <a href='https://arxiv.org/abs/astro-ph/0401103'><i>Astronomy & Astrophysics</i>, January 8, 2004, 'New optical spectra and general discussion on the nature of ULX's,' H. Arp, C.M. Gutierrez, and M. Lopez-Corredoira</a>"
+					},
+					{
+						"markup" : "[167] Seyfert Galaxies are spiral galaxies with unusually bright, tiny cores that fluctuate in brightness.  Most are powerful sources of infrared radiation. Some emit intense radio, X ray, and gamma rays."
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -440,7 +476,10 @@
 				"quotes" : null,
 				"footnotes" : [
 					{
-						"markup" : "<a href='https://www.amazon.com/Quasars-Redshifts-Controversies-Halton-Arp/dp/0511564856/'><i>Quasars, Redshifts, and Controversies</i></a> by Halton Arp"
+						"markup" : "[168] <a href='https://www.amazon.com/Quasars-Redshifts-Controversies-Halton-Arp/dp/0511564856/'><i>Quasars, Redshifts, and Controversies</i></a> by Halton Arp, p96-101"
+					},
+					{
+						"markup" : "[169] NGC 7320 z = 0.0026; NGC 7317 z = 0.022; NGC 7318A z = 0.022; NGC 7318B z = 0.019; NGC 7319 z = 0.023; NGC 7320C z = 0.020."
 					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky</i></a> by Don Scott"
@@ -475,6 +514,12 @@
 					}
 				],
 				"footnotes" : [
+					{
+						"markup" : "[170] See, for example, <a href='http://www.chandra.harvard.edu/photo/2003/stephan/index.html'>Stephan's Quintet: Intruder Galaxy Shocks Tightly-Knit Group</a>"
+					},
+					{
+						"markup" : "[171] Remember, if we stand facing south and look up at the night sky, east is to our left and west to our right. Most (but not all) astronomical images are published in this orientation."
+					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Quasars-Redshifts-Controversies-Halton-Arp/dp/0511564856/'><i>Quasars, Redshifts, and Controversies</i></a> by Halton Arp"
 					},
@@ -511,6 +556,9 @@
 					}
 				],
 				"footnotes" : [
+					{
+						"markup" : "[Figure 68] See additional discussion at Don Scott's webpage on <a href='http://electric-cosmos.org/arp.htm'>Redshift</a>"
+					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
@@ -641,6 +689,12 @@
 				},
 				"footnotes" : [
 					{
+						"markup" : "[Figure 70A] Also at Don Scott's webpage on <a href='http://electric-cosmos.org/arp.htm'>Redshift</a>"
+					},
+					{
+						"markup" : "[174] <a href='http://arxiv.org/abs/astro-ph/0409215'>'The Discovery of a High Redshift X-ray Emitting QSO Very Close to the Nucleus of NGC 7319,'</a> Authors: Pasquale Galianni, E.M. Burbidge, H. Arp, V. Junkkarinen, G. Burbidge, Stefano Zibetti"
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -662,6 +716,9 @@
 				},
 				"footnotes" : [
 					{
+						"markup" : "[175] NGC 3320, 3963, 5248, 5656.  Website no longer exists, use the Wayback Machine: https://web.archive.org/web/20090214155549/http://quasars.org/qso-gals/default.htm"
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -679,7 +736,7 @@
 			},
 			{
 				"text" : {
-					"unicode" : "\u003ci\u003eDr. Arp believes that quasars are ejected with large intrinsic redshift values from their parent galaxies. As they move away, their redshift decreases. Often, when the intrinsic redshift evolves down to a certain value, the quasar starts to look like a small galaxy or BL Lac object [176] and begins to fall back, with still decreasing redshift values, toward its parent. Any additional redshift (over and above its intrinsic value) is indeed indicative of the object&#39;s velocity. But the intrinsic component is an indication of the object&#39;s youth and usually makes up the larger fraction of the object&#39;s total redshift. [177]\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eOther plasma scientists, such as Dr. Anthony Peratt, dispute the &#39;ejection&#39; claim. They think it is more likely that the quasars are &#39;pinches&#39; in the Birkeland current streaming along the galaxy&#39;s spin axis. However, they all agree with Arp that the quasars are physically associated with their parent galaxies.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e All agree that the occurrence of the Big Bang is now extremely doubtful.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eIn addition to the above evidence, the intrinsic redshift z values of quasars seem to be quantized. [178] That is to say, those calculated values are tightly grouped around a series of discrete values.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThe existence of such quantization is sufficient proof of the failure of the idea that redshift is only an indicator of recessional speed (and therefore distance). \u003c/i\u003e\u003cb\u003e\u003ci\u003eThis quantization means (under the redshift equals distance interpretation) that quasars must lie in several concentric shells, with Earth at the center of the entire arrangement.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e Copernicus discovered a long time ago that Earth isn&#39;t at the center of anything.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eRecently a group of astronomers, [179] having analyzed a large number of observed high redshift values, announced that they could find no such quantization effect. But the raw (observed) redshift value is not what is quantized. It is the quasars&#39; intrinsic redshift z values [180] that are.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e The raw values can be smeared out away from the quantization peaks by two different Doppler velocity effects:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e1. The system&#39;s motion - the family (parent galaxy and its offspring quasars) is moving as a group, either away from us or toward us.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e2. The velocity components of the individual members of each quasar pair. [181] Due to their ejection from the parent galaxy, one is moving toward us, and the other is moving away.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIn his new book [182], Arp shows that, \u003c/i\u003e\u003cb\u003e\u003ci\u003ewhen the observed z values are corrected for these two Doppler motions, the resulting intrinsic redshift values occur only on the quantization peaks with almost no dispersion.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e One must first identify which quasars are associated with each parent galaxy and then transform their observed redshift values into the parent galaxy&#39;s reference frame.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eFigure 71 presents an image taken by the Chandra orbiting x-ray telescope of galaxy M82. (Also see figure 59.) This image shows another example of the quasar ejection phenomenon.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThe official caption 183 says:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Chandra Images Seething Cauldron of Starburst Galaxy. Chandra x-ray image of M82, at a distance of 11 million light years from Earth, is the nearest starburst galaxy. Massive stars are forming and expiring in M82 at a rate ten times higher than in our galaxy. The bright spots in the center are supernova remnants and x-ray binaries. These are some of the brightest such objects known. The luminosity of the x-ray binaries suggests that most contain a black hole. The diffuse x-ray light in the image extends over several thousand light years, and is caused by multimillion-degree gas flowing out of M82. A close encounter with a large galaxy, M81, in the last 100 million years is thought to be the cause of the starburst activity.&#39;&#39; [Emphasis added.]\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Hot gas&#39; must be extremely hot to radiate X-rays. Even orthodox astronomers will admit that all the atoms in such a hot gas are ionized and that the &#39;gas&#39; is actually a plasma. But the electrical properties of a plasma can cause it to emit x-rays at much lower temperatures. Because astronomers are unaware of such properties, they must call upon the much weaker properties of gravity to supply the energy. Mathematical extrapolation indicates that the necessary energy would be available if matter were concentrated into a &#39;black-hole.&#39; Although no black hole has ever been observed, the presence of one is often inferred and then announced as fact -- as it is here.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIn the image shown in figure 71, a string of at least five high-intensity, young, x-ray-emitting plasmoids (quasars?) extends along the spin axis of M82. There is a high level of plasma activity. High-amplitude electric currents undoubtedly are producing large pinch forces that create these objects. No black-hole magic is needed.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIf there is a black hole in the middle of each of these objects, why is matter pouring out rather than in? There is an old saying: &#39;When you hear hoof beats, do not automatically assume the presence of zebras.&#39; \u003c/i\u003e\u003cb\u003e\u003ci\u003eWhen there is a powerful ejection of energy and material, it is not logical to immediately postulate the presence of a black hole that supposedly sucks everything in\u003c/i\u003e\u003c/b\u003e\u003ci\u003e [184].\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThere are many exciting images taken by the Hubble space telescope of phenomena astronomers attribute to galactic collisions. Figure 72 is an example. The typical official commentary is as follows:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Hubble astronomers conducting research on a class of galaxies called ultra-luminous infrared galaxies (ULIRGs) have discovered that over two dozen of these are found within &#39;nests&#39; of galaxies, apparently engaged in multiple collisions that lead to fiery pile-ups of three, four or even five galaxies smashing together.&#39;&#39; [Emphasis. added.]\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIn view of Arp&#39;s observations, what we are most likely seeing is the riotous birth of galaxies and quasars, not their deaths. Instead of witnessing collisions, we are looking at the separation of parent and offspring.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eHubble astronomers seem to have forgotten how empty &#39;gravitational space&#39; is: Remember the dust motes that are miles apart: \u003c/i\u003e\u003cb\u003e\u003ci\u003eRandom collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u003c/i\u003e"
+					"unicode" : "\u003ci\u003eDr. Arp believes that quasars are ejected with large intrinsic redshift values from their parent galaxies. As they move away, their redshift decreases. Often, when the intrinsic redshift evolves down to a certain value, the quasar starts to look like a small galaxy or BL Lac object [176] and begins to fall back, with still decreasing redshift values, toward its parent. Any additional redshift (over and above its intrinsic value) is indeed indicative of the object&#39;s velocity. But the intrinsic component is an indication of the object&#39;s youth and usually makes up the larger fraction of the object&#39;s total redshift. [177]\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eOther plasma scientists, such as Dr. Anthony Peratt, dispute the &#39;ejection&#39; claim. They think it is more likely that the quasars are &#39;pinches&#39; in the Birkeland current streaming along the galaxy&#39;s spin axis. However, they all agree with Arp that the quasars are physically associated with their parent galaxies.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e All agree that the occurrence of the Big Bang is now extremely doubtful.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eIn addition to the above evidence, the intrinsic redshift z values of quasars seem to be quantized. [178] That is to say, those calculated values are tightly grouped around a series of discrete values.\u003c/i\u003e\u003c/b\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThe existence of such quantization is sufficient proof of the failure of the idea that redshift is only an indicator of recessional speed (and therefore distance). \u003c/i\u003e\u003cb\u003e\u003ci\u003eThis quantization means (under the redshift equals distance interpretation) that quasars must lie in several concentric shells, with Earth at the center of the entire arrangement.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e Copernicus discovered a long time ago that Earth isn&#39;t at the center of anything.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003cb\u003e\u003ci\u003eRecently a group of astronomers, [179] having analyzed a large number of observed high redshift values, announced that they could find no such quantization effect. But the raw (observed) redshift value is not what is quantized. It is the quasars&#39; intrinsic redshift z values [180] that are.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e The raw values can be smeared out away from the quantization peaks by two different Doppler velocity effects:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e1. The system&#39;s motion - the family (parent galaxy and its offspring quasars) is moving as a group, either away from us or toward us.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e2. The velocity components of the individual members of each quasar pair. [181] Due to their ejection from the parent galaxy, one is moving toward us, and the other is moving away.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIn his new book [182], Arp shows that, \u003c/i\u003e\u003cb\u003e\u003ci\u003ewhen the observed z values are corrected for these two Doppler motions, the resulting intrinsic redshift values occur only on the quantization peaks with almost no dispersion.\u003c/i\u003e\u003c/b\u003e\u003ci\u003e One must first identify which quasars are associated with each parent galaxy and then transform their observed redshift values into the parent galaxy&#39;s reference frame.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eFigure 71 presents an image taken by the Chandra orbiting x-ray telescope of galaxy M82. (Also see figure 59.) This image shows another example of the quasar ejection phenomenon.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThe official caption [183] says:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Chandra Images Seething Cauldron of Starburst Galaxy. Chandra x-ray image of M82, at a distance of 11 million light years from Earth, is the nearest starburst galaxy. Massive stars are forming and expiring in M82 at a rate ten times higher than in our galaxy. The bright spots in the center are supernova remnants and x-ray binaries. These are some of the brightest such objects known. The luminosity of the x-ray binaries suggests that most contain a black hole. The diffuse x-ray light in the image extends over several thousand light years, and is caused by multimillion-degree gas flowing out of M82. A close encounter with a large galaxy, M81, in the last 100 million years is thought to be the cause of the starburst activity.&#39;&#39; [Emphasis added.]\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Hot gas&#39; must be extremely hot to radiate X-rays. Even orthodox astronomers will admit that all the atoms in such a hot gas are ionized and that the &#39;gas&#39; is actually a plasma. But the electrical properties of a plasma can cause it to emit x-rays at much lower temperatures. Because astronomers are unaware of such properties, they must call upon the much weaker properties of gravity to supply the energy. Mathematical extrapolation indicates that the necessary energy would be available if matter were concentrated into a &#39;black-hole.&#39; Although no black hole has ever been observed, the presence of one is often inferred and then announced as fact -- as it is here.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIn the image shown in figure 71, a string of at least five high-intensity, young, x-ray-emitting plasmoids (quasars?) extends along the spin axis of M82. There is a high level of plasma activity. High-amplitude electric currents undoubtedly are producing large pinch forces that create these objects. No black-hole magic is needed.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIf there is a black hole in the middle of each of these objects, why is matter pouring out rather than in? There is an old saying: &#39;When you hear hoof beats, do not automatically assume the presence of zebras.&#39; \u003c/i\u003e\u003cb\u003e\u003ci\u003eWhen there is a powerful ejection of energy and material, it is not logical to immediately postulate the presence of a black hole that supposedly sucks everything in\u003c/i\u003e\u003c/b\u003e\u003ci\u003e [184].\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eThere are many exciting images taken by the Hubble space telescope of phenomena astronomers attribute to galactic collisions. Figure 72 is an example. The typical official commentary is as follows:\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003e&#39;Hubble astronomers conducting research on a class of galaxies called ultra-luminous infrared galaxies (ULIRGs) have discovered that over two dozen of these are found within &#39;nests&#39; of galaxies, apparently engaged in multiple collisions that lead to fiery pile-ups of three, four or even five galaxies smashing together.&#39;&#39; [Emphasis. added.]\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eIn view of Arp&#39;s observations, what we are most likely seeing is the riotous birth of galaxies and quasars, not their deaths. Instead of witnessing collisions, we are looking at the separation of parent and offspring.\u003c/i\u003e\u003cbr /\u003e\u003cbr /\u003e\u003ci\u003eHubble astronomers seem to have forgotten how empty &#39;gravitational space&#39; is: Remember the dust motes that are miles apart: \u003c/i\u003e\u003cb\u003e\u003ci\u003eRandom collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u003c/i\u003e"
 				},
 				"bubble" : {
 					"number" : 5,
@@ -700,6 +757,33 @@
 					}
 				],
 				"footnotes" : [
+					{
+						"markup" : "[176] BL Lacertae objects (BL Lac for short) exhibit no emission lines but have a strong continuum stretching from radio frequencies through X-ray frequencies."
+					},
+					{
+						"markup" : "[177] See Appendix B of <i>The Electric Sky</i> for the details of the calculation."
+					},
+					{
+						"markup" : "[178] QSO redshifts cluster at z = 0.061, 0.30, 0.60, 0.91, 1.41, 1.96, ... such that (1+z2)/(1+z1) = 1.23."
+					},
+					{
+						"markup" : "[179] Hawkins, Maddox, and Merrifield (M.N.R.A.S. 336, L13, 2002)."
+					},
+					{
+						"markup" : "[180] To make this calculation, we first must identify a pair of quasars symmetrically positioned on either side of a galaxy and measure the redshift of each; then calculate the average value. This average value is the inherent redshift of the pair. This is the quantity that has been observed to be quantized."
+					},
+					{
+						"markup" : "[181] See Appendix B of <i>The Electric Sky</i>"
+					},
+					{
+						"markup" : "[182] <a href='https://www.amazon.com/Catalogue-Discordant-Redshift-Associations-Halton/dp/0968368999'><i>Catalog of Discordant Redshift Associations</i></a>, H.C. Arp, Apeiron, Montreal, p58, 59."
+					},
+					{
+						"markup" : "[183] <a href='http://chandra.harvard.edu/photo/2001/0094true/'>M82: Starburst Galaxy With Ultraluminous X-Ray Sources</a>"
+					},
+					{
+						"markup" : "[184] To explain this contradiction, astrophysicists now say some black holes can radiate energy, via a mechanism known as Hawking radiation, named after the British physicist Stephen Hawking who first invented the idea. This avoided the necessity of having to propose a wholly new invisible entity -- or accept Alfven's model."
+					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
@@ -733,6 +817,9 @@
 				"quotes" : null,
 				"footnotes" : [
 					{
+						"markup" : "[185] <i>A Theologico-Political Treatise</i>, 1670 (Pub Anon), Benedict de Zpinoza (1632-1677)"
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -757,6 +844,18 @@
 					}
 				],
 				"footnotes" : [
+					{
+						"markup" : "[186] See the section on Gravitational Lensing in chapter 4 of <i>The Electric Sky</i>"
+					},
+					{
+						"markup" : "[187] Burbidge, Geoffrey; 'Quasars in the Balance,' <i>Mercury</i>, 17:136, 1988."
+					},
+					{
+						"markup" : "[188] Astronomers use the phrase 'cosmological distance' to imply that the redshift equals distance assumption is correct. The phrase 'non-cosmological hypothesis' refers to Arp's ideas."
+					},
+					{
+						"markup" : "[189] This is a difficult paper to track down ... 'Quasars. Distribution behind Magellanic Clouds,' <i>AJ</i> 125, 1-12 (2003)"
+					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
@@ -800,6 +899,12 @@
 				],
 				"footnotes" : [
 					{
+						"markup" : "[Footnote 12] <a href='www.thunderbolts.info/tpod/2004/arch/041018fingers-god.htm'>Fingers of God</a>"
+					},
+					{
+						"markup" : "[190] What is plotted are redshift-dictated <i>indicative velocities</i>. The assumption is made that the use of the Hubble constant can then reveal the <i>distance</i> of each of these galaxies."
+					},
+					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
 				]
@@ -820,6 +925,18 @@
 				"audio" : null,
 				"quotes" : null,
 				"footnotes" : [
+					{
+						"markup" : "[191] This description is described by Arp, <a href='https://www.amazon.com/Seeing-Red-Redshifts-Cosmology-Academic/dp/0968368905/'>Seeing Red</a>, p225-252."
+					},
+					{
+						"markup" : "[192] <i>Annals of Physics</i>, 107, 325"
+					},
+					{
+						"markup" : "[193] <a href='https://www.amazon.com/Seeing-Red-Redshifts-Cosmology-Academic/dp/0968368905/'>Seeing Red</a>, by Halton Arp, p227."
+					},
+					{
+						"markup" : "[194] Adam, James. <i>The Republic of Plato</i>. 1902. 2nd Ed. Cambridge: Cambridge University Press, 1963. Annas, Julia. <i>An Introduction to Plato's Republic</i>. Oxford: Clarendon Press 1981."
+					},
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
 					}
