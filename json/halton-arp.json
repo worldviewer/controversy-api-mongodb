@@ -771,9 +771,9 @@
 				},
 				"bubble" : {
 					"number" : 6,
-					"left" : "2vw",
-					"top" : "20vw",
-					"width" : "96vw"
+					"left" : "-37vw",
+					"top" : "-15vw",
+					"width" : "170vw"
 				},
 				"audio" : null,
 				"quotes" : [
