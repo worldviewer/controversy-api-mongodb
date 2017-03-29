@@ -356,9 +356,9 @@
 				},
 				"bubble" : {
 					"number" : 1,
-					"left" : "2vw",
-					"top" : "20vw",
-					"width" : "96vw"
+					"left" : "-111vw",
+					"top" : "-230vw",
+					"width" : "400vw"
 				},
 				"audio" : null,
 				"quotes" : null,
@@ -454,9 +454,9 @@
 				},
 				"bubble" : {
 					"number" : 2,
-					"left" : "2vw",
-					"top" : "20vw",
-					"width" : "96vw"
+					"left" : "-77vw",
+					"top" : "-10vw",
+					"width" : "200vw"
 				},
 				"audio" : null,
 				"quotes" : [
@@ -496,9 +496,9 @@
 				},
 				"bubble" : {
 					"number" : 2,
-					"left" : "2vw",
-					"top" : "20vw",
-					"width" : "96vw"
+					"left" : "-97vw",
+					"top" : "-224vw",
+					"width" : "450vw"
 				},
 				"audio" : null,
 				"quotes" : [
@@ -579,9 +579,9 @@
 				},
 				"bubble" : {
 					"number" : 3,
-					"left" : "2vw",
-					"top" : "20vw",
-					"width" : "96vw"
+					"left" : "12vw",
+					"top" : "-120vw",
+					"width" : "266vw"
 				},
 				"audio" : null,
 				"quotes" : null,
@@ -626,9 +626,9 @@
 				},
 				"bubble" : {
 					"number" : 4,
-					"left" : "2vw",
-					"top" : "20vw",
-					"width" : "96vw"
+					"left" : "-198vw",
+					"top" : "-110vw",
+					"width" : "400vw"
 				},
 				"audio" : null,
 				"quotes" : {
@@ -650,9 +650,9 @@
 				"text" : null,
 				"bubble" : {
 					"number" : 4,
-					"left" : "2vw",
-					"top" : "20vw",
-					"width" : "96vw"
+					"left" : "-50vw",
+					"top" : "-90vw",
+					"width" : "200vw"
 				},
 				"audio" : null,
 				"quotes" : {
