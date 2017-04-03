@@ -73,7 +73,12 @@
 				"audio" : null,
 				"quotes" : [
 					{
-						"unicode" : "\u003ci\u003e\u0022Because of Arp's photos, the assumption that high-redshift objects have to be far away -- which motivates the Big Bang theory and all of presently accepted expanding-universe cosmology -- is demonstrated to be wrong. It is a paradigm-shattering result.\u0022\u003c/i\u003e -- Don Scott"
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022Because of Arp's photos, the assumption that high-redshift objects have to be far away -- which motivates the Big Bang theory and all of presently accepted expanding-universe cosmology -- is demonstrated to be wrong. It is a paradigm-shattering result.\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -122,12 +127,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022Of course, if there actually is a physical connection, then the Big Bang Theory is in trouble.\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
 						"width" : null,
-						"zIndex" : null
 					}
 				],
 				"footnotes" : [
@@ -179,12 +181,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022It is obvious the larger galaxy (NGC 4319) in these images is physically connected to its small companion quasar.\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
-						"width" : null,
-						"zIndex" : null
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -215,12 +214,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022The apparent close alignment of Mrk 205 and NGC 4319 is simply a matter of chance.\u0022\u003c/i\u003e -- Spaceflight Now"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
-						"width" : null,
-						"zIndex" : null
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -269,12 +265,9 @@
 						"text" : {
 							"unicode" : "\u003c/i\u003e\u0022What seemed to me quite devastating was that they had to publicly admit that they had not published information gained from those enormous amounts of large telescope time, that they had withheld this important scientific information, apparently because it did not agree with the position to which they were committed.\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
-						"width" : null,
-						"zIndex" : null
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -305,12 +298,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022Arp was correct in his insistence that his broad-band plates showed luminous intervening material. The opposite conclusions of his critics were -- depending on their degree of qualification -- either wrong, misleading, or irrelevant.\u0022\u003ci\u003e -- Cecil and Stockton (1985 ApJ 288, 201)"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
-						"width" : null,
-						"zIndex" : null
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -388,12 +378,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022By virtue of the luminous bridge and the perfect positions of the two faint objects, it is unquestionable that these four objects are physically linked and sharing the same space.\u0022\u003ci\u003e -- Eric Flesch of Wellington, New Zealand"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
-						"width" : null,
-						"zIndex" : null
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -465,12 +452,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022it is amazing that so many professionals have difficulty seeing it.\u0022\u003c/i\u003e -- Halton Arp"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
-						"width" : null,
-						"zIndex" : null
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -507,12 +491,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022the results disprove their long accepted theories and endanger the continuation of their research-funding stream.\u0022\u003c/i\u003e -- Halton Arp"
 						},
-						"background" : null,
-						"zoom" : null,
 						"left" : null,
 						"top" : null,
-						"width" : null,
-						"zIndex" : null
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -692,10 +673,20 @@
 				"audio" : null,
 				"quotes" : [
 					{
-						"unicode" : "\u003ci\u003e\u0022When there is a powerful ejection of energy and material, it is not logical to immediately postulate the presence of a black hole that supposedly sucks everything in\u0022\u003c/i\u003e -- Don Scott"
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022When there is a powerful ejection of energy and material, it is not logical to immediately postulate the presence of a black hole that supposedly sucks everything in\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
 					},
 					{
-						"unicode" : "\u003ci\u003e\u0022Random collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u0022\u003c/i\u003e -- Don Scott"
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022Random collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -779,7 +770,12 @@
 				"audio" : null,
 				"quotes" : [
 					{
-						"unicode" : "\u003ci\u003e\u0022The fairest way to deal with the problem is not to fall back on authority (what eminent authorities believe or don't believe) but to examine the evidence for oneself.\u0022\u003c/i\u003e -- Don Scott"
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022The fairest way to deal with the problem is not to fall back on authority (what eminent authorities believe or don't believe) but to examine the evidence for oneself.\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -827,13 +823,28 @@
 				"audio" : null,
 				"quotes" : [
 					{
-						"unicode" : "\u003ci\u003e\u0022the Virgo cluster takes on the shape of two long fingers pointed directly at Earth. These have become known as 'The Fingers of God.'\u0022\u003c/i\u003e -- Don Scott"
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022the Virgo cluster takes on the shape of two long fingers pointed directly at Earth. These have become known as 'The Fingers of God.'\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
 					},
 					{
-						"unicode" : "\u003ci\u003e\u0022How astronomers can continue to look at this diagram and not realize that something is wrong with the 'redshift equals distance' idea is evidence of how blinded by this assumption they have become.\u0022\u003c/i\u003e -- Don Scott"
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022How astronomers can continue to look at this diagram and not realize that something is wrong with the 'redshift equals distance' idea is evidence of how blinded by this assumption they have become.\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
 					},
 					{
-						"unicode" : "\u003ci\u003e\u0022In pointing out the erroneous nature of the Fingers of God diagram, Arp is indeed today's Galileo.\u0022\u003c/i\u003e -- Don Scott"
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022In pointing out the erroneous nature of the Fingers of God diagram, Arp is indeed today's Galileo.\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
 					}
 				],
 				"footnotes" : [
