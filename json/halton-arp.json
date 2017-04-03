@@ -129,7 +129,7 @@
 						},
 						"left" : null,
 						"top" : null,
-						"width" : null,
+						"width" : null
 					}
 				],
 				"footnotes" : [
@@ -321,9 +321,16 @@
 					"width" : "96vw"
 				},
 				"audio" : null,
-				"quotes" : {
-					"unicode" : "\u003ci\u003e\u0022If this were the only piece of evidence, one might conclude that it was insufficient, on its own, to justify throwing out the Big Bang Theory. But Arp has more -- much more.\u0022\u003c/i\u003e -- Don Scott"
-				},
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022If this were the only piece of evidence, one might conclude that it was insufficient, on its own, to justify throwing out the Big Bang Theory. But Arp has more -- much more.\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "Original G+ Controversy Card: <a href='https://plus.google.com/+ChrisReeveOnlineScientificDiscourseIsBroken/posts/DCDKHXnrdoH'>Halton Arp, the Modern Galileo</a>"
@@ -613,9 +620,16 @@
 					"width" : "400vw"
 				},
 				"audio" : null,
-				"quotes" : {
-					"unicode" : "\u003ci\u003e\u0022This discovery should force the final and absolute demise of the main assumptions that led to the Big Bang theory -- the assumptions that high redshift implies great distance and recessional velocity.\u0022\u003c/i\u003e -- Don Scott"
-				},
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022This discovery should force the final and absolute demise of the main assumptions that led to the Big Bang theory -- the assumptions that high redshift implies great distance and recessional velocity.\u0022\u003c/i\u003e -- Don Scott"							
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "[Figure 70A] Also at Don Scott's webpage on <a href='http://electric-cosmos.org/arp.htm'>Redshift</a>"
@@ -637,9 +651,16 @@
 					"width" : "200vw"
 				},
 				"audio" : null,
-				"quotes" : {
-					"unicode" : "\u003ci\u003e\u0022As of July 2006, several such images [175] of QSOs in front of the disks of low-redshift galaxies have been published.\u0022\u003c/i\u003e -- Don Scott"
-				},
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022As of July 2006, several such images [175] of QSOs in front of the disks of low-redshift galaxies have been published.\u0022\u003c/i\u003e -- Don Scott"							
+						},
+						"left" : null,
+						"top" : null,
+						"width" : null
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "[175] NGC 3320, 3963, 5248, 5656.  Website no longer exists, use the Wayback Machine: https://web.archive.org/web/20090214155549/http://quasars.org/qso-gals/default.htm"
