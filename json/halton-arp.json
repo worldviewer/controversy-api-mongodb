@@ -299,8 +299,8 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022Arp was correct in his insistence that his broad-band plates showed luminous intervening material. The opposite conclusions of his critics were -- depending on their degree of qualification -- either wrong, misleading, or irrelevant.\u0022\u003ci\u003e -- Cecil and Stockton (1985 ApJ 288, 201)"
 						},
-						"left" : "18vw",
-						"top" : "48vw",
+						"left" : "17vw",
+						"top" : "100vw",
 						"width" : "62vw",
 						"background" : "black"
 					}
@@ -708,9 +708,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022Random collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"left" : null,
-						"top" : null,
-						"width" : null
+						"left" : "0vw",
+						"top" : "118vw",
+						"width" : "0vw"
 					}
 				],
 				"footnotes" : [
