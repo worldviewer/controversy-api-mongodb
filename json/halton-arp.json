@@ -77,7 +77,7 @@
 							"unicode" : "\u003ci\u003e\u0022Because of Arp's photos, the assumption that high-redshift objects have to be far away -- which motivates the Big Bang theory and all of presently accepted expanding-universe cosmology -- is demonstrated to be wrong. It is a paradigm-shattering result.\u0022\u003c/i\u003e -- Don Scott"
 						},
 						"left" : "12vw",
-						"top" : "117vw",
+						"top" : "108vw",
 						"width" : "73vw"
 					}
 				],
@@ -263,11 +263,20 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003c/i\u003e\u0022What seemed to me quite devastating was that they had to publicly admit that they had not published information gained from those enormous amounts of large telescope time, that they had withheld this important scientific information, apparently because it did not agree with the position to which they were committed.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003c/i\u003e\u0022What seemed to me quite devastating was that they had to publicly admit that they had not published information gained from those enormous amounts of large telescope time ...\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"left" : "22vw",
-						"top" : "48vw",
-						"width" : "54vw",
+						"left" : "2vw",
+						"top" : "2vw",
+						"width" : "96vw",
+						"background" : "black"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003c/i\u003e\u0022... that they had withheld this important scientific information, apparently because it did not agree with the position to which they were committed.\u0022\u003c/i\u003e -- Don Scott"
+						},
+						"left" : "2vw",
+						"top" : "114vw",
+						"width" : "96vw",
 						"background" : "black"
 					}
 				],
@@ -329,7 +338,7 @@
 							"unicode" : "\u003ci\u003e\u0022If this were the only piece of evidence, one might conclude that it was insufficient, on its own, to justify throwing out the Big Bang Theory. But Arp has more -- much more.\u0022\u003c/i\u003e -- Don Scott"
 						},
 						"left" : "20vw",
-						"top" : "58vw",
+						"top" : "114vw",
 						"width" : "55vw",
 						"background" : "black"
 					}
@@ -708,9 +717,9 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022Random collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"left" : "0vw",
+						"left" : "2vw",
 						"top" : "118vw",
-						"width" : "0vw"
+						"width" : "96vw"
 					}
 				],
 				"footnotes" : [
