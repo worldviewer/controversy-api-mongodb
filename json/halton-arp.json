@@ -263,9 +263,9 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003c/i\u003e\u0022What seemed to me quite devastating was that they had to publicly admit that they had not published information gained from those enormous amounts of large telescope time ...\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003c/i\u003e\u0022What seemed to me quite devastating was that they had to publicly admit that they had not published information gained from those enormous amounts of large telescope time ...\u0022\u003c/i\u003e"
 						},
-						"left" : "2vw",
+						"left" : "0vw",
 						"top" : "2vw",
 						"width" : "96vw",
 						"background" : "black"
@@ -274,7 +274,7 @@
 						"text" : {
 							"unicode" : "\u003c/i\u003e\u0022... that they had withheld this important scientific information, apparently because it did not agree with the position to which they were committed.\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"left" : "2vw",
+						"left" : "0vw",
 						"top" : "114vw",
 						"width" : "96vw",
 						"background" : "black"
@@ -338,7 +338,7 @@
 							"unicode" : "\u003ci\u003e\u0022If this were the only piece of evidence, one might conclude that it was insufficient, on its own, to justify throwing out the Big Bang Theory. But Arp has more -- much more.\u0022\u003c/i\u003e -- Don Scott"
 						},
 						"left" : "20vw",
-						"top" : "114vw",
+						"top" : "105vw",
 						"width" : "55vw",
 						"background" : "black"
 					}
@@ -511,7 +511,7 @@
 							"unicode" : "\u003ci\u003e\u0022the results disprove their long accepted theories and endanger the continuation of their research-funding stream.\u0022\u003c/i\u003e -- Halton Arp"
 						},
 						"left" : "48vw",
-						"top" : "120vw",
+						"top" : "110vw",
 						"width" : "49vw"
 					}
 				],
@@ -717,7 +717,7 @@
 						"text" : {
 							"unicode" : "\u003ci\u003e\u0022Random collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u0022\u003c/i\u003e -- Don Scott"
 						},
-						"left" : "2vw",
+						"left" : "0vw",
 						"top" : "118vw",
 						"width" : "96vw"
 					}
@@ -868,7 +868,7 @@
 							"unicode" : "\u003ci\u003e\u0022How astronomers can continue to look at this diagram and not realize that something is wrong with the 'redshift equals distance' idea is evidence of how blinded by this assumption they have become.\u0022\u003c/i\u003e -- Don Scott"
 						},
 						"left" : "8vw",
-						"top" : "117vw",
+						"top" : "110vw",
 						"width" : "81vw"
 					},
 					{
