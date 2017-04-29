@@ -74,7 +74,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022Because of Arp's photos, the assumption that high-redshift objects have to be far away -- which motivates the Big Bang theory and all of presently accepted expanding-universe cosmology -- is demonstrated to be wrong. It is a paradigm-shattering result.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022Because of Arp's photos, the assumption that high-redshift objects have to be far away -- which motivates the Big Bang theory and all of presently accepted expanding-universe cosmology -- is demonstrated to be wrong. It is a paradigm-shattering result.\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "12vw",
 						"top" : "108vw",
@@ -125,7 +125,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022Of course, if there actually is a physical connection, then the Big Bang Theory is in trouble.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022Of course, if there actually is a physical connection, then the Big Bang Theory is in trouble.\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "1vw",
 						"top" : "128vw",
@@ -152,7 +152,48 @@
 					"width" : "612vw"
 				},
 				"audio" : null,
-				"quotes" : null,
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022The feeling that was communicated from little groups of astronomers who would stop talking as I approached was that for the sake of the honor of science they would graciously assume that my original report had been misled by some transient artifact.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "10vw",
+						"top" : "104vw",
+						"width" : "74vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022In all this technical obsfucation, however, a very common-sense point was overlooked. The galaxy, NGC 4319, is an extremely unusual galaxy. It is literally coming apart ...\u0022\u003c/i\u003e"
+						},
+						"left" : "10vw",
+						"top" : "104vw",
+						"width" : "74vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... the arms are coming off at the roots in NGC 4319! ... As a long-time observer of peculiar galaxies, I can assure you that this is an extremely unusual spiral galaxy ...\u0022\u003c/i\u003e"
+						},
+						"left" : "10vw",
+						"top" : "104vw",
+						"width" : "74vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... The importance of the luminous connection reaching from the quasar-like object back to the galaxy is that the connection goes straight back towards the galaxy's nucleus ...\u0022\u003c/i\u003e"
+						},
+						"left" : "10vw",
+						"top" : "104vw",
+						"width" : "74vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022Since nuclei of many galaxies are active, in the sense that they emit high-energy radiation, show variability, and eject radio sources and luminous material, it is logical to conclude that this quasar has been ejected from the nucleus of NGC 4319.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "10vw",
+						"top" : "104vw",
+						"width" : "74vw"
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "[Figure 64] Credit: John Smith -- Hidden Loft Observatory, also at Don Scott's webpage on <a href='http://electric-cosmos.org/arp.htm'>Redshift</a>"
@@ -179,7 +220,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022It is obvious the larger galaxy (NGC 4319) in these images is physically connected to its small companion quasar.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022It is obvious the larger galaxy (NGC 4319) in these images is physically connected to its small companion quasar.\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "15vw",
 						"top" : "114vw",
@@ -212,10 +253,18 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022The apparent close alignment of Mrk 205 and NGC 4319 is simply a matter of chance.\u0022\u003c/i\u003e -- Spaceflight Now"
+							"unicode" : "\u003ci\u003e\u0022The apparent close alignment of Mrk 205 and NGC 4319 is simply a matter of chance.\u0022\u003c/i\u003e - Spaceflight Now"
 						},
 						"left" : "22vw",
 						"top" : "52vw",
+						"width" : "54vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022In a brief article they managed to mention three times in three paragraphs that the quasar must be a background object.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "22vw",
+						"top" : "42vw",
 						"width" : "54vw"
 					}
 				],
@@ -239,7 +288,48 @@
 					"width" : "1000vw"
 				},
 				"audio" : null,
-				"quotes" : null,
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022The published paper that had the most effect in this little drama was a rather pretentious effort by two researchers at another observatory ...\u0022\u003c/i\u003e"
+						},
+						"left" : "22vw",
+						"top" : "92vw",
+						"width" : "54vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... With a telescope smaller than the one I had used to obtain my picture, they obtained a new picture. (The ratio of their 2- meter to the 5-meter I had used gives 2/5 squared = 0.16 of the photons.) ...\u0022\u003c/i\u003e"
+						},
+						"left" : "22vw",
+						"top" : "92vw",
+						"width" : "54vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... They proceeded to give the definitive analysis of the system in the following terms: (1) The connection was not there; (2) Just in case it was there, it was accounted for by a background galaxy lying accidentally in just the right position to appear like a connection ...\u0022\u003c/i\u003e"
+						},
+						"left" : "22vw",
+						"top" : "92vw",
+						"width" : "54vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... In actual fact, the connection had much too low a surface brightness to be a galaxy seen edge-on. The connection was also straight-sided, whereas an edge-on galaxy would have to taper at its ends.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "22vw",
+						"top" : "92vw",
+						"width" : "54vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022We joked that perhaps we should make up T-shirts with a superposed outline of the Golden Gate Bridge between the two objects.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "22vw",
+						"top" : "92vw",
+						"width" : "54vw"
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "<a href='https://rinabrundu.com/2016/04/17/galassia-ngc-4319-e-quasar-markarian-205-houston-avete-un-problema-ne-e-convinto/'>Houston, we have a problem!</a>"
@@ -272,7 +362,7 @@
 					},
 					{
 						"text" : {
-							"unicode" : "\u003c/i\u003e\u0022... that they had withheld this important scientific information, apparently because it did not agree with the position to which they were committed.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003c/i\u003e\u0022... that they had withheld this important scientific information, apparently because it did not agree with the position to which they were committed.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
 						},
 						"left" : "0vw",
 						"top" : "114vw",
@@ -306,7 +396,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022Arp was correct in his insistence that his broad-band plates showed luminous intervening material. The opposite conclusions of his critics were -- depending on their degree of qualification -- either wrong, misleading, or irrelevant.\u0022\u003ci\u003e -- Cecil and Stockton (1985 ApJ 288, 201)"
+							"unicode" : "\u003ci\u003e\u0022Arp was correct in his insistence that his broad-band plates showed luminous intervening material. The opposite conclusions of his critics were -- depending on their degree of qualification -- either wrong, misleading, or irrelevant.\u0022\u003ci\u003e - Cecil and Stockton (1985 ApJ 288, 201)"
 						},
 						"left" : "17vw",
 						"top" : "100vw",
@@ -335,7 +425,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022If this were the only piece of evidence, one might conclude that it was insufficient, on its own, to justify throwing out the Big Bang Theory. But Arp has more -- much more.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022If this were the only piece of evidence, one might conclude that it was insufficient, on its own, to justify throwing out the Big Bang Theory. But Arp has more -- much more.\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "20vw",
 						"top" : "105vw",
@@ -371,7 +461,96 @@
 					"width" : "400vw"
 				},
 				"audio" : null,
-				"quotes" : null,
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022In the normal course of observing the sky with telescopes, we expect to see galaxies near to each other in groups. When we measure the displacement of the absorption and emission lines in their spectra, we expect to find the redshifts of these galaxies to be very close, differing by only a few hundred kilometers per second ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... When we do see a much larger redshift, we instinctively feel that it is an unrelated object at a much greater distance in the far background where the expansion velocity of the universe is carrying it away from us more rapidly. It is an enormous shock therefore when we measure two galaxies that are interacting, or connected together, and find that they have vastly different redshifts ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... Unlike the connection between NGC 4319 and Markarian 205 ... nobody ever tried to question the reality of the luminous arm emerging from NGC 7603. What little debate took place in this case hinged on whether its connection to the companion was real or only apparent ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... A number of arguments attested to a real connection. First of all, the larger galaxy, NGC 7603, is a Seyfert galaxy, a fairly rare kind of galaxy with an active nucleus ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... Secondly, NGC 7603 is all torn up inside and nothing else is around except the companion to account for this disruption ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... Thirdly, only one luminous arm or filament emerges from NGC 7603 in such a way as to make it an almost unique object among galaxies. This unusual arm ends right on the companion!\u0022\u003ci\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022We should understand that if we just go around picking galaxies at random in the sky and studying their spectra that by far the most common spectrum we will find is nonemission with late-type stellar absorption ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... If they were just accidental projections of ordinary background galaxies they would have the characteristic spectra of background galaxies. This is a clinching proof that these excess redshift companions are really physically associated with the lower redshift galaxies ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... The way in which I would think a rational astronomer would have to handle this disturbing situation is to look carefully at objects like NGC 7603 ... and say: 'Well, these are certainly connected objects, the eye readily tells us they could not be anything else.' ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... Then, he puts aside the pictures and says, 'This goes against everything I have been taught about redshift-distance laws. They must be just accidents.' But then he thinks about the confirmatory evidence from their spectra (and the abundant other evidence ...) that demonstrates they are not accidents ...\u0022\u003ci\u003e"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... He then goes back to the pictures and says, 'Well, it seems that they are not accidents and when I actually look at the pictures I can see many more confirmatory details which demonstrate that this is just simply the surprising, but actual way things are.' It is a rare occasion when a person, even a scientist, is able to really look at a picture without forcing it into a frame of prior reference.\u0022\u003ci\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "6vw",
+						"top" : "117vw",
+						"width" : "85vw"
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "[Figure 66] Credit: Lopez-Corredoira and Gutierrez 2002 70a Credit Lopez-Corredoira and Gutierrez 2002 70b Credit: X-ray: NASA / CXC / INAF-Brera / G. Trinchieri et al.; Optical: Palomar Obervatory / DSS.  Some discussion also <a href='http://www.areopage.net/Fusion93.html'>here</a>."
@@ -395,7 +574,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022By virtue of the luminous bridge and the perfect positions of the two faint objects, it is unquestionable that these four objects are physically linked and sharing the same space.\u0022\u003ci\u003e -- Eric Flesch of Wellington, New Zealand"
+							"unicode" : "\u003ci\u003e\u0022By virtue of the luminous bridge and the perfect positions of the two faint objects, it is unquestionable that these four objects are physically linked and sharing the same space.\u0022\u003ci\u003e - Eric Flesch of Wellington, New Zealand"
 						},
 						"left" : "6vw",
 						"top" : "117vw",
@@ -469,11 +648,11 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022it is amazing that so many professionals have difficulty seeing it.\u0022\u003c/i\u003e -- Halton Arp"
+							"unicode" : "\u003ci\u003e\u0022the most conclusive proof for me that the system is an interaction of high-redshift system with low, is a fact that has been known from the start, from the Burbidges' original 1961 redshift measurements. This fact is that NGC 7318 A and B, those two galaxies in the middle that are so mashed together that they look like one deformed object, actually have redshifts that differ by 1000 km/s.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
 						},
 						"left" : "1vw",
 						"top" : "100vw",
-						"width" : "49vw"
+						"width" : "90vw"
 					}
 				],
 				"footnotes" : [
@@ -508,7 +687,15 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022the results disprove their long accepted theories and endanger the continuation of their research-funding stream.\u0022\u003c/i\u003e -- Halton Arp"
+							"unicode" : "\u003ci\u003e\u0022it is amazing that so many professionals have difficulty seeing it.\u0022\u003c/i\u003e - Halton Arp"
+						},
+						"left" : "1vw",
+						"top" : "100vw",
+						"width" : "49vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022the results disprove their long accepted theories and endanger the continuation of their research-funding stream.\u0022\u003c/i\u003e - Halton Arp"
 						},
 						"left" : "48vw",
 						"top" : "110vw",
@@ -558,7 +745,32 @@
 					"width" : "96vw"
 				},
 				"audio" : null,
-				"quotes" : null,
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022there was never any hesitancy about accepting this galaxy as a run-of-the-mill companion to a large spiral galaxy. Scarce heed was even paid to the fact that the redshifts of both galaxies were cataloged as essentially equal ...\u0022\u003c/i\u003e"
+						},
+						"left" : "2vw",
+						"top" : "104vw",
+						"width" : "96vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... But then an unpredictable event occurred. The cataloged redshift for the companion was found to be in error. The redshift of the companion was really 4,776 km s-1 greater than the main galaxy ...\u0022\u003c/i\u003e"
+						},
+						"left" : "2vw",
+						"top" : "104vw",
+						"width" : "96vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022... One of the foremost galaxy experts of this era, Gerard de Vaucouleurs, who has been rather more open to discrepant evidence than most, nevertheless had the following comment about this development: 'Until recently I was convinced from appearance and resolution that this was a physical pair, in fact rather similar to our own galaxy and the Large Magellanic Cloud. However, the differential velocity, A V = +4776, forces us to conclude that this must be an optical pair unless you can offer compelling proof that the two are physically connected.' ...\u0022\u003c/i\u003e"
+						},
+						"left" : "2vw",
+						"top" : "104vw",
+						"width" : "96vw"
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "[Figure 69] Some mainstream discussion <a href='https://www.eso.org/public/usa/images/eso9845d/'>here</a>."
@@ -585,7 +797,16 @@
 					"width" : "266vw"
 				},
 				"audio" : null,
-				"quotes" : null,
+				"quotes" : [
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022My own argument was that the companion was not the kind that was found isolated in space, but was of the kind found with larger spirals such as NGC 1232.\u0022\u003c/i\u003e - Halton Arp in Quasars, Redshifts and Controversies"
+						},
+						"left" : "48vw",
+						"top" : "110vw",
+						"width" : "49vw"
+					}
+				],
 				"footnotes" : [
 					{
 						"markup" : "<a href='https://www.amazon.com/Electric-Sky-Donald-E-Scott/dp/0977285111/'><i>The Electric Sky<i></a> by Don Scott"
@@ -635,7 +856,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022This discovery should force the final and absolute demise of the main assumptions that led to the Big Bang theory -- the assumptions that high redshift implies great distance and recessional velocity.\u0022\u003c/i\u003e -- Don Scott"							
+							"unicode" : "\u003ci\u003e\u0022This discovery should force the final and absolute demise of the main assumptions that led to the Big Bang theory -- the assumptions that high redshift implies great distance and recessional velocity.\u0022\u003c/i\u003e - Don Scott"							
 						},
 						"left" : "4vw",
 						"top" : "10vw",
@@ -666,7 +887,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022As of July 2006, several such images [175] of QSOs in front of the disks of low-redshift galaxies have been published.\u0022\u003c/i\u003e -- Don Scott"							
+							"unicode" : "\u003ci\u003e\u0022As of July 2006, several such images [175] of QSOs in front of the disks of low-redshift galaxies have been published.\u0022\u003c/i\u003e - Don Scott"							
 						},
 						"left" : "20vw",
 						"top" : "113vw",
@@ -707,7 +928,15 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022When there is a powerful ejection of energy and material, it is not logical to immediately postulate the presence of a black hole that supposedly sucks everything in\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022A galaxy is a quasar's way of making another quasar!\u0022\u003c/i\u003e - Hilton Ratcliffe in The Virtue of Heresy: Confessions of a Dissident Astronomer"							
+						},
+						"left" : "20vw",
+						"top" : "113vw",
+						"width" : "55vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022When there is a powerful ejection of energy and material, it is not logical to immediately postulate the presence of a black hole that supposedly sucks everything in\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "8vw",
 						"top" : "4vw",
@@ -715,7 +944,7 @@
 					},
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022Random collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022Random collisions in such vacuous spaces are extremely unlikely. And if the universe were really expanding, everything should be getting farther away from everything else. Collisions should be even more improbable.\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "0vw",
 						"top" : "118vw",
@@ -804,7 +1033,7 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022The fairest way to deal with the problem is not to fall back on authority (what eminent authorities believe or don't believe) but to examine the evidence for oneself.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022The fairest way to deal with the problem is not to fall back on authority (what eminent authorities believe or don't believe) but to examine the evidence for oneself.\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "8vw",
 						"top" : "6vw",
@@ -857,23 +1086,39 @@
 				"quotes" : [
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022the Virgo cluster takes on the shape of two long fingers pointed directly at Earth. These have become known as 'The Fingers of God.'\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022examining the distribution of quasars on the sky does reveal conspicuous clumps and groups of quasars. The trouble is that the quasars within each group have dissimilar, or only moderately similar, redshifts ...\u0022\u003c/i\u003e"
 						},
 						"left" : "8vw",
-						"top" : "118vw",
+						"top" : "104vw",
 						"width" : "81vw"
 					},
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022How astronomers can continue to look at this diagram and not realize that something is wrong with the 'redshift equals distance' idea is evidence of how blinded by this assumption they have become.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022If these groupings are real, and if the redshifts were distance indicators, each group, with its range of redshift, would represent an elongated 'finger' of quasars pointing just at our position in space.\u0022\u003c/i\u003e - Halton Arp"
 						},
 						"left" : "8vw",
-						"top" : "110vw",
+						"top" : "104vw",
 						"width" : "81vw"
 					},
 					{
 						"text" : {
-							"unicode" : "\u003ci\u003e\u0022In pointing out the erroneous nature of the Fingers of God diagram, Arp is indeed today's Galileo.\u0022\u003c/i\u003e -- Don Scott"
+							"unicode" : "\u003ci\u003e\u0022the Virgo cluster takes on the shape of two long fingers pointed directly at Earth. These have become known as 'The Fingers of God.'\u0022\u003c/i\u003e - Don Scott"
+						},
+						"left" : "8vw",
+						"top" : "104vw",
+						"width" : "81vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022How astronomers can continue to look at this diagram and not realize that something is wrong with the 'redshift equals distance' idea is evidence of how blinded by this assumption they have become.\u0022\u003c/i\u003e - Don Scott"
+						},
+						"left" : "8vw",
+						"top" : "104vw",
+						"width" : "81vw"
+					},
+					{
+						"text" : {
+							"unicode" : "\u003ci\u003e\u0022In pointing out the erroneous nature of the Fingers of God diagram, Arp is indeed today's Galileo.\u0022\u003c/i\u003e - Don Scott"
 						},
 						"left" : "8vw",
 						"top" : "7vw",
