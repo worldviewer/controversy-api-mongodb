@@ -8,6 +8,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var Db = require('mongodb').Db,
     Server = require('mongodb').Server,
     MongoClient = require('mongodb').MongoClient,
+    fs = require('fs'),
+    request = require('request'),
     ObjectId = require('mongodb').ObjectId,
     port = 27017,
     host = "localhost",
@@ -43,6 +45,16 @@ function open() {
 				reject(err);
 			} else {
 				resolve(database);
+			}
+		});
+	});
+}
+
+function saveImage(url, destination) {
+	request.get({ url: url, encoding: 'binary' }, function (err, response, body) {
+		fs.writeFile(destination, body, 'binary', function (err) {
+			if (err) {
+				console.log(err);
 			}
 		});
 	});
@@ -181,6 +193,27 @@ create().then(function () {
 			resolve();
 		}
 	});
+})
+
+// create directory from card id, download and save url image into that directory, then rename that file to pyramid.jpg
+.then(function () {
+	return db.collection(METACARDS).find({}).map(function (x) {
+		return { 'id': x._id, 'url': x.url };
+	}).toArray();
+}).then(function (cards) {
+	var imageDirectory = 'img/' + cards[0].id;
+
+	fs.mkdir(imageDirectory, function (err, folder) {
+		if (err) {
+			console.log(err);
+		} else {
+			saveImage(cards[0].url, imageDirectory + '/pyramid.jpg');
+		}
+	});
+
+	// cards.forEach((card) => {
+
+	// });
 }).then(function () {
 	console.log("\nAll done and no issues.");
 

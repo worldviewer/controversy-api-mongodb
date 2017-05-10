@@ -5,6 +5,8 @@ const
 	Db = require('mongodb').Db,
 	Server = require('mongodb').Server,
 	MongoClient = require('mongodb').MongoClient,
+	fs = require('fs'),
+	request = require('request'),
 	ObjectId = require('mongodb').ObjectId,
 	port = 27017,
 	host = "localhost",
@@ -41,6 +43,16 @@ function open() {
 				resolve(database);
 			}
 		});
+	});
+}
+
+function saveImage(url, destination) {
+	request.get({url, encoding: 'binary'}, (err, response, body) => {
+		fs.writeFile(destination, body, 'binary', (err) => {
+			if (err) { 
+				console.log(err);
+			}
+		}); 
 	});
 }
 
@@ -198,6 +210,29 @@ create()
 				resolve();
 			}
 		});		
+	})
+
+	// create directory from card id, download and save url image into that directory, then rename that file to pyramid.jpg
+	.then(() => {
+		return db.collection(METACARDS)
+		  .find({})
+		  .map(x => { return { 'id': x._id, 'url': x.url } } )
+		  .toArray();
+	})
+	.then((cards) => {
+		let imageDirectory;
+
+		cards.forEach((card) => {
+			imageDirectory =  = 'img/' + card.id;
+
+			fs.mkdir(imageDirectory, (err, folder) => {
+				if (err) {
+					console.log(err);
+				} else {
+					saveImage(card.url, imageDirectory + '/pyramid.jpg');
+				}
+			});
+		});
 	})
 	.then(() => {
 		console.log("\nAll done and no issues.");
