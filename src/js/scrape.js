@@ -201,19 +201,19 @@ create().then(function () {
 		return { 'id': x._id, 'url': x.url };
 	}).toArray();
 }).then(function (cards) {
-	var imageDirectory = 'img/' + cards[0].id;
+	var imageDirectory = void 0;
 
-	fs.mkdir(imageDirectory, function (err, folder) {
-		if (err) {
-			console.log(err);
-		} else {
-			saveImage(cards[0].url, imageDirectory + '/pyramid.jpg');
-		}
+	cards.forEach(function (card) {
+		imageDirectory = 'img/' + card.id;
+
+		fs.mkdir(imageDirectory, function (err, folder) {
+			if (err) {
+				console.log(err);
+			} else {
+				saveImage(card.url, imageDirectory + '/pyramid.jpg');
+			}
+		});
 	});
-
-	// cards.forEach((card) => {
-
-	// });
 }).then(function () {
 	console.log("\nAll done and no issues.");
 

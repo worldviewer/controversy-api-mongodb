@@ -223,7 +223,7 @@ create()
 		let imageDirectory;
 
 		cards.forEach((card) => {
-			imageDirectory =  = 'img/' + card.id;
+			imageDirectory = 'img/' + card.id;
 
 			fs.mkdir(imageDirectory, (err, folder) => {
 				if (err) {
