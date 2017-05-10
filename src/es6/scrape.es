@@ -220,6 +220,8 @@ create()
 		  .toArray();
 	})
 	.then((cards) => {
+		console.log('\nSaving images to local directory ...');
+
 		let imageDirectory;
 
 		cards.forEach((card) => {
@@ -230,6 +232,7 @@ create()
 					console.log(err);
 				} else {
 					saveImage(card.url, imageDirectory + '/pyramid.jpg');
+					console.log(imageDirectory + ': ' + card.url);
 				}
 			});
 		});

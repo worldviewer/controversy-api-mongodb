@@ -201,6 +201,8 @@ create().then(function () {
 		return { 'id': x._id, 'url': x.url };
 	}).toArray();
 }).then(function (cards) {
+	console.log('\nSaving images to local directory ...');
+
 	var imageDirectory = void 0;
 
 	cards.forEach(function (card) {
@@ -211,6 +213,7 @@ create().then(function () {
 				console.log(err);
 			} else {
 				saveImage(card.url, imageDirectory + '/pyramid.jpg');
+				console.log(imageDirectory + ': ' + card.url);
 			}
 		});
 	});
