@@ -10,6 +10,7 @@ var Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
     fs = require('fs'),
     request = require('request'),
+    slugify = require('slugify'),
     ObjectId = require('mongodb').ObjectId,
     port = 27017,
     host = "localhost",
@@ -200,15 +201,13 @@ create().then(function () {
 // create directory from card id, download and save url image into that directory, then rename that file to pyramid.jpg
 .then(function () {
 	return db.collection(METACARDS).find({}).map(function (x) {
-		return { 'id': x._id, 'url': x.url };
+		return { 'url': x.url, 'name': x.name };
 	}).toArray();
 }).then(function (cards) {
 	console.log('\nSaving images to local directory ...');
 
-	var imageDirectory = void 0;
-
 	cards.forEach(function (card) {
-		imageDirectory = 'img/' + card.id;
+		var imageDirectory = 'img/' + slugify(card.name);
 
 		fs.mkdir(imageDirectory, function (err, folder) {
 			if (err) {

@@ -7,6 +7,7 @@ const
 	MongoClient = require('mongodb').MongoClient,
 	fs = require('fs'),
 	request = require('request'),
+	slugify = require('slugify'),
 	ObjectId = require('mongodb').ObjectId,
 	port = 27017,
 	host = "localhost",
@@ -218,16 +219,14 @@ create()
 	.then(() => {
 		return db.collection(METACARDS)
 		  .find({})
-		  .map(x => { return { 'id': x._id, 'url': x.url } } )
+		  .map(x => { return { 'url': x.url, 'name': x.name } } )
 		  .toArray();
 	})
 	.then((cards) => {
 		console.log('\nSaving images to local directory ...');
 
-		let imageDirectory;
-
 		cards.forEach((card) => {
-			imageDirectory = 'img/' + card.id;
+			let imageDirectory = 'img/' + slugify(card.name);
 
 			fs.mkdir(imageDirectory, (err, folder) => {
 				if (err) {
