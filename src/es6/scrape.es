@@ -51,6 +51,8 @@ function saveImage(url, destination) {
 		fs.writeFile(destination, body, 'binary', (err) => {
 			if (err) { 
 				console.log(err);
+			} else {
+				console.log(destination + ': ' + url);
 			}
 		}); 
 	});
@@ -232,7 +234,6 @@ create()
 					console.log(err);
 				} else {
 					saveImage(card.url, imageDirectory + '/pyramid.jpg');
-					console.log(imageDirectory + ': ' + card.url);
 				}
 			});
 		});
