@@ -11,6 +11,7 @@ var Db = require('mongodb').Db,
     fs = require('fs'),
     request = require('request'),
     slugify = require('slugify'),
+    exec = require('child_process').exec,
     ObjectId = require('mongodb').ObjectId,
     port = 27017,
     host = "localhost",
@@ -57,7 +58,7 @@ function saveImage(url, destination) {
 			if (err) {
 				console.log(err);
 			} else {
-				console.log(destination + ': ' + url);
+				console.log(destination + ' successfully saved.');
 			}
 		});
 	});
@@ -203,21 +204,72 @@ create().then(function () {
 	return db.collection(METACARDS).find({}).map(function (x) {
 		return { 'url': x.url, 'name': x.name };
 	}).toArray();
-}).then(function (cards) {
-	console.log('\nSaving images to local directory ...');
+})
 
-	cards.forEach(function (card) {
-		var imageDirectory = 'img/' + slugify(card.name);
+// WARNING: It's a good idea to double-check that the images are valid images after saving
+.then(function (cards) {
+	return new Promise(function (resolve, reject) {
+		console.log('\nSaving images to local directory ...');
 
-		fs.mkdir(imageDirectory, function (err, folder) {
-			if (err) {
-				console.log(err);
-			} else {
-				saveImage(card.url, imageDirectory + '/pyramid.jpg');
-			}
+		cards.forEach(function (card) {
+			var slugInitial = slugify(card.name),
+			    slugLower = slugInitial.toLowerCase(),
+			    slugFinal = slugLower.replace(/['.]/g, '');
+
+			var imageDirectory = 'img/' + slugFinal;
+
+			// Check if we have read/write access to the directory
+			fs.access(imageDirectory, fs.constants.R_OK | fs.constants.W_OK, function (access_err) {
+
+				// Slug-named directory does not exist
+				if (access_err) {
+					fs.mkdir(imageDirectory, function (mkdir_err, folder) {
+						if (mkdir_err) {
+							reject(mkdir_err);
+						} else {
+							saveImage(card.url, imageDirectory + '/pyramid.jpg');
+						}
+					});
+
+					// Directory exists ...
+				} else {
+					fs.readdir(imageDirectory, function (readdir_err, files) {
+
+						if (readdir_err) {
+							reject(readdir_err);
+						}
+
+						// ... but there is no image file
+						if (files.length === 0 || files[0] == '.DS_Store') {
+							console.log('Saving ' + imageDirectory + '...');
+							saveImage(card.url, imageDirectory + '/pyramid.jpg');
+						} else {
+							console.log('Image already captured for ' + imageDirectory);
+						}
+					});
+				}
+			});
 		});
+
+		resolve();
 	});
-}).then(function () {
+})
+// .then(() => {
+// 	fs.readdir('img', (err, files) => {
+// 		files.forEach((directory) => {
+// 			exec('./magick-slicer.sh img/' + directory + '/pyramid.jpg -o img/' + directory, (error, stdout, stderr) => {
+// 				if (error || stderr) {
+// 					console.log(error);
+// 					console.log(stderr);
+// 				} else {
+// 					console.log('Processing ' + directory + '...');
+// 					console.log(stdout);
+// 				}
+// 			});
+// 		});
+// 	});
+// })
+.then(function () {
 	console.log("\nAll done and no issues.");
 
 	close(db);
