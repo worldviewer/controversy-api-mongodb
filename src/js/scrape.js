@@ -11,7 +11,7 @@ var Db = require('mongodb').Db,
     fs = require('fs'),
     request = require('request'),
     slugify = require('slugify'),
-    exec = require('child_process').exec,
+    execSync = require('child_process').execSync,
     ObjectId = require('mongodb').ObjectId,
     port = 27017,
     host = "localhost",
@@ -271,7 +271,7 @@ create().then(function () {
 		});
 	});
 }).then(function (files) {
-	console.log('\nSlicing up large-format images into pyramids ...\n');
+	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
 	var promiseArray = files.map(function (directory) {
 
@@ -279,7 +279,7 @@ create().then(function () {
 			if (directory !== '.DS_Store') {
 				console.log('Slicing ' + directory);
 
-				exec('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid', function (error, stdout, stderr) {
+				execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid', function (error, stdout, stderr) {
 
 					if (error || stderr) {
 						reject(error || stderr);
