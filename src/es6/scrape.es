@@ -276,31 +276,43 @@ create()
 
 		return Promise.all(promiseArray);
 	})
+
+	// grab all controversy card image directories
 	.then(() => {
+		return new Promise((resolve, reject) => {
+			fs.readdir('img', (err, files) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(files);
+				}
+			})	
+		})
+	})
+
+	.then((files) => {
 		console.log('\nSlicing up large-format images into pyramids ...\n');
 
-		fs.readdir('img', (err, files) => {
-			let promiseArray = files.map((directory) => {
+		let promiseArray = files.map((directory) => {
 
-				return new Promise((resolve, reject) => {
-					if (directory !== '.DS_Store') {
-						console.log('Slicing ' + directory);
+			return new Promise((resolve, reject) => {
+				if (directory !== '.DS_Store') {
+					console.log('Slicing ' + directory);
 
-						exec('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
-							(error, stdout, stderr) => {
+					exec('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+						(error, stdout, stderr) => {
 
-							if (error || stderr) {
-								reject(error || stderr);
-							} else {
-								console.log(directory + ' successfully sliced.');
-								console.log(stdout);
-								resolve();
-							}
-						});
-					}
-				});
-
+						if (error || stderr) {
+							reject(error || stderr);
+						} else {
+							console.log(directory + ' successfully sliced.');
+							console.log(stdout);
+							resolve();
+						}
+					});
+				}
 			});
+
 		});
 
 		return Promise.all(promiseArray);
