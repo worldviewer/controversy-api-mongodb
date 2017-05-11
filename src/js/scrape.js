@@ -273,27 +273,22 @@ create().then(function () {
 }).then(function (files) {
 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
-	var promiseArray = files.map(function (directory) {
+	files.forEach(function (directory) {
+		if (directory !== '.DS_Store') {
+			console.log('Slicing ' + directory);
 
-		return new Promise(function (resolve, reject) {
-			if (directory !== '.DS_Store') {
-				console.log('Slicing ' + directory);
+			execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid', function (error, stdout, stderr) {
 
-				execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid', function (error, stdout, stderr) {
-
-					if (error || stderr) {
-						reject(error || stderr);
-					} else {
-						console.log(directory + ' successfully sliced.');
-						console.log(stdout);
-						resolve();
-					}
-				});
-			}
-		});
+				if (error || stderr) {
+					console.log(error);
+					console.log(stderr);
+				} else {
+					console.log(directory + ' successfully sliced.');
+					console.log(stdout);
+				}
+			});
+		}
 	});
-
-	return Promise.all(promiseArray);
 }).then(function () {
 	console.log("\nAll done and no issues.");
 
