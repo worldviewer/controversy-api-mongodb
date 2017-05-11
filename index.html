@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="openseadragon.min.js"></script>
+    <style>
+        BODY {
+            padding: 0;
+            margin: 0;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            position: absolute;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            background-color: #434343;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script type="text/javascript">
+        OpenSeadragon({
+            id: 'map',
+            constrainDuringPan: true,
+            visibilityRatio: 1.0,
+            defaultZoomLevel: 1,
+            minZoomLevel: 1,
+            maxZoomLevel: 10,
+            autoResize: true,
+            showZoomControl: false,
+            showHomeControl: false,
+            showFullPageControl: false,
+            showSequenceControl: false,
+            tileSources: {
+                Image: {
+                    xmlns: 'http://schemas.microsoft.com/deepzoom/2008',
+                    Url: 'img/2-sociologists-tell-the-story-of-cold-fusion/pyramid_files/',
+                    Format: 'jpg',
+                    Overlap: '0',
+                    TileSize: '256',
+                    Size: {
+                        Height: '5040',
+                        Width: '3600'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
