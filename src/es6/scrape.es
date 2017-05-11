@@ -48,13 +48,14 @@ function open() {
 	});
 }
 
-function saveImage(url, destination) {
+function saveImage(url, destination, resolve, reject) {
 	request.get({url, encoding: 'binary'}, (err, response, body) => {
 		fs.writeFile(destination, body, 'binary', (err) => {
 			if (err) { 
-				console.log(err);
+				reject(err);
 			} else {
 				console.log(destination + ' successfully saved.');
+				resolve();
 			}
 		}); 
 	});
@@ -216,7 +217,7 @@ create()
 		});		
 	})
 
-	// create directory from card id, download and save url image into that directory, then rename that file to pyramid.jpg
+	// create directory from card id, download and save url image into that directory, then rename that file to large.jpg
 	.then(() => {
 		return db.collection(METACARDS)
 		  .find({})
@@ -224,12 +225,14 @@ create()
 		  .toArray();
 	})
 
-	// WARNING: It's a good idea to double-check that the images are valid images after saving
+	// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
 	.then((cards) => {
-		return new Promise((resolve, reject) => {
-			console.log('\nSaving images to local directory ...');
+		console.log('\nSaving images to local directory. I recommend checking the images afterwards to make sure that the downloads were all successful. The scrape script appears to require a couple of scrapes to fully download all of them, probably due to the large amount of image data ...\n');
 
-			cards.forEach((card) => {
+		let promiseArray = cards.map((card) => {
+			return new Promise((resolve, reject) => {
+
+				// Slugify, lower the casing, then remove periods and apostrophes
 				let slugInitial = slugify(card.name),
 					slugLower = slugInitial.toLowerCase(),
 					slugFinal = slugLower.replace(/['.]/g, '');
@@ -245,7 +248,7 @@ create()
 							if (mkdir_err) {
 								reject(mkdir_err);
 							} else {
-								saveImage(card.url, imageDirectory + '/pyramid.jpg');
+								saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
 							}
 						});
 
@@ -260,33 +263,45 @@ create()
 							// ... but there is no image file
 							if (files.length === 0 || (files.length === 1 && files[0] === '.DS_Store')) {
 								console.log('Saving ' + imageDirectory + '...');
-								saveImage(card.url, imageDirectory + '/pyramid.jpg');
+								saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
 							} else {
 								console.log('Image already captured for ' + imageDirectory);
+								resolve();
 							}
 						});	
 					}
 				});
 			});
-
-			resolve();
 		});
+
+		return Promise.all(promiseArray);
 	})
 	.then(() => {
 		fs.readdir('img', (err, files) => {
-			files.forEach((directory) => {
-				if (directory !== '.DS_Store') {
-					exec('./magick-slicer.sh img/' + directory + '/pyramid.jpg -o img/' + directory, (error, stdout, stderr) => {
-						if (error || stderr) {
-							console.log(error);
-							console.log(stderr);
-						} else {
-							console.log('Processing ' + directory + '...');
-							console.log(stdout);
-						}
-					});
-				}
+			let file = files.slice(0,2);
+			console.log('Slicing up ', file);
+
+			let promiseArray = file.map((directory) => {
+
+				return new Promise((resolve, reject) => {
+					if (directory !== '.DS_Store') {
+						exec('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+							(error, stdout, stderr) => {
+
+							if (error || stderr) {
+								reject(error || stderr);
+							} else {
+								console.log('Processing ' + directory + '...');
+								console.log(stdout);
+								resolve();
+							}
+						});
+					}
+				});
+
 			});
+
+			return Promise.all(promiseArray);
 		});
 	})
 	.then(() => {

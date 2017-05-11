@@ -52,13 +52,14 @@ function open() {
 	});
 }
 
-function saveImage(url, destination) {
+function saveImage(url, destination, resolve, reject) {
 	request.get({ url: url, encoding: 'binary' }, function (err, response, body) {
 		fs.writeFile(destination, body, 'binary', function (err) {
 			if (err) {
-				console.log(err);
+				reject(err);
 			} else {
 				console.log(destination + ' successfully saved.');
+				resolve();
 			}
 		});
 	});
@@ -199,19 +200,21 @@ create().then(function () {
 	});
 })
 
-// create directory from card id, download and save url image into that directory, then rename that file to pyramid.jpg
+// create directory from card id, download and save url image into that directory, then rename that file to large.jpg
 .then(function () {
 	return db.collection(METACARDS).find({}).map(function (x) {
 		return { 'url': x.url, 'name': x.name };
 	}).toArray();
 })
 
-// WARNING: It's a good idea to double-check that the images are valid images after saving
+// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
 .then(function (cards) {
-	return new Promise(function (resolve, reject) {
-		console.log('\nSaving images to local directory ...');
+	console.log('\nSaving images to local directory. I recommend checking the images afterwards to make sure that the downloads were all successful. The scrape script appears to require a couple of scrapes to fully download all of them, probably due to the large amount of image data ...\n');
 
-		cards.forEach(function (card) {
+	var promiseArray = cards.map(function (card) {
+		return new Promise(function (resolve, reject) {
+
+			// Slugify, lower the casing, then remove periods and apostrophes
 			var slugInitial = slugify(card.name),
 			    slugLower = slugInitial.toLowerCase(),
 			    slugFinal = slugLower.replace(/['.]/g, '');
@@ -227,7 +230,7 @@ create().then(function () {
 						if (mkdir_err) {
 							reject(mkdir_err);
 						} else {
-							saveImage(card.url, imageDirectory + '/pyramid.jpg');
+							saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
 						}
 					});
 
@@ -240,36 +243,46 @@ create().then(function () {
 						}
 
 						// ... but there is no image file
-						if (files.length === 0 || files[0] == '.DS_Store') {
+						if (files.length === 0 || files.length === 1 && files[0] === '.DS_Store') {
 							console.log('Saving ' + imageDirectory + '...');
-							saveImage(card.url, imageDirectory + '/pyramid.jpg');
+							saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
 						} else {
 							console.log('Image already captured for ' + imageDirectory);
+							resolve();
+						}
+					});
+				}
+			});
+		});
+	});
+
+	return Promise.all(promiseArray);
+}).then(function () {
+	fs.readdir('img', function (err, files) {
+		var file = files.slice(0, 2);
+		console.log('Slicing up ', file);
+
+		var promiseArray = file.map(function (directory) {
+
+			return new Promise(function (resolve, reject) {
+				if (directory !== '.DS_Store') {
+					exec('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid', function (error, stdout, stderr) {
+
+						if (error || stderr) {
+							reject(error || stderr);
+						} else {
+							console.log('Processing ' + directory + '...');
+							console.log(stdout);
+							resolve();
 						}
 					});
 				}
 			});
 		});
 
-		resolve();
+		return Promise.all(promiseArray);
 	});
-})
-// .then(() => {
-// 	fs.readdir('img', (err, files) => {
-// 		files.forEach((directory) => {
-// 			exec('./magick-slicer.sh img/' + directory + '/pyramid.jpg -o img/' + directory, (error, stdout, stderr) => {
-// 				if (error || stderr) {
-// 					console.log(error);
-// 					console.log(stderr);
-// 				} else {
-// 					console.log('Processing ' + directory + '...');
-// 					console.log(stdout);
-// 				}
-// 			});
-// 		});
-// 	});
-// })
-.then(function () {
+}).then(function () {
 	console.log("\nAll done and no issues.");
 
 	close(db);
