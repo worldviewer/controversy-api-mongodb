@@ -259,19 +259,18 @@ create().then(function () {
 	return Promise.all(promiseArray);
 }).then(function () {
 	fs.readdir('img', function (err, files) {
-		var file = files.slice(0, 2);
-		console.log('Slicing up ', file);
-
-		var promiseArray = file.map(function (directory) {
+		var promiseArray = files.map(function (directory) {
 
 			return new Promise(function (resolve, reject) {
 				if (directory !== '.DS_Store') {
+					console.log('\nSlicing up large-format images into pyramids ...\n');
+
 					exec('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid', function (error, stdout, stderr) {
 
 						if (error || stderr) {
 							reject(error || stderr);
 						} else {
-							console.log('Processing ' + directory + '...');
+							console.log(directory);
 							console.log(stdout);
 							resolve();
 						}

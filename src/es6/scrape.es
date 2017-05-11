@@ -278,20 +278,19 @@ create()
 	})
 	.then(() => {
 		fs.readdir('img', (err, files) => {
-			let file = files.slice(0,2);
-			console.log('Slicing up ', file);
-
-			let promiseArray = file.map((directory) => {
+			let promiseArray = files.map((directory) => {
 
 				return new Promise((resolve, reject) => {
 					if (directory !== '.DS_Store') {
+						console.log('\nSlicing up large-format images into pyramids ...\n')
+
 						exec('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
 							(error, stdout, stderr) => {
 
 							if (error || stderr) {
 								reject(error || stderr);
 							} else {
-								console.log('Processing ' + directory + '...');
+								console.log(directory);
 								console.log(stdout);
 								resolve();
 							}
