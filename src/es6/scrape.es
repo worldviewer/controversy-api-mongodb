@@ -270,7 +270,7 @@ create()
 
 							// ... but there is no image file
 							if (files.length === 0 || (files.length === 1 && files[0] === '.DS_Store')) {
-								console.log('Saving ' + imageDirectory + '...');
+								console.log('Saving image ' + imageDirectory + '...');
 								saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
 							} else {
 								console.log('Image already captured for ' + imageDirectory);
@@ -297,6 +297,10 @@ create()
 			})	
 		})
 	})
+
+	// TODO: I already have all of these image pyramids, but when it comes time to generate more,
+	// I'll need to fix this Promise chain, which includes a synchronous exec()
+
 	// .then((directories) => {
 	// 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
@@ -346,10 +350,10 @@ create()
 						reject(readdir_err);
 
 					} else if (!files.includes('thumbnail.jpg')) {
-						console.log('Saving thumbnail ' + thumbnailDirectory);
+						console.log('Saving thumbnail ' + thumbnailDirectory + '...');
 						saveImage(card.thumbnail, thumbnailDirectory + '/thumbnail.jpg', resolve, reject);					
 					} else {
-						console.log(thumbnailDirectory + ' already saved.');
+						console.log('Thumbnail already captured for ' + thumbnailDirectory);
 						resolve();
 					}
 				});
