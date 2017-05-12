@@ -229,16 +229,16 @@ create()
 
 	// create directory from card id, download and save url image into that directory, then rename that file to large.jpg
 	.then(() => {
-		mongoMetadata = db.collection(METACARDS)
+		return db.collection(METACARDS)
 		  .find({})
 		  .map(x => { return { 'url': x.url, 'name': x.name, 'thumbnail': x.thumbnail } } )
 		  .toArray();
-
-		return mongoMetadata;
 	})
 
 	// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
 	.then((cards) => {
+		mongoMetadata = cards;
+
 		console.log('\nSaving images to local directory. I recommend checking the images afterwards to make sure that the downloads were all successful. The scrape script appears to require a couple of scrapes to fully download all of them, probably due to the large amount of image data ...\n');
 
 		let promiseArray = cards.map((card) => {
@@ -302,8 +302,6 @@ create()
 
 		files.forEach((directory) => {
 			if (directory !== '.DS_Store') {
-				console.log('Slicing ' + directory);
-
 				fs.readdir(directory, (readdir_err, files) => {
 					if (readdir_err) {
 						return Promise.reject(readdir_err);
@@ -312,12 +310,16 @@ create()
 						execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
 							(error, stdout, stderr) => {
 
+							console.log('Slicing ' + directory);
+
 							if (error) {
 								console.log(error);
 							} else {
 								console.log(directory + ' successfully sliced.');
 							}
 						});						
+					} else {
+						console.log(directory + ' already sliced.');
 					}
 				});
 
