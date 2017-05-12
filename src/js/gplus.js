@@ -24,16 +24,6 @@ var GPlus = function () {
 		this.lastCard = 'Gerald Pollack';
 
 		this.cardCategories = ['ongoing', 'historical', 'critique', 'reform', 'thinking', 'person'];
-
-		// Placeholder static card author
-		this.gcardAuthor = {
-			userId: 0,
-			username: 'Chris Reeve',
-			avatar: 'https://lh3.googleusercontent.com/-7pSD5TEGt4g/AAAAAAAAAAI/AAAAAAAAACI/Cqefb4i8T3E/photo.jpg?sz=50',
-			email: 'paradigmsareconstructed@gmail.com',
-			bio: '(MC) Master of Controversies',
-			lastTimeOnline: '1985-04-12T23:20:50.52Z'
-		};
 	}
 
 	_createClass(GPlus, [{
@@ -175,13 +165,14 @@ var GPlus = function () {
 					console.log('category: ' + category);
 
 					var metaCard = {
-						author: this.gcardAuthor,
 						name: gName,
 						summary: gcardSummary,
-						url: gcardFullImageURL,
+						image: gcardFullImageURL,
 						thumbnail: gcardThumbnailImageURL,
+						url: gcard['url'],
 						publishDate: gcardPublishDate,
 						updateDate: gcardUpdateDate,
+						text: gcardHTML,
 						category: category
 					};
 

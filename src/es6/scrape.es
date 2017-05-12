@@ -23,6 +23,7 @@ const
 	controversyJSON = 'json/halton-arp.json'; // relative to root
 
 let db = null,
+	combinedJSON = [],
 	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards,
 	mongoCards,
@@ -115,17 +116,20 @@ create()
 	.then(() => {
 		return open();	
 	})
+
 	.then((database) => {
 		db = database;
 		shouldScrape = GPlus.keysExist();
 
 		return database;
 	})
+
 	.then((database) => {
 		return new Promise((resolve, reject) => {
 			resolve(db.collection(METACARDS));
 		});
 	})
+
 	.then((collection) => {
 		mongoMetacards = collection;
 
@@ -143,6 +147,7 @@ create()
 			}
 		});
 	})
+
 	.then((collection) => {
 		gplusMetacards = collection;
 
@@ -150,16 +155,38 @@ create()
 			resolve(mongoMetacards.count());
 		});
 	})
+
+	// Grab the metadata which has been manually typed in for each controversy card
 	.then((count) => {
 		savedCount = count;
 
+		return new Promise((resolve, reject) => {
+			fs.readFile('json/metacards.json', 'utf8', (err, cards) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(JSON.parse(cards));
+				}
+			});			
+		})
+	})
+
+	.then((JSONCards) => {
 		return new Promise((resolve, reject) => {
 			if (savedCount === 0 && shouldScrape) {
 
 				console.log("\nThere are currently " + savedCount +
 					" metacards in the controversies collection.");
 				console.log("\nSaving Scraped data to MongoDB");
-				resolve(mongoMetacards.insertMany(gplusMetacards));
+
+				gplusMetacards.forEach((gplusCard) => {
+					let slug = createSlug(gplusCard.name),
+						json = JSONCards.filter((el) => el.slug === slug ? true : false);
+
+					combinedJSON.push(Object.assign({}, gplusCard, json[0]));
+				});
+
+				resolve(mongoMetacards.insertMany(combinedJSON));
 
 			} else if (gplusMetacards && gplusMetacards.length > savedCount) {
 
@@ -181,11 +208,27 @@ create()
 			}
 		});
 	})
+
+	.then(() => {
+		console.log('\nExporting the combined JSON to json/algolia.json\n');
+
+		return new Promise((resolve, reject) => {
+			fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', (err) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve();
+				}
+			});
+		});
+	})
+
 	.then(() => {
 		return new Promise((resolve, reject) => {
 			resolve(mongoMetacards.count());
 		});
 	})	
+
 	.then((count) => {
 		savedCount = count;
 
@@ -198,6 +241,7 @@ create()
 			resolve(loadJsonFile(controversyJSON));
 		});
 	})
+
 	.then((json) => {
 		// Fix the prototype ObjectId
 		prototypeCard = Object.assign({}, json, {"_id": new ObjectId(prototypeObjectId)});
@@ -206,6 +250,7 @@ create()
 			resolve(db.collection(CARDS));
 		});		
 	})
+
 	.then((collection) => {
 		mongoCards = collection;
 
@@ -213,6 +258,7 @@ create()
 			resolve(mongoCards.count());
 		});		
 	})
+
 	.then((count) => {
 		return new Promise((resolve, reject) => {
 			if (count === 0) {
@@ -227,11 +273,11 @@ create()
 		});		
 	})
 
-	// create directory from card id, download and save url image into that directory, then rename that file to large.jpg
+	// create directory from card id, download and save image into that directory, then rename that file to large.jpg
 	.then(() => {
 		return db.collection(METACARDS)
 		  .find({})
-		  .map(x => { return { 'url': x.url, 'name': x.name, 'thumbnail': x.thumbnail } } )
+		  .map(x => { return { 'image': x.image, 'name': x.name, 'thumbnail': x.thumbnail, 'url': x.url, 'text': x.text } } )
 		  .toArray();
 	})
 
@@ -256,7 +302,7 @@ create()
 							if (mkdir_err) {
 								reject(mkdir_err);
 							} else {
-								saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
+								saveImage(card.image, imageDirectory + '/large.jpg', resolve, reject);
 							}
 						});
 
@@ -271,7 +317,7 @@ create()
 							// ... but there is no image file
 							if (files.length === 0 || (files.length === 1 && files[0] === '.DS_Store')) {
 								console.log('Saving image ' + imageDirectory + '...');
-								saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
+								saveImage(card.image, imageDirectory + '/large.jpg', resolve, reject);
 							} else {
 								console.log('Image already captured for ' + imageDirectory);
 								resolve();
@@ -337,6 +383,7 @@ create()
 
 	// 	sliceOps.then(() => { return Promise.resolve(); } );
 	// })
+
 	.then(() => {
 		console.log('\nSaving the thumbnails ...\n');
 
@@ -363,11 +410,17 @@ create()
 
 		return Promise.all(promiseArray);
 	})
+
+	.then((cards) => {
+
+	})
+
 	.then(() => {
 		console.log("\nAll done and no issues.");
 
 		close(db);	
 	})
+
 	.catch((error) => {
 		console.log("\nAn error has occurred ...");
 

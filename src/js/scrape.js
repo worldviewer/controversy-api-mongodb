@@ -26,6 +26,7 @@ var Db = require('mongodb').Db,
     controversyJSON = 'json/halton-arp.json'; // relative to root
 
 var db = null,
+    combinedJSON = [],
     gplusMetacards = void 0,
     // Controversy card metadata from G+
 mongoMetacards = void 0,
@@ -145,15 +146,38 @@ create().then(function () {
 	return new Promise(function (resolve, reject) {
 		resolve(mongoMetacards.count());
 	});
-}).then(function (count) {
+})
+
+// Grab the metadata which has been manually typed in for each controversy card
+.then(function (count) {
 	savedCount = count;
 
+	return new Promise(function (resolve, reject) {
+		fs.readFile('json/metacards.json', 'utf8', function (err, cards) {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(JSON.parse(cards));
+			}
+		});
+	});
+}).then(function (JSONCards) {
 	return new Promise(function (resolve, reject) {
 		if (savedCount === 0 && shouldScrape) {
 
 			console.log("\nThere are currently " + savedCount + " metacards in the controversies collection.");
 			console.log("\nSaving Scraped data to MongoDB");
-			resolve(mongoMetacards.insertMany(gplusMetacards));
+
+			gplusMetacards.forEach(function (gplusCard) {
+				var slug = createSlug(gplusCard.name),
+				    json = JSONCards.filter(function (el) {
+					return el.slug === slug ? true : false;
+				});
+
+				combinedJSON.push(Object.assign({}, gplusCard, json[0]));
+			});
+
+			resolve(mongoMetacards.insertMany(combinedJSON));
 		} else if (gplusMetacards && gplusMetacards.length > savedCount) {
 
 			console.log("\nThere are currently " + savedCount + " metacards in the controversies collection.");
@@ -168,6 +192,18 @@ create().then(function () {
 			console.log("\nWill set up backend without G+ metadata.  See README for more information.");
 			resolve();
 		}
+	});
+}).then(function () {
+	console.log('\nExporting the combined JSON to json/algolia.json\n');
+
+	return new Promise(function (resolve, reject) {
+		fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', function (err) {
+			if (err) {
+				reject(err);
+			} else {
+				resolve();
+			}
+		});
 	});
 }).then(function () {
 	return new Promise(function (resolve, reject) {
@@ -210,10 +246,10 @@ create().then(function () {
 	});
 })
 
-// create directory from card id, download and save url image into that directory, then rename that file to large.jpg
+// create directory from card id, download and save image into that directory, then rename that file to large.jpg
 .then(function () {
 	return db.collection(METACARDS).find({}).map(function (x) {
-		return { 'url': x.url, 'name': x.name, 'thumbnail': x.thumbnail };
+		return { 'image': x.image, 'name': x.name, 'thumbnail': x.thumbnail, 'url': x.url, 'text': x.text };
 	}).toArray();
 })
 
@@ -238,7 +274,7 @@ create().then(function () {
 						if (mkdir_err) {
 							reject(mkdir_err);
 						} else {
-							saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
+							saveImage(card.image, imageDirectory + '/large.jpg', resolve, reject);
 						}
 					});
 
@@ -253,7 +289,7 @@ create().then(function () {
 						// ... but there is no image file
 						if (files.length === 0 || files.length === 1 && files[0] === '.DS_Store') {
 							console.log('Saving image ' + imageDirectory + '...');
-							saveImage(card.url, imageDirectory + '/large.jpg', resolve, reject);
+							saveImage(card.image, imageDirectory + '/large.jpg', resolve, reject);
 						} else {
 							console.log('Image already captured for ' + imageDirectory);
 							resolve();
@@ -319,6 +355,7 @@ create().then(function () {
 
 // 	sliceOps.then(() => { return Promise.resolve(); } );
 // })
+
 .then(function () {
 	console.log('\nSaving the thumbnails ...\n');
 
@@ -342,7 +379,7 @@ create().then(function () {
 	});
 
 	return Promise.all(promiseArray);
-}).then(function () {
+}).then(function (cards) {}).then(function () {
 	console.log("\nAll done and no issues.");
 
 	close(db);

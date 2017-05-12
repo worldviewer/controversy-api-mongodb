@@ -18,16 +18,6 @@ export default class GPlus {
 			'thinking',
 			'person'
 		];
-
-		// Placeholder static card author
-		this.gcardAuthor = {
-			userId: 0,
-			username: 'Chris Reeve',
-			avatar: 'https://lh3.googleusercontent.com/-7pSD5TEGt4g/AAAAAAAAAAI/AAAAAAAAACI/Cqefb4i8T3E/photo.jpg?sz=50',
-			email: 'paradigmsareconstructed@gmail.com',
-			bio: '(MC) Master of Controversies',
-			lastTimeOnline: '1985-04-12T23:20:50.52Z'			
-		};
 	}
 
 	static keysExist() {
@@ -141,13 +131,14 @@ export default class GPlus {
 				console.log('category: ' + category);
 
 				let metaCard = {
-					author: this.gcardAuthor,
 					name: gName,
 					summary: gcardSummary,
-					url: gcardFullImageURL,
+					image: gcardFullImageURL,
 					thumbnail: gcardThumbnailImageURL,
+					url: gcard['url'],
 					publishDate: gcardPublishDate,
 					updateDate: gcardUpdateDate,
+					text: gcardHTML,
 					category
 				};
 
