@@ -278,44 +278,45 @@ create().then(function () {
 			}
 		});
 	});
-}).then(function (directories) {
-	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
+})
+// .then((directories) => {
+// 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
-	var sliceOps = directories.reduce(function (promiseChain, directory) {
-		return promiseChain.then(function () {
-			return new Promise(function (resolve, reject) {
+// 	let sliceOps = directories.reduce((promiseChain, directory) => {
+// 		return promiseChain.then(() => new Promise((resolve, reject) => {
 
-				if (directory !== '.DS_Store') {
-					fs.readdir('img/' + directory, function (readdir_err, files) {
-						if (readdir_err) {
-							return Promise.reject(readdir_err);
-						} else if (!files.includes('pyramid_files')) {
-							execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid', function (error, stdout, stderr) {
+// 			if (directory !== '.DS_Store') {
+// 				fs.readdir('img/' + directory, (readdir_err, files) => {
+// 					if (readdir_err) {
+// 						return Promise.reject(readdir_err);
 
-								console.log('Slicing ' + directory);
+// 					} else if (!files.includes('pyramid_files')) {
+// 						execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+// 							(error, stdout, stderr) => {
 
-								if (error) {
-									Promise.reject(error);
-								} else {
-									console.log(directory + ' successfully sliced.');
-									resolve();
-								}
-							});
-						} else {
-							console.log(directory + ' already sliced.');
-							resolve();
-						}
-					});
-				}
-			});
-		});
-	}, Promise.resolve());
+// 							console.log('Slicing ' + directory);
 
-	sliceOps.then(function () {
-		return Promise.resolve();
-	});
-}).then(function () {
-	console.log('\nSaving thumbnails ...\n');
+// 							if (error) {
+// 								Promise.reject(error);
+// 							} else {
+// 								console.log(directory + ' successfully sliced.');
+// 								resolve();
+// 							}
+// 						});						
+// 					} else {
+// 						console.log(directory + ' already sliced.');
+// 						resolve();
+// 					}
+// 				});
+// 			}
+
+// 		}));
+// 	}, Promise.resolve());
+
+// 	sliceOps.then(() => { return Promise.resolve(); } );
+// })
+.then(function () {
+	console.log('\nSaving the thumbnails ...\n');
 
 	var promiseArray = mongoMetadata.map(function (card) {
 		return new Promise(function (resolve, reject) {
@@ -324,9 +325,13 @@ create().then(function () {
 
 			fs.readdir(thumbnailDirectory, function (readdir_err, files) {
 				if (readdir_err) {
-					return Promise.reject(readdir_err);
+					reject(readdir_err);
 				} else if (!files.includes('thumbnail.jpg')) {
+					console.log('Saving thumbnail ' + thumbnailDirectory);
 					saveImage(card.thumbnail, thumbnailDirectory + '/thumbnail.jpg', resolve, reject);
+				} else {
+					console.log(thumbnailDirectory + ' already saved.');
+					resolve();
 				}
 			});
 		});

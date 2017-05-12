@@ -297,44 +297,44 @@ create()
 			})	
 		})
 	})
-	.then((directories) => {
-		console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
+	// .then((directories) => {
+	// 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
-		let sliceOps = directories.reduce((promiseChain, directory) => {
-			return promiseChain.then(() => new Promise((resolve, reject) => {
+	// 	let sliceOps = directories.reduce((promiseChain, directory) => {
+	// 		return promiseChain.then(() => new Promise((resolve, reject) => {
 
-				if (directory !== '.DS_Store') {
-					fs.readdir('img/' + directory, (readdir_err, files) => {
-						if (readdir_err) {
-							return Promise.reject(readdir_err);
+	// 			if (directory !== '.DS_Store') {
+	// 				fs.readdir('img/' + directory, (readdir_err, files) => {
+	// 					if (readdir_err) {
+	// 						return Promise.reject(readdir_err);
 
-						} else if (!files.includes('pyramid_files')) {
-							execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
-								(error, stdout, stderr) => {
+	// 					} else if (!files.includes('pyramid_files')) {
+	// 						execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+	// 							(error, stdout, stderr) => {
 
-								console.log('Slicing ' + directory);
+	// 							console.log('Slicing ' + directory);
 
-								if (error) {
-									Promise.reject(error);
-								} else {
-									console.log(directory + ' successfully sliced.');
-									resolve();
-								}
-							});						
-						} else {
-							console.log(directory + ' already sliced.');
-							resolve();
-						}
-					});
-				}
+	// 							if (error) {
+	// 								Promise.reject(error);
+	// 							} else {
+	// 								console.log(directory + ' successfully sliced.');
+	// 								resolve();
+	// 							}
+	// 						});						
+	// 					} else {
+	// 						console.log(directory + ' already sliced.');
+	// 						resolve();
+	// 					}
+	// 				});
+	// 			}
 
-			}));
-		}, Promise.resolve());
+	// 		}));
+	// 	}, Promise.resolve());
 
-		sliceOps.then(() => { return Promise.resolve(); } );
-	})
+	// 	sliceOps.then(() => { return Promise.resolve(); } );
+	// })
 	.then(() => {
-		console.log('\nSaving thumbnails ...\n');
+		console.log('\nSaving the thumbnails ...\n');
 
 		let promiseArray = mongoMetadata.map((card) => {
 			return new Promise((resolve, reject) => {
@@ -343,10 +343,14 @@ create()
 
 				fs.readdir(thumbnailDirectory, (readdir_err, files) => {
 					if (readdir_err) {
-						return Promise.reject(readdir_err);
+						reject(readdir_err);
 
 					} else if (!files.includes('thumbnail.jpg')) {
+						console.log('Saving thumbnail ' + thumbnailDirectory);
 						saveImage(card.thumbnail, thumbnailDirectory + '/thumbnail.jpg', resolve, reject);					
+					} else {
+						console.log(thumbnailDirectory + ' already saved.');
+						resolve();
 					}
 				});
 
