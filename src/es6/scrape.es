@@ -20,6 +20,8 @@ const
 	METACARDS = 'metacards',
 	CARDS = 'cards',
 	prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
+	cardImageDirectory = 'img/cards/',
+	feedImageDirectory = 'img/feeds/',
 	controversyJSON = 'json/halton-arp.json'; // relative to root
 
 let db = null,
@@ -276,9 +278,14 @@ create()
 	// create directory from card id, download and save image into that directory, then rename that file to large.jpg
 	.then(() => {
 		return db.collection(METACARDS)
-		  .find({})
-		  .map(x => { return { 'image': x.image, 'name': x.name, 'thumbnail': x.thumbnail, 'url': x.url, 'text': x.text } } )
-		  .toArray();
+			.find({})
+			.map(x => { return {
+				'image': x.image,
+				'name': x.name,
+				'thumbnail': x.thumbnail,
+				'url': x.url,
+				'text': x.text }})
+			.toArray();
 	})
 
 	// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
@@ -291,7 +298,7 @@ create()
 			return new Promise((resolve, reject) => {
 
 				let slug = createSlug(card.name),
-					imageDirectory = 'img/' + slug;
+					imageDirectory = cardImageDirectory + slug;
 
 				// Check if we have read/write access to the directory
 				fs.access(imageDirectory, fs.constants.R_OK | fs.constants.W_OK, (access_err) => {
@@ -334,7 +341,7 @@ create()
 	// grab all controversy card image directories
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			fs.readdir('img', (err, files) => {
+			fs.readdir(cardImageDirectory, (err, files) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -354,12 +361,12 @@ create()
 	// 		return promiseChain.then(() => new Promise((resolve, reject) => {
 
 	// 			if (directory !== '.DS_Store') {
-	// 				fs.readdir('img/' + directory, (readdir_err, files) => {
+	// 				fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
 	// 					if (readdir_err) {
 	// 						return Promise.reject(readdir_err);
 
 	// 					} else if (!files.includes('pyramid_files')) {
-	// 						execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+	// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory + '/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
 	// 							(error, stdout, stderr) => {
 
 	// 							console.log('Slicing ' + directory);
@@ -390,7 +397,7 @@ create()
 		let promiseArray = mongoMetadata.map((card) => {
 			return new Promise((resolve, reject) => {
 				let slug = createSlug(card.name),
-					thumbnailDirectory = 'img/' + slug;
+					thumbnailDirectory = cardImageDirectory + slug;
 
 				fs.readdir(thumbnailDirectory, (readdir_err, files) => {
 					if (readdir_err) {
@@ -409,10 +416,6 @@ create()
 		});
 
 		return Promise.all(promiseArray);
-	})
-
-	.then((cards) => {
-
 	})
 
 	.then(() => {

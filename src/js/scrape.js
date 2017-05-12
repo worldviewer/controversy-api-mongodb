@@ -23,6 +23,8 @@ var Db = require('mongodb').Db,
     METACARDS = 'metacards',
     CARDS = 'cards',
     prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
+    cardImageDirectory = 'img/cards/',
+    feedImageDirectory = 'img/feeds/',
     controversyJSON = 'json/halton-arp.json'; // relative to root
 
 var db = null,
@@ -249,7 +251,12 @@ create().then(function () {
 // create directory from card id, download and save image into that directory, then rename that file to large.jpg
 .then(function () {
 	return db.collection(METACARDS).find({}).map(function (x) {
-		return { 'image': x.image, 'name': x.name, 'thumbnail': x.thumbnail, 'url': x.url, 'text': x.text };
+		return {
+			'image': x.image,
+			'name': x.name,
+			'thumbnail': x.thumbnail,
+			'url': x.url,
+			'text': x.text };
 	}).toArray();
 })
 
@@ -263,7 +270,7 @@ create().then(function () {
 		return new Promise(function (resolve, reject) {
 
 			var slug = createSlug(card.name),
-			    imageDirectory = 'img/' + slug;
+			    imageDirectory = cardImageDirectory + slug;
 
 			// Check if we have read/write access to the directory
 			fs.access(imageDirectory, fs.constants.R_OK | fs.constants.W_OK, function (access_err) {
@@ -306,7 +313,7 @@ create().then(function () {
 // grab all controversy card image directories
 .then(function () {
 	return new Promise(function (resolve, reject) {
-		fs.readdir('img', function (err, files) {
+		fs.readdir(cardImageDirectory, function (err, files) {
 			if (err) {
 				reject(err);
 			} else {
@@ -326,12 +333,12 @@ create().then(function () {
 // 		return promiseChain.then(() => new Promise((resolve, reject) => {
 
 // 			if (directory !== '.DS_Store') {
-// 				fs.readdir('img/' + directory, (readdir_err, files) => {
+// 				fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
 // 					if (readdir_err) {
 // 						return Promise.reject(readdir_err);
 
 // 					} else if (!files.includes('pyramid_files')) {
-// 						execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory + '/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
 // 							(error, stdout, stderr) => {
 
 // 							console.log('Slicing ' + directory);
@@ -362,7 +369,7 @@ create().then(function () {
 	var promiseArray = mongoMetadata.map(function (card) {
 		return new Promise(function (resolve, reject) {
 			var slug = createSlug(card.name),
-			    thumbnailDirectory = 'img/' + slug;
+			    thumbnailDirectory = cardImageDirectory + slug;
 
 			fs.readdir(thumbnailDirectory, function (readdir_err, files) {
 				if (readdir_err) {
@@ -379,7 +386,7 @@ create().then(function () {
 	});
 
 	return Promise.all(promiseArray);
-}).then(function (cards) {}).then(function () {
+}).then(function () {
 	console.log("\nAll done and no issues.");
 
 	close(db);
