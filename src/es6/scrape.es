@@ -297,34 +297,39 @@ create()
 			})	
 		})
 	})
-	.then((files) => {
+	.then((directories) => {
 		console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
-		files.forEach((directory) => {
-			if (directory !== '.DS_Store') {
-				fs.readdir(directory, (readdir_err, files) => {
-					if (readdir_err) {
-						return Promise.reject(readdir_err);
+		return directories.reduce((promiseChain, directory) => {
+			return promiseChain.then(() => new Promise((resolve) => {
 
-					} else if (!files.includes('pyramid_files')) {
-						execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
-							(error, stdout, stderr) => {
+				if (directory !== '.DS_Store') {
+					fs.readdir('img/' + directory, (readdir_err, files) => {
+						if (readdir_err) {
+							return Promise.reject(readdir_err);
 
-							console.log('Slicing ' + directory);
+						} else if (!files.includes('pyramid_files')) {
+							execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+								(error, stdout, stderr) => {
 
-							if (error) {
-								console.log(error);
-							} else {
-								console.log(directory + ' successfully sliced.');
-							}
-						});						
-					} else {
-						console.log(directory + ' already sliced.');
-					}
-				});
+								console.log('Slicing ' + directory);
 
-			}
-		});
+								if (error) {
+									Promise.reject(error);
+								} else {
+									console.log(directory + ' successfully sliced.');
+									resolve();
+								}
+							});						
+						} else {
+							console.log(directory + ' already sliced.');
+							resolve();
+						}
+					});
+				}
+
+			}));
+		}, Promise.resolve());
 	})
 	.then(() => {
 		console.log('\nSaving thumbnails ...\n');
