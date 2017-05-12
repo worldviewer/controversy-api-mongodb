@@ -300,8 +300,8 @@ create()
 	.then((directories) => {
 		console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
-		return directories.reduce((promiseChain, directory) => {
-			return promiseChain.then(() => new Promise((resolve) => {
+		let sliceOps = directories.reduce((promiseChain, directory) => {
+			return promiseChain.then(() => new Promise((resolve, reject) => {
 
 				if (directory !== '.DS_Store') {
 					fs.readdir('img/' + directory, (readdir_err, files) => {
@@ -330,6 +330,8 @@ create()
 
 			}));
 		}, Promise.resolve());
+
+		sliceOps.then(() => { return Promise.resolve(); } );
 	})
 	.then(() => {
 		console.log('\nSaving thumbnails ...\n');

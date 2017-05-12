@@ -281,9 +281,9 @@ create().then(function () {
 }).then(function (directories) {
 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
 
-	return directories.reduce(function (promiseChain, directory) {
+	var sliceOps = directories.reduce(function (promiseChain, directory) {
 		return promiseChain.then(function () {
-			return new Promise(function (resolve) {
+			return new Promise(function (resolve, reject) {
 
 				if (directory !== '.DS_Store') {
 					fs.readdir('img/' + directory, function (readdir_err, files) {
@@ -310,6 +310,10 @@ create().then(function () {
 			});
 		});
 	}, Promise.resolve());
+
+	sliceOps.then(function () {
+		return Promise.resolve();
+	});
 }).then(function () {
 	console.log('\nSaving thumbnails ...\n');
 
