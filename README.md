@@ -79,32 +79,6 @@ To get the other assets, the base URL will be ...
 
     https://s3-us-west-1.amazonaws.com/controversy-cards-assets/58b8f1f7b2ef4ddae2fb8b17/assets
 
-## State of the Project
-
-Most immediately, I now need to refactor my app to use these endpoints -- completing the migration from Usergrid to MongoDB.  This may require considerable refactoring of my image caching.
-
-The /metacards endpoint should allow for a category query parameter according to the categories listed below in "Data Source".
-
-Then, the next step is to refactor app to use Redux.
-
-Only then should I proceed to wrap my frontend into the hackathon starter.
-
-## Next Steps
-
-- Scaffold React hackathon starter
-- Import existing project into this starter in a fresh repo
-- Set up Express with routes to return this detailed card data for prototype
-- Use that data to load the overlays and image pyramid
-- Switch deployment in hackathon starter from heroku to AWS
-- Refactor app w/ Redux
-- Drop in authentication/authorization from starter for Github, Google+, Twitter, Facebook
-- Tweak authentication to suit app
-- Improve splash screen
-- Add swipes UI into React using React Router
-- Create tests
-- Create slideshow that summarizes most important points of text
-- Wait to experiment with annotating the canvas as long as possible, look for a drop-in solution, or some combination of drop-in solutions
-
 ## Data Source
 
 The cards are broken down into 6 categories:
