@@ -27,6 +27,7 @@ let db = null,
 	mongoMetacards,
 	mongoCards,
 	savedCount,
+	mongoMetadata,
 	shouldScrape = false,
 	prototypeCard;
 
@@ -46,6 +47,15 @@ function open() {
 			}
 		});
 	});
+}
+
+// Slugify, lower the casing, then remove periods and apostrophes
+function createSlug(cardName) {
+	let slugInitial = slugify(cardName),
+		slugLower = slugInitial.toLowerCase(),
+		slugFinal = slugLower.replace(/['.]/g, '');
+
+	return slugFinal;
 }
 
 function saveImage(url, destination, resolve, reject) {
@@ -219,10 +229,12 @@ create()
 
 	// create directory from card id, download and save url image into that directory, then rename that file to large.jpg
 	.then(() => {
-		return db.collection(METACARDS)
+		mongoMetadata = db.collection(METACARDS)
 		  .find({})
-		  .map(x => { return { 'url': x.url, 'name': x.name } } )
+		  .map(x => { return { 'url': x.url, 'name': x.name, 'thumbnail': x.thumbnail } } )
 		  .toArray();
+
+		return mongoMetadata;
 	})
 
 	// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
@@ -232,12 +244,8 @@ create()
 		let promiseArray = cards.map((card) => {
 			return new Promise((resolve, reject) => {
 
-				// Slugify, lower the casing, then remove periods and apostrophes
-				let slugInitial = slugify(card.name),
-					slugLower = slugInitial.toLowerCase(),
-					slugFinal = slugLower.replace(/['.]/g, '');
-
-				let imageDirectory = 'img/' + slugFinal;
+				let slug = createSlug(card.name),
+					imageDirectory = 'img/' + slug;
 
 				// Check if we have read/write access to the directory
 				fs.access(imageDirectory, fs.constants.R_OK | fs.constants.W_OK, (access_err) => {
@@ -296,19 +304,47 @@ create()
 			if (directory !== '.DS_Store') {
 				console.log('Slicing ' + directory);
 
-				execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
-					(error, stdout, stderr) => {
+				fs.readdir(directory, (readdir_err, files) => {
+					if (readdir_err) {
+						return Promise.reject(readdir_err);
 
-					if (error || stderr) {
-						console.log(error);
-						console.log(stderr);
-					} else {
-						console.log(directory + ' successfully sliced.');
-						console.log(stdout);
+					} else if (!files.includes('pyramid_files')) {
+						execSync('./magick-slicer.sh img/' + directory + '/large.jpg -o img/' + directory + '/pyramid',
+							(error, stdout, stderr) => {
+
+							if (error) {
+								console.log(error);
+							} else {
+								console.log(directory + ' successfully sliced.');
+							}
+						});						
 					}
 				});
+
 			}
 		});
+	})
+	.then(() => {
+		console.log('\nSaving thumbnails ...\n');
+
+		let promiseArray = mongoMetadata.map((card) => {
+			return new Promise((resolve, reject) => {
+				let slug = createSlug(card.name),
+					thumbnailDirectory = 'img/' + slug;
+
+				fs.readdir(thumbnailDirectory, (readdir_err, files) => {
+					if (readdir_err) {
+						return Promise.reject(readdir_err);
+
+					} else if (!files.includes('thumbnail.jpg')) {
+						saveImage(card.thumbnail, thumbnailDirectory + '/thumbnail.jpg', resolve, reject);					
+					}
+				});
+
+			});
+		});
+
+		return Promise.all(promiseArray);
 	})
 	.then(() => {
 		console.log("\nAll done and no issues.");
