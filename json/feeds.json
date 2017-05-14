@@ -21,8 +21,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -60,8 +60,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -86,8 +86,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -177,8 +177,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -229,8 +229,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -255,8 +255,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -281,8 +281,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -294,8 +294,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -424,8 +424,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -437,8 +437,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -446,7 +446,7 @@
 			"slug" : "setterfield-quantized-redshifts",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : 2,
+					"maxZoomLevel" : 3,
 					"TileSize" : 512
 				},
 				"large" : {
@@ -504,8 +504,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -556,8 +556,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -569,8 +569,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -597,8 +597,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -623,8 +623,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -649,8 +649,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -658,7 +658,7 @@
 			"slug" : "gravitational-lens-falsifiable",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : 7,
+					"maxZoomLevel" : 9,
 					"TileSize" : 256
 				},
 				"large" : {
@@ -699,12 +699,12 @@
 			"slug" : "arp-explains-quasar-conventional",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : 1.5,
+					"maxZoomLevel" : 2,
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -716,8 +716,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -729,8 +729,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -742,8 +742,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -755,8 +755,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -768,8 +768,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -781,8 +781,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -794,8 +794,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -820,8 +820,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -833,8 +833,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -857,12 +857,12 @@
 			"slug" : "arp-amateurs-salvation",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : 1.5,
+					"maxZoomLevel" : 2,
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -874,8 +874,8 @@
 					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		}
