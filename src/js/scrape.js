@@ -223,16 +223,20 @@ create().then(function () {
 		}
 	});
 }).then(function () {
-	console.log('\nExporting the combined JSON to json/algolia.json\n');
-
 	return new Promise(function (resolve, reject) {
-		fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', function (err) {
-			if (err) {
-				reject(err);
-			} else {
-				resolve();
-			}
-		});
+		if (combinedJSON) {
+			console.log('\nExporting the combined JSON to json/algolia.json\n');
+
+			fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', function (err) {
+				if (err) {
+					reject(err);
+				} else {
+					resolve();
+				}
+			});
+		} else {
+			console.log('\nSkipping the export of the combined JSON because it is empty.\n');
+		}
 	});
 }).then(function () {
 	return new Promise(function (resolve, reject) {
@@ -437,10 +441,7 @@ create().then(function () {
 	});
 
 	return Promise.all(promiseArray);
-})
-
-// TODO: This needs to complete before .then()
-.then(function () {
+}).then(function () {
 	console.log('\nGenerating thumbnails from feed posts ...\n');
 
 	allFeedImages = removeSystemFiles(allFeedImages);

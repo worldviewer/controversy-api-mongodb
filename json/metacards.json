@@ -575,7 +575,8 @@
 		"slug" : "over-specialization",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.7,5					"TileSize" : 256
+				"maxZoomLevel" : 1.7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -639,7 +640,8 @@
 		"slug" : "rational-skepticism-vs-denialism",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.7,5					"TileSize" : 256
+				"maxZoomLevel" : 1.7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1392,7 +1394,8 @@
 		"slug" : "the-journal-oligopoly",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.6,5					"TileSize" : 256
+				"maxZoomLevel" : 1.6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
