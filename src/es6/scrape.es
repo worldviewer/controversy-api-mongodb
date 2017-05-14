@@ -470,43 +470,44 @@ create()
 		return Promise.all(promiseArray);
 	})
 
-	// TODO: This needs to complete before .then()
 	.then(() => {
 		console.log('\nGenerating thumbnails from feed posts ...\n');
 
 		allFeedImages = removeSystemFiles(allFeedImages);
 		let feedCardCount = 0;
 
-		let syncThumbnail = function() {
-			fs.readdir(allFeedImages[feedCardCount], (readdir_err, files) => {
+		return new Promise((resolve, reject) => {
+			let syncThumbnail = function() {
+				fs.readdir(allFeedImages[feedCardCount], (readdir_err, files) => {
 
-				if (readdir_err) {
-					Promise.reject(readdir_err);
-				}
-
-				createThumbnail(allFeedImages[feedCardCount],
-					allFeedImages[feedCardCount], files.includes('thumbnail.jpg')).then(
-					() => {
-
-					if (!files.includes('thumbnail.jpg')) {
-						console.log('Thumbnail generated for ' + allFeedImages[feedCardCount]);
+					if (readdir_err) {
+						reject(readdir_err);
 					}
 
-					if (feedCardCount < allFeedImages.length) {
-						syncThumbnail();
-					} else {
-						return;
-					}
-				})
-				.catch((err) => {
-					Promise.reject(err);
-				});
+					createThumbnail(allFeedImages[feedCardCount],
+						allFeedImages[feedCardCount], files.includes('thumbnail.jpg')).then(
+						() => {
 
-				feedCardCount++;				
-			});	
-		}
+						if (!files.includes('thumbnail.jpg')) {
+							console.log('Thumbnail generated for ' + allFeedImages[feedCardCount]);
+						}
 
-		syncThumbnail();
+						if (feedCardCount < allFeedImages.length) {
+							syncThumbnail();
+						} else {
+							resolve();
+						}
+					})
+					.catch((err) => {
+						reject(err);
+					});
+
+					feedCardCount++;				
+				});	
+			}
+
+			syncThumbnail();
+		});
 	})
 
 	.then(() => {
