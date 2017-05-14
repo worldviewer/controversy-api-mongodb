@@ -3,7 +3,8 @@
 		"slug" : "2-sociologists-tell-the-story-of-cold-fusion",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -15,7 +16,8 @@
 		"slug" : "3-types-of-collective-intelligence-problems",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -27,7 +29,8 @@
 		"slug" : "an-expert-in-science-misconceptions-explains-critical-thinking",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -39,7 +42,8 @@
 		"slug" : "anthony-peratt",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -51,7 +55,8 @@
 		"slug" : "apodnereid",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -63,7 +68,8 @@
 		"slug" : "ausubels-six-principles-of-knowledge-construction",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 13
+				"maxZoomLevel" : 13,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9975,
@@ -75,7 +81,8 @@
 		"slug" : "bertrand-russells-10-commandments-of-teaching",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.8
+				"maxZoomLevel" : 1.8,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -87,7 +94,8 @@
 		"slug" : "big-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -99,7 +107,8 @@
 		"slug" : "black-hole-babble",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -111,7 +120,8 @@
 		"slug" : "cancer-as-a-fungus",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -123,7 +133,8 @@
 		"slug" : "changing-radioactive-decay-rate-as-a-solar-flare-predictor",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 7560,
@@ -135,7 +146,8 @@
 		"slug" : "controversy-first-science-education",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -147,7 +159,8 @@
 		"slug" : "cosmology-in-crisis",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -159,7 +172,8 @@
 		"slug" : "crank-dot-net",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -171,7 +185,8 @@
 		"slug" : "crowding-out",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -183,7 +198,8 @@
 		"slug" : "dark-earth",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -195,7 +211,8 @@
 		"slug" : "debye-screening",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -207,7 +224,8 @@
 		"slug" : "dendrochronology",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -219,7 +237,8 @@
 		"slug" : "dingles-paradox",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -231,7 +250,8 @@
 		"slug" : "distributed-or-multiple-representations-in-multiple-agents",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -243,7 +263,8 @@
 		"slug" : "donald-w-braben",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -255,7 +276,8 @@
 		"slug" : "electric-discharge-machining",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 20
+				"maxZoomLevel" : 20,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 14000,
@@ -267,7 +289,8 @@
 		"slug" : "electron-theory-as-worldview",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -279,7 +302,8 @@
 		"slug" : "exploration-vs-exploitation",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -291,7 +315,8 @@
 		"slug" : "gerald-pollack",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -303,7 +328,8 @@
 		"slug" : "gerrit-verschuur",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -315,7 +341,8 @@
 		"slug" : "groupthink-and-the-snowball-effect",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -327,7 +354,8 @@
 		"slug" : "groupthink-vs-conformity-vs-social-proof-vs-herding",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -339,7 +367,8 @@
 		"slug" : "halton-arp-the-modern-galileo",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 20
+				"maxZoomLevel" : 20,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 13888,
@@ -351,7 +380,8 @@
 		"slug" : "heinsons-chronology",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 18
+				"maxZoomLevel" : 18,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -363,7 +393,8 @@
 		"slug" : "hindsight-bias-in-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.7
+				"maxZoomLevel" : 1.7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -375,7 +406,8 @@
 		"slug" : "ian-tresman",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -387,7 +419,8 @@
 		"slug" : "ignorance",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -399,7 +432,8 @@
 		"slug" : "immanuel-velikovsky",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -411,7 +445,8 @@
 		"slug" : "innovation-starvation",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -423,7 +458,8 @@
 		"slug" : "innovations-long-tail",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -435,7 +471,8 @@
 		"slug" : "jeff-schmidt",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -447,7 +484,8 @@
 		"slug" : "john-taylor-gatto",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -459,7 +497,8 @@
 		"slug" : "joshua-schroeder-aka-scienceapologist",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -471,7 +510,8 @@
 		"slug" : "kristian-birkelands-terrella",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7.5
+				"maxZoomLevel" : 7.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -483,7 +523,8 @@
 		"slug" : "lightning-to-space",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 14
+				"maxZoomLevel" : 14,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -495,7 +536,8 @@
 		"slug" : "martin-lopez-corredoira",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -507,7 +549,8 @@
 		"slug" : "maxwells-spinning-cell-model",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -519,7 +562,8 @@
 		"slug" : "nuclear-half-life-modification-technology",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -531,7 +575,7 @@
 		"slug" : "over-specialization",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.75
+				"maxZoomLevel" : 1.7,5					"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -543,7 +587,8 @@
 		"slug" : "panspermia-and-the-endospore",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -555,7 +600,8 @@
 		"slug" : "platos-reveal",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2.4
+				"maxZoomLevel" : 2.4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -567,7 +613,8 @@
 		"slug" : "please-stop-saying-that-the-1919-eclipse-expedition-verified-relativity",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4.5
+				"maxZoomLevel" : 4.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 7500,
@@ -579,7 +626,8 @@
 		"slug" : "quasi-neutrality",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 8
+				"maxZoomLevel" : 8,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -591,7 +639,7 @@
 		"slug" : "rational-skepticism-vs-denialism",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.75
+				"maxZoomLevel" : 1.7,5					"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -603,7 +651,8 @@
 		"slug" : "reacting-vs-creating",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 8
+				"maxZoomLevel" : 8,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -615,7 +664,8 @@
 		"slug" : "rote-memorization-vs-meaningful-learning",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -627,7 +677,8 @@
 		"slug" : "science-as-a-golum",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -639,7 +690,8 @@
 		"slug" : "science-its-not-just-a-process-of-elimination",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -651,7 +703,8 @@
 		"slug" : "science-vs-religion",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -663,7 +716,8 @@
 		"slug" : "sciences-gatekeeping-problem",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3.5
+				"maxZoomLevel" : 3.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -675,7 +729,8 @@
 		"slug" : "scientific-research-as-a-truth-machine",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3.5
+				"maxZoomLevel" : 3.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -687,7 +742,8 @@
 		"slug" : "scientism",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -699,7 +755,8 @@
 		"slug" : "string-theory-as-not-even-wrong",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -711,7 +768,8 @@
 		"slug" : "the-5-stages-of-the-mind",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -723,7 +781,8 @@
 		"slug" : "the-aether-experiments",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 7560,
@@ -735,7 +794,8 @@
 		"slug" : "the-age-of-the-earth",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -747,7 +807,8 @@
 		"slug" : "the-annotation-of-scientific-papers",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -759,7 +820,8 @@
 		"slug" : "the-anti-pattern-of-settled-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -771,7 +833,8 @@
 		"slug" : "the-arctic-subtropic",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -783,7 +846,8 @@
 		"slug" : "the-astronomical-nature-of-mythology",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -795,7 +859,8 @@
 		"slug" : "the-believable-narrative",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -807,7 +872,8 @@
 		"slug" : "the-bias-of-a-visible-universe",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -819,7 +885,8 @@
 		"slug" : "the-bias-of-being-in-a-thin-atmosphere-in-a-plasma-universe",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -831,7 +898,8 @@
 		"slug" : "the-big-bangs-big-redshift-assumption",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2.5
+				"maxZoomLevel" : 2.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -843,7 +911,8 @@
 		"slug" : "the-bug-in-sciences-machine",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -855,7 +924,8 @@
 		"slug" : "the-burnham-model-for-stellar-distances",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -867,7 +937,8 @@
 		"slug" : "the-changing-radioactive-decay-rate",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 18
+				"maxZoomLevel" : 18,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 13888,
@@ -879,7 +950,8 @@
 		"slug" : "the-cherry-picking-of-radiocarbon-dates",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -891,7 +963,8 @@
 		"slug" : "the-clovis-police",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -903,7 +976,8 @@
 		"slug" : "the-collapse-of-the-roman-civilization-as-a-lesson-for-the-scientific-community",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -915,7 +989,8 @@
 		"slug" : "the-college-experience",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -927,7 +1002,8 @@
 		"slug" : "the-comet-of-justinian",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -939,7 +1015,8 @@
 		"slug" : "the-connector",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -951,7 +1028,8 @@
 		"slug" : "the-constructivist-revolution",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -963,7 +1041,8 @@
 		"slug" : "the-controversy-campaign",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -975,7 +1054,8 @@
 		"slug" : "the-controversy-channel",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -987,7 +1067,8 @@
 		"slug" : "the-controversy-graph",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6.5
+				"maxZoomLevel" : 6.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -999,7 +1080,8 @@
 		"slug" : "the-copernican-myths",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1011,7 +1093,8 @@
 		"slug" : "the-critical-analytical-vocabulary",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 11
+				"maxZoomLevel" : 11,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1023,7 +1106,8 @@
 		"slug" : "the-crowdsourcing-of-scientific-controversies",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1035,7 +1119,8 @@
 		"slug" : "the-dark-energy-fudge-factor",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9.5
+				"maxZoomLevel" : 9.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -1047,7 +1132,8 @@
 		"slug" : "the-debate-over-dendrochronology",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1059,7 +1145,8 @@
 		"slug" : "the-debate-over-phantom-centuries-using-eclipse-data",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1071,7 +1158,8 @@
 		"slug" : "the-debate-over-the-science-futures-market",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1083,7 +1171,8 @@
 		"slug" : "the-decline-in-conceptual-revolutions",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 10080,
@@ -1095,7 +1184,8 @@
 		"slug" : "the-denial-of-the-failure-of-planetary-formation-theory",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1107,7 +1197,8 @@
 		"slug" : "the-dolomite-problem",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 16
+				"maxZoomLevel" : 16,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1119,7 +1210,8 @@
 		"slug" : "the-empty-vacuum-of-space-mistake",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 18
+				"maxZoomLevel" : 18,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9800,
@@ -1131,7 +1223,8 @@
 		"slug" : "the-extinction-of-the-mammoths",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 18
+				"maxZoomLevel" : 18,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 14000,
@@ -1143,7 +1236,8 @@
 		"slug" : "the-extrinsic-motivator",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1155,7 +1249,8 @@
 		"slug" : "the-fact-and-the-ritual-of-accuracy",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1167,7 +1262,8 @@
 		"slug" : "the-force-concept-inventory-test",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1179,7 +1275,8 @@
 		"slug" : "the-generalist",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1191,7 +1288,8 @@
 		"slug" : "the-hedgehog-vs-the-fox",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1203,7 +1301,8 @@
 		"slug" : "the-history-of-peer-review",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1215,7 +1314,8 @@
 		"slug" : "the-history-of-the-birkeland-current",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 18
+				"maxZoomLevel" : 18,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 13888,
@@ -1227,7 +1327,8 @@
 		"slug" : "the-illusion-of-the-scientific-hero",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1239,7 +1340,8 @@
 		"slug" : "the-incoherence-of-black-hole-mathematics",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 13
+				"maxZoomLevel" : 13,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -1251,7 +1353,8 @@
 		"slug" : "the-inevitability-of-dark-energy-and-the-higgs-boson",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1263,7 +1366,8 @@
 		"slug" : "the-information-cascade-vs-the-independent-thinker",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1275,7 +1379,8 @@
 		"slug" : "the-institute-for-venture-science-process",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1287,7 +1392,7 @@
 		"slug" : "the-journal-oligopoly",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.65
+				"maxZoomLevel" : 1.6,5					"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1299,7 +1404,8 @@
 		"slug" : "the-language-of-mathematics",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1311,7 +1417,8 @@
 		"slug" : "the-lesson-of-the-cracking-of-enigma",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1323,7 +1430,8 @@
 		"slug" : "the-lorentz-force-and-marklund-convection-the-alternative-to-gravitational-accretion",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 11
+				"maxZoomLevel" : 11,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1335,7 +1443,8 @@
 		"slug" : "the-low-energy-nuclear-reaction",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1347,7 +1456,8 @@
 		"slug" : "the-many-assumptions-of-radiocarbon-dating",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1359,7 +1469,8 @@
 		"slug" : "the-map-is-not-the-territory",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1371,7 +1482,8 @@
 		"slug" : "the-men-of-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1383,7 +1495,8 @@
 		"slug" : "the-method-of-multiple-working-hypotheses",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1395,7 +1508,8 @@
 		"slug" : "the-microbiome",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1407,7 +1521,8 @@
 		"slug" : "the-misbehaving-fundamental-constants",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1419,7 +1534,8 @@
 		"slug" : "the-misconception-of-the-cell-membrane-as-a-container",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1431,7 +1547,8 @@
 		"slug" : "the-misconceptions-of-expertise",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 8
+				"maxZoomLevel" : 8,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1443,7 +1560,8 @@
 		"slug" : "the-myth-of-galileo",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1455,7 +1573,8 @@
 		"slug" : "the-narrative-of-scientific-discovery",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1467,7 +1586,8 @@
 		"slug" : "the-neutrino-sunspot-anti-correlation",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1479,7 +1599,8 @@
 		"slug" : "the-observers-expectation",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 7
+				"maxZoomLevel" : 7,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1491,7 +1612,8 @@
 		"slug" : "the-origin-of-the-solar-cycle",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2.3
+				"maxZoomLevel" : 2.3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1503,7 +1625,8 @@
 		"slug" : "the-petroglyphs-as-records-of-cosmic-events",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 11
+				"maxZoomLevel" : 11,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -1515,7 +1638,8 @@
 		"slug" : "the-phantom-time-hypothesis",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1527,7 +1651,8 @@
 		"slug" : "the-plasma-double-layer",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 22
+				"maxZoomLevel" : 22,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 14000,
@@ -1539,7 +1664,8 @@
 		"slug" : "the-positivists-vs-the-constructivists",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1551,7 +1677,8 @@
 		"slug" : "the-post-idea-world",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1563,7 +1690,8 @@
 		"slug" : "the-pre-scientific-judgment-of-new-ideas",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1575,7 +1703,8 @@
 		"slug" : "the-pressure-to-publish",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 8
+				"maxZoomLevel" : 8,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1587,7 +1716,8 @@
 		"slug" : "the-problematic-age-of-coal",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 15
+				"maxZoomLevel" : 15,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1599,7 +1729,8 @@
 		"slug" : "the-problematic-origin-of-the-sodium-pump-hypothesis",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -1611,7 +1742,8 @@
 		"slug" : "the-problematic-weight-of-the-dinosaurs",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 15
+				"maxZoomLevel" : 15,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 17500,
@@ -1623,7 +1755,8 @@
 		"slug" : "the-pseudo-mysteries-of-lightning",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 15
+				"maxZoomLevel" : 15,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 7560,
@@ -1635,7 +1768,8 @@
 		"slug" : "the-questionable-origins-of-earths-sand",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1647,7 +1781,8 @@
 		"slug" : "the-rejection-of-epigenetics",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1659,7 +1794,8 @@
 		"slug" : "the-rejection-of-radio-waves-from-space",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 7500,
@@ -1671,7 +1807,8 @@
 		"slug" : "the-rejection-of-the-maser-the-precursor-to-the-laser",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1683,7 +1820,8 @@
 		"slug" : "the-safe-space",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1695,7 +1833,8 @@
 		"slug" : "the-science-celebrity",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1707,7 +1846,8 @@
 		"slug" : "the-science-futures-market",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1719,7 +1859,8 @@
 		"slug" : "the-science-journalist",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1731,7 +1872,8 @@
 		"slug" : "the-science-troll",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1743,7 +1885,8 @@
 		"slug" : "the-scientific-attitude",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1755,7 +1898,8 @@
 		"slug" : "the-simulation-as-a-black-box",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1767,7 +1911,8 @@
 		"slug" : "the-skywave",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 10
+				"maxZoomLevel" : 10,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1779,7 +1924,8 @@
 		"slug" : "the-solar-neutrino-problem",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1791,7 +1937,8 @@
 		"slug" : "the-speed-of-gravity",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1803,7 +1950,8 @@
 		"slug" : "the-stoner-thought-experiment",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 14
+				"maxZoomLevel" : 14,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 15120,
@@ -1815,7 +1963,8 @@
 		"slug" : "the-strong-inference-plus-method",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 16
+				"maxZoomLevel" : 16,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1827,7 +1976,8 @@
 		"slug" : "the-structure-of-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1839,7 +1989,8 @@
 		"slug" : "the-sudden-appearance-of-earths-sand",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 13
+				"maxZoomLevel" : 13,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1851,7 +2002,8 @@
 		"slug" : "the-texas-sharpshooter-fallacy",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1863,7 +2015,8 @@
 		"slug" : "the-textbook-mythologies-of-aether-and-relativity",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1875,7 +2028,8 @@
 		"slug" : "the-third-story",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1887,7 +2041,8 @@
 		"slug" : "the-tree-ring",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1899,7 +2054,8 @@
 		"slug" : "the-trouble-with-neutron-stars",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1911,7 +2067,8 @@
 		"slug" : "the-trouble-with-sands-color",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 13
+				"maxZoomLevel" : 13,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -1923,7 +2080,8 @@
 		"slug" : "the-two-systems-of-the-mind",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1935,7 +2093,8 @@
 		"slug" : "the-unknown-graduate-student",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1947,7 +2106,8 @@
 		"slug" : "the-unlearning-of-creativity",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 2
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1959,7 +2119,8 @@
 		"slug" : "the-village-venus-effect",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1971,7 +2132,8 @@
 		"slug" : "the-weakest-force-gravity",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -1983,7 +2145,8 @@
 		"slug" : "the-wisdom-of-crowds",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -1995,7 +2158,8 @@
 		"slug" : "tourists-vs-explorers",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2007,7 +2171,8 @@
 		"slug" : "tribalism-in-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2019,7 +2184,8 @@
 		"slug" : "turning-data-into-insight",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
@@ -2031,7 +2197,8 @@
 		"slug" : "uniformitarianism-vs-catastrophism",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 11
+				"maxZoomLevel" : 11,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -2043,7 +2210,8 @@
 		"slug" : "velikovskys-chronology",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2055,7 +2223,8 @@
 		"slug" : "vitrified-stonework",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2067,7 +2236,8 @@
 		"slug" : "what-gives-venus-its-feminine-attribute",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2079,7 +2249,8 @@
 		"slug" : "when-can-we-trust-expertise",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 5
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2091,7 +2262,8 @@
 		"slug" : "why-evolution-is-not-what-you-think-the-ebner-effect",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 9
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -2103,7 +2275,8 @@
 		"slug" : "why-its-probably-not-a-conspiracy",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 4
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2115,7 +2288,8 @@
 		"slug" : "why-mythology-is-so-controversial",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 13
+				"maxZoomLevel" : 13,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -2127,7 +2301,8 @@
 		"slug" : "why-outsider-mavericks-matter-in-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 3
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2139,7 +2314,8 @@
 		"slug" : "why-venus-is-not-a-greenhouse",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 15
+				"maxZoomLevel" : 15,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 8750,
@@ -2151,7 +2327,8 @@
 		"slug" : "why-we-critique-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 1.5
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 2520,
@@ -2163,7 +2340,8 @@
 		"slug" : "willard-libbys-nobel-fraud",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 12
+				"maxZoomLevel" : 12,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 9999,
@@ -2175,7 +2353,8 @@
 		"slug" : "zombie-science",
 		"images" : {
 			"pyramid" : {
-				"maxZoomLevel" : 6
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
 			},
 			"large" : {
 				"height" : 5040,
