@@ -95,12 +95,12 @@
 			"slug" : "blog-crackpot-theory",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -108,12 +108,12 @@
 			"slug" : "clumping-problem",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -121,12 +121,12 @@
 			"slug" : "einstein-cross-quote",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1000,
+					"width" : 1000
 				}
 			}
 		},
@@ -134,12 +134,12 @@
 			"slug" : "einstein-rings-expectations-observations",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 5,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1500,
+					"width" : 1500
 				}
 			}
 		},
@@ -147,12 +147,12 @@
 			"slug" : "first-lens-claim",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -160,12 +160,12 @@
 			"slug" : "fred-hoyle-complication-quote",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1400,
+					"width" : 1400
 				}
 			}
 		},
@@ -173,8 +173,8 @@
 			"slug" : "grb-surprise",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -186,12 +186,12 @@
 			"slug" : "hide-the-null-result",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -199,12 +199,12 @@
 			"slug" : "hogan-and-the-graduate",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -212,12 +212,12 @@
 			"slug" : "hoyles-disproof",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -225,8 +225,8 @@
 			"slug" : "immediate-difficulties",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -238,12 +238,12 @@
 			"slug" : "importance-of-deep-photographs",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -251,8 +251,8 @@
 			"slug" : "karlsson-effect",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -264,12 +264,12 @@
 			"slug" : "knacke-disproof",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -277,8 +277,8 @@
 			"slug" : "largest-structure-in-the-universe",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -290,8 +290,8 @@
 			"slug" : "nereids-defense-of-transparent-bulge",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -303,12 +303,12 @@
 			"slug" : "ngc7319-debate",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1560,
+					"width" : 1560
 				}
 			}
 		},
@@ -316,12 +316,12 @@
 			"slug" : "ngc7603-rejected",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1020,
+					"width" : 1020
 				}
 			}
 		},
@@ -329,12 +329,12 @@
 			"slug" : "not-a-chance",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1544,
+					"width" : 1544
 				}
 			}
 		},
@@ -342,12 +342,12 @@
 			"slug" : "periodicity-findings",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 8,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 6144,
+					"width" : 6144
 				}
 			}
 		},
@@ -355,12 +355,12 @@
 			"slug" : "quantization-debate",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 3072,
+					"width" : 3072
 				}
 			}
 		},
@@ -368,12 +368,12 @@
 			"slug" : "quasar-axes-alignment",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 800,
+					"width" : 800
 				}
 			}
 		},
@@ -381,12 +381,12 @@
 			"slug" : "quasar-books",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -394,12 +394,12 @@
 			"slug" : "quasar-perspective",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -407,12 +407,12 @@
 			"slug" : "quasar-proper-motion",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -420,8 +420,8 @@
 			"slug" : "quasar-redshift-interpretation",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -433,8 +433,8 @@
 			"slug" : "quasar-time-dilation",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -446,12 +446,12 @@
 			"slug" : "setterfield-quantized-redshifts",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -459,12 +459,12 @@
 			"slug" : "statistics-battle",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 6,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 3072,
+					"width" : 3072
 				}
 			}
 		},
@@ -472,12 +472,12 @@
 			"slug" : "telescope-time",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1544,
+					"width" : 1544
 				}
 			}
 		},
@@ -485,12 +485,12 @@
 			"slug" : "x-ray-heresy",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2092,
+					"width" : 2092
 				}
 			}
 		}
@@ -500,8 +500,8 @@
 			"slug" : "arp-narlikar-cosmology",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -513,12 +513,12 @@
 			"slug" : "arp-obit",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1536,
+					"width" : 1536
 				}
 			}
 		},
@@ -526,12 +526,12 @@
 			"slug" : "dwarf-galaxy-anomaly",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1536,
+					"width" : 1536
 				}
 			}
 		},
@@ -539,8 +539,8 @@
 			"slug" : "first-quadruple-quasar",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -552,8 +552,8 @@
 			"slug" : "matter-creation",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -565,8 +565,8 @@
 			"slug" : "periodicity-investigators",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -578,12 +578,12 @@
 			"slug" : "plasma-focus-agn",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		}
@@ -593,8 +593,8 @@
 			"slug" : "are-agns-common",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -606,12 +606,12 @@
 			"slug" : "arp-192-limb",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 5,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2358,
+					"width" : 2358
 				}
 			}
 		},
@@ -619,8 +619,8 @@
 			"slug" : "arp-density-quantization-conjecture",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -632,12 +632,12 @@
 			"slug" : "arp-relativity",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 4,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -645,8 +645,8 @@
 			"slug" : "do-not-question-authority",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -658,12 +658,12 @@
 			"slug" : "gravitational-lens-falsifiable",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 7,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 3072,
+					"width" : 3072
 				}
 			}
 		},
@@ -671,12 +671,12 @@
 			"slug" : "low-mass-electrons",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 7,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 4096,
+					"width" : 4096
 				}
 			}
 		}
@@ -686,12 +686,12 @@
 			"slug" : "anomalous-redshifts-conventional-view",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 2048,
+					"width" : 2048
 				}
 			}
 		},
@@ -699,8 +699,8 @@
 			"slug" : "arp-explains-quasar-conventional",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 1.5,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -712,8 +712,8 @@
 			"slug" : "disrupted-galaxy",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -725,8 +725,8 @@
 			"slug" : "gee-whiz-science",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -738,8 +738,8 @@
 			"slug" : "isophote",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -751,8 +751,8 @@
 			"slug" : "mitchell-explains-redshift",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 1.5,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -764,8 +764,8 @@
 			"slug" : "nereid-quasar-definition",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -777,8 +777,8 @@
 			"slug" : "proper-motion",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -790,8 +790,8 @@
 			"slug" : "redshift-components",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -803,12 +803,12 @@
 			"slug" : "redshift-vs-recession-velocity",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 4,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1536,
+					"width" : 1536
 				}
 			}
 		},
@@ -816,8 +816,8 @@
 			"slug" : "time-dilation",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 3,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -829,8 +829,8 @@
 			"slug" : "verschuur-agn-history",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 2,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -842,12 +842,12 @@
 			"slug" : "x-ray-sources",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 4,
+					"TileSize" : 256
 				},
 				"large" : {
-					"height" : 1024,
-					"width" : 1024
+					"height" : 1536,
+					"width" : 1536
 				}
 			}
 		}
@@ -857,8 +857,8 @@
 			"slug" : "arp-amateurs-salvation",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 1.5,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
@@ -870,8 +870,8 @@
 			"slug" : "telescope-time-gang",
 			"images" : {
 				"pyramid" : {
-					"maxZoomLevel" : ,
-					"TileSize" :
+					"maxZoomLevel" : 1.7,
+					"TileSize" : 512
 				},
 				"large" : {
 					"height" : 1024,
