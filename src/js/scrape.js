@@ -13,6 +13,7 @@ var Db = require('mongodb').Db,
     slugify = require('slugify'),
     execSync = require('child_process').execSync,
     ObjectId = require('mongodb').ObjectId,
+    Thumbnail = require('thumbnail'),
     port = 27017,
     host = "localhost",
     dbName = "controversies",
@@ -24,11 +25,12 @@ var Db = require('mongodb').Db,
     CARDS = 'cards',
     prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
     cardImageDirectory = 'img/cards/',
-    feedImageDirectory = 'img/feeds/',
+    feedImageDirectories = ['img/feeds/halton-arp-the-modern-galileo/worldview/', 'img/feeds/halton-arp-the-modern-galileo/model/', 'img/feeds/halton-arp-the-modern-galileo/propositional/', 'img/feeds/halton-arp-the-modern-galileo/conceptual/', 'img/feeds/halton-arp-the-modern-galileo/narrative/'],
     controversyJSON = 'json/halton-arp.json'; // relative to root
 
 var db = null,
     combinedJSON = [],
+    allFeedImages = [],
     gplusMetacards = void 0,
     // Controversy card metadata from G+
 mongoMetacards = void 0,
@@ -75,6 +77,31 @@ function saveImage(url, destination, resolve, reject) {
 				resolve();
 			}
 		});
+	});
+}
+
+function createThumbnail(input, output, isAlreadyGenerated) {
+	return new Promise(function (resolve, reject) {
+		if (isAlreadyGenerated) {
+			console.log('Thumbnail already generated for ' + input);
+			resolve();
+		} else {
+			var thumbnail = new Thumbnail(input, output);
+
+			thumbnail.ensureThumbnail('large.jpg', 506, 506, function (err, filename) {
+				if (err) {
+					reject(err);
+				} else {
+					resolve();
+				}
+			});
+		}
+	});
+}
+
+function removeSystemFiles(list) {
+	return list.filter(function (el) {
+		return !el.match(/\.DS_Store/);
 	});
 }
 
@@ -293,8 +320,10 @@ create().then(function () {
 							reject(readdir_err);
 						}
 
+						removeSystemFiles(files);
+
 						// ... but there is no image file
-						if (files.length === 0 || files.length === 1 && files[0] === '.DS_Store') {
+						if (files.length === 0) {
 							console.log('Saving image ' + imageDirectory + '...');
 							saveImage(card.image, imageDirectory + '/large.jpg', resolve, reject);
 						} else {
@@ -364,7 +393,7 @@ create().then(function () {
 // })
 
 .then(function () {
-	console.log('\nSaving the thumbnails ...\n');
+	console.log('\nSaving the controversy card thumbnails ...\n');
 
 	var promiseArray = mongoMetadata.map(function (card) {
 		return new Promise(function (resolve, reject) {
@@ -386,6 +415,61 @@ create().then(function () {
 	});
 
 	return Promise.all(promiseArray);
+})
+
+// grab all feed post image directories
+.then(function () {
+	var promiseArray = feedImageDirectories.map(function (feedImageDirectory) {
+		return new Promise(function (resolve, reject) {
+			fs.readdir(feedImageDirectory, function (err, files) {
+				files = files.map(function (file) {
+					return feedImageDirectory + file;
+				});
+
+				if (err) {
+					reject(err);
+				} else {
+					allFeedImages = allFeedImages.concat(files);
+					resolve();
+				}
+			});
+		});
+	});
+
+	return Promise.all(promiseArray);
+}).then(function () {
+	console.log('\nGenerating thumbnails from feed posts ...\n');
+
+	allFeedImages = removeSystemFiles(allFeedImages);
+	var feedCardCount = 0;
+
+	var syncThumbnail = function syncThumbnail() {
+		fs.readdir(allFeedImages[feedCardCount], function (readdir_err, files) {
+
+			if (readdir_err) {
+				Promise.reject(readdir_err);
+			}
+
+			createThumbnail(allFeedImages[feedCardCount], allFeedImages[feedCardCount], files.includes('thumbnail.jpg')).then(function () {
+
+				if (!files.includes('thumbnail.jpg')) {
+					console.log('Thumbnail generated for ' + allFeedImages[feedCardCount]);
+				}
+
+				if (feedCardCount < allFeedImages.length) {
+					syncThumbnail();
+				} else {
+					return;
+				}
+			}).catch(function (err) {
+				Promise.reject(err);
+			});
+
+			feedCardCount++;
+		});
+	};
+
+	syncThumbnail();
 }).then(function () {
 	console.log("\nAll done and no issues.");
 

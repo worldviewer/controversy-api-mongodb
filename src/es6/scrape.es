@@ -10,6 +10,7 @@ const
 	slugify = require('slugify'),
 	execSync = require('child_process').execSync,
 	ObjectId = require('mongodb').ObjectId,
+	Thumbnail = require('thumbnail'),
 	port = 27017,
 	host = "localhost",
 	dbName = "controversies",
@@ -21,11 +22,17 @@ const
 	CARDS = 'cards',
 	prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
 	cardImageDirectory = 'img/cards/',
-	feedImageDirectory = 'img/feeds/',
+	feedImageDirectories = [
+		'img/feeds/halton-arp-the-modern-galileo/worldview/',
+		'img/feeds/halton-arp-the-modern-galileo/model/',
+		'img/feeds/halton-arp-the-modern-galileo/propositional/',
+		'img/feeds/halton-arp-the-modern-galileo/conceptual/',
+		'img/feeds/halton-arp-the-modern-galileo/narrative/'],
 	controversyJSON = 'json/halton-arp.json'; // relative to root
 
 let db = null,
 	combinedJSON = [],
+	allFeedImages = [],
 	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards,
 	mongoCards,
@@ -72,6 +79,29 @@ function saveImage(url, destination, resolve, reject) {
 			}
 		}); 
 	});
+}
+
+function createThumbnail(input, output, isAlreadyGenerated) {
+	return new Promise((resolve, reject) => {
+		if (isAlreadyGenerated) {
+			console.log('Thumbnail already generated for ' + input);
+			resolve();
+		} else {
+			let thumbnail = new Thumbnail(input, output);
+
+			thumbnail.ensureThumbnail('large.jpg', 506, 506, (err, filename) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve();
+				}
+			});
+		}
+	})
+}
+
+function removeSystemFiles(list) {
+	return list.filter(el => !el.match(/\.DS_Store/));
 }
 
 function close(db) {
@@ -321,8 +351,10 @@ create()
 								reject(readdir_err);
 							}
 
+							removeSystemFiles(files);
+
 							// ... but there is no image file
-							if (files.length === 0 || (files.length === 1 && files[0] === '.DS_Store')) {
+							if (files.length === 0) {
 								console.log('Saving image ' + imageDirectory + '...');
 								saveImage(card.image, imageDirectory + '/large.jpg', resolve, reject);
 							} else {
@@ -392,7 +424,7 @@ create()
 	// })
 
 	.then(() => {
-		console.log('\nSaving the thumbnails ...\n');
+		console.log('\nSaving the controversy card thumbnails ...\n');
 
 		let promiseArray = mongoMetadata.map((card) => {
 			return new Promise((resolve, reject) => {
@@ -416,6 +448,65 @@ create()
 		});
 
 		return Promise.all(promiseArray);
+	})
+
+	// grab all feed post image directories
+	.then(() => {
+		let promiseArray = feedImageDirectories.map((feedImageDirectory) => {
+			return new Promise((resolve, reject) => {
+				fs.readdir(feedImageDirectory, (err, files) => {
+					files = files.map(file => feedImageDirectory + file);
+
+					if (err) {
+						reject(err);
+					} else {
+						allFeedImages = allFeedImages.concat(files);
+						resolve();
+					}
+				})
+			});
+		});
+
+		return Promise.all(promiseArray);
+	})
+
+	// TODO: This needs to complete before .then()
+	.then(() => {
+		console.log('\nGenerating thumbnails from feed posts ...\n');
+
+		allFeedImages = removeSystemFiles(allFeedImages);
+		let feedCardCount = 0;
+
+		let syncThumbnail = function() {
+			fs.readdir(allFeedImages[feedCardCount], (readdir_err, files) => {
+
+				if (readdir_err) {
+					Promise.reject(readdir_err);
+				}
+
+				createThumbnail(allFeedImages[feedCardCount],
+					allFeedImages[feedCardCount], files.includes('thumbnail.jpg')).then(
+					() => {
+
+					if (!files.includes('thumbnail.jpg')) {
+						console.log('Thumbnail generated for ' + allFeedImages[feedCardCount]);
+					}
+
+					if (feedCardCount < allFeedImages.length) {
+						syncThumbnail();
+					} else {
+						return;
+					}
+				})
+				.catch((err) => {
+					Promise.reject(err);
+				});
+
+				feedCardCount++;				
+			});	
+		}
+
+		syncThumbnail();
 	})
 
 	.then(() => {
