@@ -242,16 +242,20 @@ create()
 	})
 
 	.then(() => {
-		console.log('\nExporting the combined JSON to json/algolia.json\n');
-
 		return new Promise((resolve, reject) => {
-			fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', (err) => {
-				if (err) {
-					reject(err);
-				} else {
-					resolve();
-				}
-			});
+			if (combinedJSON) {
+				console.log('\nExporting the combined JSON to json/algolia.json\n');
+
+				fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', (err) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve();
+					}
+				});
+			} else {
+				console.log('\nSkipping the export of the combined JSON because it is empty.\n');
+			}
 		});
 	})
 
