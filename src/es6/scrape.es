@@ -11,16 +11,19 @@ const
 	execSync = require('child_process').execSync,
 	ObjectId = require('mongodb').ObjectId,
 	Thumbnail = require('thumbnail'),
+	GPlus = require('./gplus').default,
+	loadJsonFile = require('load-json-file'),
+
 	port = 27017,
 	host = "localhost",
 	dbName = "controversies",
 	url = `mongodb://${host}:${port}/${dbName}`,
 	assert = require('assert'),
-	GPlus = require('./gplus').default,
-	loadJsonFile = require('load-json-file'),
+
 	METACARDS = 'metacards',
 	CARDS = 'cards',
 	prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
+
 	cardImageDirectory = 'img/cards/',
 	feedImageDirectories = [
 		'img/feeds/halton-arp-the-modern-galileo/worldview/',
@@ -28,13 +31,15 @@ const
 		'img/feeds/halton-arp-the-modern-galileo/propositional/',
 		'img/feeds/halton-arp-the-modern-galileo/conceptual/',
 		'img/feeds/halton-arp-the-modern-galileo/narrative/'],
-	controversyJSON = 'json/halton-arp.json'; // relative to root
+	prototypeJSON = 'json/halton-arp.json',
+	algoliaJSON = 'json/algolia.json',
+	feedThumbnailSize = 506;
 
 let db = null,
 	combinedJSON = [],
 	allFeedImages = [],
 	gplusMetacards, // Controversy card metadata from G+
-	mongoMetacards,
+	mongoMetacards, // Mongo DB metacards reference
 	mongoCards,
 	savedCount,
 	mongoMetadata,
@@ -59,7 +64,7 @@ function open() {
 	});
 }
 
-// Slugify, lower the casing, then remove periods and apostrophes
+// Slugify controversy card titles, lower the casing, then remove periods and apostrophes
 function createSlug(cardName) {
 	let slugInitial = slugify(cardName),
 		slugLower = slugInitial.toLowerCase(),
@@ -81,6 +86,7 @@ function saveImage(url, destination, resolve, reject) {
 	});
 }
 
+// TODO: Rename resulting file to thumbnail.jpg
 function createThumbnail(input, output, isAlreadyGenerated) {
 	return new Promise((resolve, reject) => {
 		if (isAlreadyGenerated) {
@@ -89,7 +95,7 @@ function createThumbnail(input, output, isAlreadyGenerated) {
 		} else {
 			let thumbnail = new Thumbnail(input, output);
 
-			thumbnail.ensureThumbnail('large.jpg', 506, 506, (err, filename) => {
+			thumbnail.ensureThumbnail('large.jpg', feedThumbnailSize, feedThumbnailSize, (err, filename) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -149,6 +155,7 @@ create()
 		return open();	
 	})
 
+	// Check that G+ API keys exist
 	.then((database) => {
 		db = database;
 		shouldScrape = GPlus.keysExist();
@@ -156,12 +163,14 @@ create()
 		return database;
 	})
 
+	// Save a reference to the metacards MongoDB collection
 	.then((database) => {
 		return new Promise((resolve, reject) => {
 			resolve(db.collection(METACARDS));
 		});
 	})
 
+	// Save all controversy card data from G+ collection
 	.then((collection) => {
 		mongoMetacards = collection;
 
@@ -180,6 +189,7 @@ create()
 		});
 	})
 
+	// Get the current number of controversy cards in MongoDB
 	.then((collection) => {
 		gplusMetacards = collection;
 
@@ -203,6 +213,7 @@ create()
 		})
 	})
 
+	// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON
 	.then((JSONCards) => {
 		return new Promise((resolve, reject) => {
 			if (savedCount === 0 && shouldScrape) {
@@ -241,12 +252,13 @@ create()
 		});
 	})
 
+	// Export that composed object to a JSON file, for importing into Algolia search service
 	.then(() => {
 		return new Promise((resolve, reject) => {
 			if (combinedJSON) {
-				console.log('\nExporting the combined JSON to json/algolia.json\n');
+				console.log('\nExporting the combined JSON to ' + algoliaJSON + '\n');
 
-				fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', (err) => {
+				fs.writeFile(algoliaJSON, JSON.stringify(combinedJSON), 'utf-8', (err) => {
 					if (err) {
 						reject(err);
 					} else {
@@ -259,12 +271,14 @@ create()
 		});
 	})
 
+	// Check number of controversy cards in MongoDB post-save
 	.then(() => {
 		return new Promise((resolve, reject) => {
 			resolve(mongoMetacards.count());
 		});
 	})	
 
+	// Load the Halton Arp hardcoded JSON for the animated infographic
 	.then((count) => {
 		savedCount = count;
 
@@ -274,10 +288,11 @@ create()
 		console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 		return new Promise((resolve, reject) => {
-			resolve(loadJsonFile(controversyJSON));
+			resolve(loadJsonFile(prototypeJSON));
 		});
 	})
 
+	// Get reference to the prototype data in MongoDB
 	.then((json) => {
 		// Fix the prototype ObjectId
 		prototypeCard = Object.assign({}, json, {"_id": new ObjectId(prototypeObjectId)});
@@ -287,6 +302,7 @@ create()
 		});		
 	})
 
+	// Count number of cards stored in MongoDB prototype dataset
 	.then((collection) => {
 		mongoCards = collection;
 
@@ -295,6 +311,8 @@ create()
 		});		
 	})
 
+	// Observe that it's necessary to delete existing cards data in MongoDB before it will save
+	// mongo --> use controversies; --> db.cards.drop();
 	.then((count) => {
 		return new Promise((resolve, reject) => {
 			if (count === 0) {
@@ -309,7 +327,7 @@ create()
 		});		
 	})
 
-	// create directory from card id, download and save image into that directory, then rename that file to large.jpg
+	// Get all controversy card data from MongoDB
 	.then(() => {
 		return db.collection(METACARDS)
 			.find({})
@@ -321,6 +339,8 @@ create()
 				'text': x.text }})
 			.toArray();
 	})
+
+	// create directory from card id, download and save image into that directory, then rename that file to large.jpg
 
 	// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
 	.then((cards) => {
@@ -427,6 +447,7 @@ create()
 	// 	sliceOps.then(() => { return Promise.resolve(); } );
 	// })
 
+	// Grab all controversy card thumbnails from G+ API
 	.then(() => {
 		console.log('\nSaving the controversy card thumbnails ...\n');
 
@@ -454,7 +475,7 @@ create()
 		return Promise.all(promiseArray);
 	})
 
-	// grab all feed post image directories
+	// Grab all feed post image directories based upon local file structure
 	.then(() => {
 		let promiseArray = feedImageDirectories.map((feedImageDirectory) => {
 			return new Promise((resolve, reject) => {
@@ -474,6 +495,7 @@ create()
 		return Promise.all(promiseArray);
 	})
 
+	// Generate thumbnails for the feed posts
 	.then(() => {
 		console.log('\nGenerating thumbnails from feed posts ...\n');
 

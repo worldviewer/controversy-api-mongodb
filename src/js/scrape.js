@@ -14,19 +14,21 @@ var Db = require('mongodb').Db,
     execSync = require('child_process').execSync,
     ObjectId = require('mongodb').ObjectId,
     Thumbnail = require('thumbnail'),
+    GPlus = require('./gplus').default,
+    loadJsonFile = require('load-json-file'),
     port = 27017,
     host = "localhost",
     dbName = "controversies",
     url = 'mongodb://' + host + ':' + port + '/' + dbName,
     assert = require('assert'),
-    GPlus = require('./gplus').default,
-    loadJsonFile = require('load-json-file'),
     METACARDS = 'metacards',
     CARDS = 'cards',
     prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
     cardImageDirectory = 'img/cards/',
     feedImageDirectories = ['img/feeds/halton-arp-the-modern-galileo/worldview/', 'img/feeds/halton-arp-the-modern-galileo/model/', 'img/feeds/halton-arp-the-modern-galileo/propositional/', 'img/feeds/halton-arp-the-modern-galileo/conceptual/', 'img/feeds/halton-arp-the-modern-galileo/narrative/'],
-    controversyJSON = 'json/halton-arp.json'; // relative to root
+    prototypeJSON = 'json/halton-arp.json',
+    algoliaJSON = 'json/algolia.json',
+    feedThumbnailSize = 506;
 
 var db = null,
     combinedJSON = [],
@@ -34,7 +36,8 @@ var db = null,
     gplusMetacards = void 0,
     // Controversy card metadata from G+
 mongoMetacards = void 0,
-    mongoCards = void 0,
+    // Mongo DB metacards reference
+mongoCards = void 0,
     savedCount = void 0,
     mongoMetadata = void 0,
     shouldScrape = false,
@@ -58,7 +61,7 @@ function open() {
 	});
 }
 
-// Slugify, lower the casing, then remove periods and apostrophes
+// Slugify controversy card titles, lower the casing, then remove periods and apostrophes
 function createSlug(cardName) {
 	var slugInitial = slugify(cardName),
 	    slugLower = slugInitial.toLowerCase(),
@@ -80,6 +83,7 @@ function saveImage(url, destination, resolve, reject) {
 	});
 }
 
+// TODO: Rename resulting file to thumbnail.jpg
 function createThumbnail(input, output, isAlreadyGenerated) {
 	return new Promise(function (resolve, reject) {
 		if (isAlreadyGenerated) {
@@ -88,7 +92,7 @@ function createThumbnail(input, output, isAlreadyGenerated) {
 		} else {
 			var thumbnail = new Thumbnail(input, output);
 
-			thumbnail.ensureThumbnail('large.jpg', 506, 506, function (err, filename) {
+			thumbnail.ensureThumbnail('large.jpg', feedThumbnailSize, feedThumbnailSize, function (err, filename) {
 				if (err) {
 					reject(err);
 				} else {
@@ -144,16 +148,25 @@ function scrapeCollection(resolve, reject) {
 
 create().then(function () {
 	return open();
-}).then(function (database) {
+})
+
+// Check that G+ API keys exist
+.then(function (database) {
 	db = database;
 	shouldScrape = GPlus.keysExist();
 
 	return database;
-}).then(function (database) {
+})
+
+// Save a reference to the metacards MongoDB collection
+.then(function (database) {
 	return new Promise(function (resolve, reject) {
 		resolve(db.collection(METACARDS));
 	});
-}).then(function (collection) {
+})
+
+// Save all controversy card data from G+ collection
+.then(function (collection) {
 	mongoMetacards = collection;
 
 	console.log("\nChecking for Google+ API Keys in local environment.");
@@ -169,7 +182,10 @@ create().then(function () {
 			scrapeCollection(resolve, reject);
 		}
 	});
-}).then(function (collection) {
+})
+
+// Get the current number of controversy cards in MongoDB
+.then(function (collection) {
 	gplusMetacards = collection;
 
 	return new Promise(function (resolve, reject) {
@@ -190,7 +206,10 @@ create().then(function () {
 			}
 		});
 	});
-}).then(function (JSONCards) {
+})
+
+// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON
+.then(function (JSONCards) {
 	return new Promise(function (resolve, reject) {
 		if (savedCount === 0 && shouldScrape) {
 
@@ -222,12 +241,15 @@ create().then(function () {
 			resolve();
 		}
 	});
-}).then(function () {
+})
+
+// Export that composed object to a JSON file, for importing into Algolia search service
+.then(function () {
 	return new Promise(function (resolve, reject) {
 		if (combinedJSON) {
-			console.log('\nExporting the combined JSON to json/algolia.json\n');
+			console.log('\nExporting the combined JSON to ' + algoliaJSON + '\n');
 
-			fs.writeFile('json/algolia.json', JSON.stringify(combinedJSON), 'utf-8', function (err) {
+			fs.writeFile(algoliaJSON, JSON.stringify(combinedJSON), 'utf-8', function (err) {
 				if (err) {
 					reject(err);
 				} else {
@@ -238,11 +260,17 @@ create().then(function () {
 			console.log('\nSkipping the export of the combined JSON because it is empty.\n');
 		}
 	});
-}).then(function () {
+})
+
+// Check number of controversy cards in MongoDB post-save
+.then(function () {
 	return new Promise(function (resolve, reject) {
 		resolve(mongoMetacards.count());
 	});
-}).then(function (count) {
+})
+
+// Load the Halton Arp hardcoded JSON for the animated infographic
+.then(function (count) {
 	savedCount = count;
 
 	console.log("\nThere are now " + savedCount + " metacards in the controversies collection.");
@@ -250,22 +278,32 @@ create().then(function () {
 	console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 	return new Promise(function (resolve, reject) {
-		resolve(loadJsonFile(controversyJSON));
+		resolve(loadJsonFile(prototypeJSON));
 	});
-}).then(function (json) {
+})
+
+// Get reference to the prototype data in MongoDB
+.then(function (json) {
 	// Fix the prototype ObjectId
 	prototypeCard = Object.assign({}, json, { "_id": new ObjectId(prototypeObjectId) });
 
 	return new Promise(function (resolve, reject) {
 		resolve(db.collection(CARDS));
 	});
-}).then(function (collection) {
+})
+
+// Count number of cards stored in MongoDB prototype dataset
+.then(function (collection) {
 	mongoCards = collection;
 
 	return new Promise(function (resolve, reject) {
 		resolve(mongoCards.count());
 	});
-}).then(function (count) {
+})
+
+// Observe that it's necessary to delete existing cards data in MongoDB before it will save
+// mongo --> use controversies; --> db.cards.drop();
+.then(function (count) {
 	return new Promise(function (resolve, reject) {
 		if (count === 0) {
 			console.log("\nThere is no prototype controversy card to test frontend with.  Adding.");
@@ -279,7 +317,7 @@ create().then(function () {
 	});
 })
 
-// create directory from card id, download and save image into that directory, then rename that file to large.jpg
+// Get all controversy card data from MongoDB
 .then(function () {
 	return db.collection(METACARDS).find({}).map(function (x) {
 		return {
@@ -290,6 +328,8 @@ create().then(function () {
 			'text': x.text };
 	}).toArray();
 })
+
+// create directory from card id, download and save image into that directory, then rename that file to large.jpg
 
 // WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
 .then(function (cards) {
@@ -396,6 +436,7 @@ create().then(function () {
 // 	sliceOps.then(() => { return Promise.resolve(); } );
 // })
 
+// Grab all controversy card thumbnails from G+ API
 .then(function () {
 	console.log('\nSaving the controversy card thumbnails ...\n');
 
@@ -421,7 +462,7 @@ create().then(function () {
 	return Promise.all(promiseArray);
 })
 
-// grab all feed post image directories
+// Grab all feed post image directories based upon local file structure
 .then(function () {
 	var promiseArray = feedImageDirectories.map(function (feedImageDirectory) {
 		return new Promise(function (resolve, reject) {
@@ -441,7 +482,10 @@ create().then(function () {
 	});
 
 	return Promise.all(promiseArray);
-}).then(function () {
+})
+
+// Generate thumbnails for the feed posts
+.then(function () {
 	console.log('\nGenerating thumbnails from feed posts ...\n');
 
 	allFeedImages = removeSystemFiles(allFeedImages);
