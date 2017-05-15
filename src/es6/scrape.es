@@ -407,8 +407,7 @@ create()
 		})
 	})
 
-	// TODO: I already have all of these image pyramids, but when it comes time to generate more,
-	// I'll need to fix this Promise chain, which includes a synchronous exec()
+	// OLD BROKEN CODE
 
 	// .then((directories) => {
 	// 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
@@ -445,6 +444,52 @@ create()
 	// 	}, Promise.resolve());
 
 	// 	sliceOps.then(() => { return Promise.resolve(); } );
+	// })
+
+	// Slice controversy card images into image pyramids using Magick-Slicer script, which itself invokes ImageMagick CLI
+	// WARNING: This code has been refactored and needs to be retested when the need arises to slice up more image pyramids
+	// .then((directories) => {
+	// 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
+
+	// 	let directories = removeSystemFiles(directories),
+	// 		controversyCardCount = 0;
+
+	// 	return new Promise((resolve, reject) => {
+	// 		let syncSliceImages = function() {
+	// 			let directory = directories[controversyCardCount];
+
+	// 			fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
+	// 				if (readdir_err) {
+	// 					reject(readdir_err);
+
+	// 				} else if (!files.includes('pyramid_files')) {
+	// 					if (controversyCardCount < directories.length) {
+	// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory +
+	// 							'/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
+	// 							(slice_error, stdout, stderr) => {
+
+	// 							console.log('Slicing ' + directory);
+
+	// 							if (slice_error) {
+	// 								reject(slice_error);
+	// 							} else {
+	// 								console.log(directory + ' successfully sliced.');
+	// 							}
+	// 						});
+	// 					} else {
+	// 						resolve();
+	// 					}					
+	// 				} else {
+	// 					console.log(directory + ' already sliced.');
+	// 				}
+
+	// 				controversyCardCount++;
+	// 				syncSliceImages();
+	// 			});
+	// 		}
+
+	// 		syncSliceImages();
+	// 	});				
 	// })
 
 	// Grab all controversy card thumbnails from G+ API
