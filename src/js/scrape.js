@@ -26,12 +26,14 @@ var Db = require('mongodb').Db,
     prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
     cardImageDirectory = 'img/cards/',
     feedImageDirectories = ['img/feeds/halton-arp-the-modern-galileo/worldview/', 'img/feeds/halton-arp-the-modern-galileo/model/', 'img/feeds/halton-arp-the-modern-galileo/propositional/', 'img/feeds/halton-arp-the-modern-galileo/conceptual/', 'img/feeds/halton-arp-the-modern-galileo/narrative/'],
-    prototypeJSON = 'json/halton-arp.json',
-    algoliaJSON = 'json/algolia.json',
-    feedThumbnailSize = 506;
+    prototypeJSONFile = 'json/halton-arp.json',
+    algoliaJSONFile = 'json/algolia.json',
+    feedThumbnailSize = 506,
+    paragraphBreak = '<br /><br />';
 
 var db = null,
     combinedJSON = [],
+    algoliaJSON = [],
     allFeedImages = [],
     gplusMetacards = void 0,
     // Controversy card metadata from G+
@@ -80,6 +82,15 @@ function saveImage(url, destination, resolve, reject) {
 				resolve();
 			}
 		});
+	});
+}
+
+function splitText(slug, card) {
+	return card.text.split(paragraphBreak).map(function (paragraph, i) {
+		return {
+			id: slug + '-paragraph-' + i,
+			paragraph: paragraph
+		};
 	});
 }
 
@@ -208,7 +219,8 @@ create().then(function () {
 	});
 })
 
-// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON
+// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON for
+// sending data to Algolia Search: We need slug, name, thumbnail, unique paragraph id and paragraph
 .then(function (JSONCards) {
 	return new Promise(function (resolve, reject) {
 		if (savedCount === 0 && shouldScrape) {
@@ -220,7 +232,37 @@ create().then(function () {
 				var slug = createSlug(gplusCard.name),
 				    json = JSONCards.filter(function (el) {
 					return el.slug === slug ? true : false;
+				}),
+				    splitByParagraph = splitText(slug, gplusCard),
+				    algoliaMetadata = {
+					image: gplusCard.image,
+					thumbnail: gplusCard.thumbnail,
+					url: gplusCard.url,
+					publishDate: gplusCard.publishDate,
+					updateDate: gplusCard.updateDate
+				};
+
+				// Save card name
+				var cardNameJSON = Object.assign({}, { name: gplusCard.name }, json[0], algoliaMetadata);
+
+				algoliaJSON = algoliaJSON.concat(cardNameJSON);
+
+				// Save card category
+				var categoryJSON = Object.assign({}, { category: gplusCard.category }, json[0], algoliaMetadata);
+
+				algoliaJSON = algoliaJSON.concat(categoryJSON);
+
+				// Save card summary
+				var summaryJSON = Object.assign({}, { summary: gplusCard.summary }, json[0], algoliaMetadata);
+
+				algoliaJSON = algoliaJSON.concat(summaryJSON);
+
+				// Save all paragraphs for card
+				var smallerChunkJSON = splitByParagraph.map(function (paragraphJSON) {
+					return Object.assign({}, paragraphJSON, json[0], algoliaMetadata);
 				});
+
+				algoliaJSON = algoliaJSON.concat(smallerChunkJSON);
 
 				combinedJSON.push(Object.assign({}, gplusCard, json[0]));
 			});
@@ -246,10 +288,10 @@ create().then(function () {
 // Export that composed object to a JSON file, for importing into Algolia search service
 .then(function () {
 	return new Promise(function (resolve, reject) {
-		if (combinedJSON) {
-			console.log('\nExporting the combined JSON to ' + algoliaJSON + '\n');
+		if (algoliaJSON) {
+			console.log('\nExporting the combined JSON to ' + algoliaJSONFile + '\n');
 
-			fs.writeFile(algoliaJSON, JSON.stringify(combinedJSON), 'utf-8', function (err) {
+			fs.writeFile(algoliaJSONFile, JSON.stringify(algoliaJSON), 'utf-8', function (err) {
 				if (err) {
 					reject(err);
 				} else {
@@ -278,7 +320,7 @@ create().then(function () {
 	console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 	return new Promise(function (resolve, reject) {
-		resolve(loadJsonFile(prototypeJSON));
+		resolve(loadJsonFile(prototypeJSONFile));
 	});
 })
 
@@ -396,8 +438,7 @@ create().then(function () {
 	});
 })
 
-// TODO: I already have all of these image pyramids, but when it comes time to generate more,
-// I'll need to fix this Promise chain, which includes a synchronous exec()
+// OLD BROKEN CODE
 
 // .then((directories) => {
 // 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
@@ -434,6 +475,52 @@ create().then(function () {
 // 	}, Promise.resolve());
 
 // 	sliceOps.then(() => { return Promise.resolve(); } );
+// })
+
+// Slice controversy card images into image pyramids using Magick-Slicer script, which itself invokes ImageMagick CLI
+// WARNING: This code has been refactored and needs to be retested when the need arises to slice up more image pyramids
+// .then((directories) => {
+// 	console.log('\nSlicing up large-format images into pyramids, one at a time ...\n');
+
+// 	let directories = removeSystemFiles(directories),
+// 		controversyCardCount = 0;
+
+// 	return new Promise((resolve, reject) => {
+// 		let syncSliceImages = function() {
+// 			let directory = directories[controversyCardCount];
+
+// 			fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
+// 				if (readdir_err) {
+// 					reject(readdir_err);
+
+// 				} else if (!files.includes('pyramid_files')) {
+// 					if (controversyCardCount < directories.length) {
+// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory +
+// 							'/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
+// 							(slice_error, stdout, stderr) => {
+
+// 							console.log('Slicing ' + directory);
+
+// 							if (slice_error) {
+// 								reject(slice_error);
+// 							} else {
+// 								console.log(directory + ' successfully sliced.');
+// 							}
+// 						});
+// 					} else {
+// 						resolve();
+// 					}					
+// 				} else {
+// 					console.log(directory + ' already sliced.');
+// 				}
+
+// 				controversyCardCount++;
+// 				syncSliceImages();
+// 			});
+// 		}
+
+// 		syncSliceImages();
+// 	});				
 // })
 
 // Grab all controversy card thumbnails from G+ API

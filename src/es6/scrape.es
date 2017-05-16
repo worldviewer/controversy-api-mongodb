@@ -31,12 +31,14 @@ const
 		'img/feeds/halton-arp-the-modern-galileo/propositional/',
 		'img/feeds/halton-arp-the-modern-galileo/conceptual/',
 		'img/feeds/halton-arp-the-modern-galileo/narrative/'],
-	prototypeJSON = 'json/halton-arp.json',
-	algoliaJSON = 'json/algolia.json',
-	feedThumbnailSize = 506;
+	prototypeJSONFile = 'json/halton-arp.json',
+	algoliaJSONFile = 'json/algolia.json',
+	feedThumbnailSize = 506,
+	paragraphBreak = '<br /><br />';
 
 let db = null,
 	combinedJSON = [],
+	algoliaJSON = [],
 	allFeedImages = [],
 	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards, // Mongo DB metacards reference
@@ -83,6 +85,15 @@ function saveImage(url, destination, resolve, reject) {
 				resolve();
 			}
 		}); 
+	});
+}
+
+function splitText(slug, card) {
+	return card.text.split(paragraphBreak).map((paragraph, i) => {
+		return {
+			id: slug + '-paragraph-' + i,
+			paragraph
+		}
 	});
 }
 
@@ -213,7 +224,8 @@ create()
 		})
 	})
 
-	// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON
+	// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON for
+	// sending data to Algolia Search: We need slug, name, thumbnail, unique paragraph id and paragraph
 	.then((JSONCards) => {
 		return new Promise((resolve, reject) => {
 			if (savedCount === 0 && shouldScrape) {
@@ -224,7 +236,37 @@ create()
 
 				gplusMetacards.forEach((gplusCard) => {
 					let slug = createSlug(gplusCard.name),
-						json = JSONCards.filter((el) => el.slug === slug ? true : false);
+						json = JSONCards.filter((el) => el.slug === slug ? true : false),
+						splitByParagraph = splitText(slug, gplusCard),
+						algoliaMetadata = {
+							image: gplusCard.image,
+							thumbnail: gplusCard.thumbnail,
+							url: gplusCard.url,
+							publishDate: gplusCard.publishDate,
+							updateDate: gplusCard.updateDate
+						};
+
+					// Save card name
+					let cardNameJSON = Object.assign({}, { name: gplusCard.name }, json[0], algoliaMetadata);
+
+					algoliaJSON = algoliaJSON.concat(cardNameJSON);
+
+					// Save card category
+					let categoryJSON = Object.assign({}, { category: gplusCard.category }, json[0], algoliaMetadata);
+
+					algoliaJSON = algoliaJSON.concat(categoryJSON);
+
+					// Save card summary
+					let summaryJSON = Object.assign({}, { summary: gplusCard.summary }, json[0], algoliaMetadata);
+
+					algoliaJSON = algoliaJSON.concat(summaryJSON);
+
+					// Save all paragraphs for card
+					let smallerChunkJSON = splitByParagraph.map(paragraphJSON => 
+						Object.assign({}, paragraphJSON, json[0], algoliaMetadata)
+					);
+
+					algoliaJSON = algoliaJSON.concat(smallerChunkJSON);
 
 					combinedJSON.push(Object.assign({}, gplusCard, json[0]));
 				});
@@ -255,10 +297,10 @@ create()
 	// Export that composed object to a JSON file, for importing into Algolia search service
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			if (combinedJSON) {
-				console.log('\nExporting the combined JSON to ' + algoliaJSON + '\n');
+			if (algoliaJSON) {
+				console.log('\nExporting the combined JSON to ' + algoliaJSONFile + '\n');
 
-				fs.writeFile(algoliaJSON, JSON.stringify(combinedJSON), 'utf-8', (err) => {
+				fs.writeFile(algoliaJSONFile, JSON.stringify(algoliaJSON), 'utf-8', (err) => {
 					if (err) {
 						reject(err);
 					} else {
@@ -288,7 +330,7 @@ create()
 		console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 		return new Promise((resolve, reject) => {
-			resolve(loadJsonFile(prototypeJSON));
+			resolve(loadJsonFile(prototypeJSONFile));
 		});
 	})
 
