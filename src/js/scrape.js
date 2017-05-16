@@ -16,6 +16,8 @@ var Db = require('mongodb').Db,
     Thumbnail = require('thumbnail'),
     GPlus = require('./gplus').default,
     loadJsonFile = require('load-json-file'),
+    frontMatter = require('front-matter'),
+    pageDown = require('pagedown'),
     port = 27017,
     host = "localhost",
     dbName = "controversies",
@@ -26,15 +28,19 @@ var Db = require('mongodb').Db,
     prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
     cardImageDirectory = 'img/cards/',
     feedImageDirectories = ['img/feeds/halton-arp-the-modern-galileo/worldview/', 'img/feeds/halton-arp-the-modern-galileo/model/', 'img/feeds/halton-arp-the-modern-galileo/propositional/', 'img/feeds/halton-arp-the-modern-galileo/conceptual/', 'img/feeds/halton-arp-the-modern-galileo/narrative/'],
+    feedMarkdownDirectories = ['md/feeds/halton-arp-the-modern-galileo/worldview/', 'md/feeds/halton-arp-the-modern-galileo/model/', 'md/feeds/halton-arp-the-modern-galileo/propositional/', 'md/feeds/halton-arp-the-modern-galileo/conceptual/', 'md/feeds/halton-arp-the-modern-galileo/narrative/'],
     prototypeJSONFile = 'json/halton-arp.json',
-    algoliaJSONFile = 'json/algolia.json',
+    algoliaCardsJSONFile = 'json/algolia-cards.json',
+    algoliaFeedsJSONFile = 'json/algolia-feeds.json',
     feedThumbnailSize = 506,
     paragraphBreak = '<br /><br />';
 
 var db = null,
     combinedJSON = [],
-    algoliaJSON = [],
+    algoliaCardsJSON = [],
+    algoliaFeedsJSON = [],
     allFeedImages = [],
+    allFeedMarkdowns = [],
     gplusMetacards = void 0,
     // Controversy card metadata from G+
 mongoMetacards = void 0,
@@ -219,8 +225,11 @@ create().then(function () {
 	});
 })
 
-// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON for
-// sending data to Algolia Search: We need slug, name, thumbnail, unique paragraph id and paragraph
+// Compose hardcoded JSON and G+ collection controversy card data into a single object, algoliaCardsJSON for
+// sending data to Algolia Search: We need slug, name, thumbnail, unique paragraph id and paragraph, but
+// for searchable fields, there should be no redundancy.  The redundancy should all occur with the metadata.
+
+// Also using this area to save the combined JSON to Mongo
 .then(function (JSONCards) {
 	return new Promise(function (resolve, reject) {
 		if (savedCount === 0 && shouldScrape) {
@@ -245,24 +254,24 @@ create().then(function () {
 				// Save card name
 				var cardNameJSON = Object.assign({}, { name: gplusCard.name }, json[0], algoliaMetadata);
 
-				algoliaJSON = algoliaJSON.concat(cardNameJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(cardNameJSON);
 
 				// Save card category
 				var categoryJSON = Object.assign({}, { category: gplusCard.category }, json[0], algoliaMetadata);
 
-				algoliaJSON = algoliaJSON.concat(categoryJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(categoryJSON);
 
 				// Save card summary
 				var summaryJSON = Object.assign({}, { summary: gplusCard.summary }, json[0], algoliaMetadata);
 
-				algoliaJSON = algoliaJSON.concat(summaryJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(summaryJSON);
 
 				// Save all paragraphs for card
 				var smallerChunkJSON = splitByParagraph.map(function (paragraphJSON) {
 					return Object.assign({}, paragraphJSON, json[0], algoliaMetadata);
 				});
 
-				algoliaJSON = algoliaJSON.concat(smallerChunkJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(smallerChunkJSON);
 
 				combinedJSON.push(Object.assign({}, gplusCard, json[0]));
 			});
@@ -288,10 +297,10 @@ create().then(function () {
 // Export that composed object to a JSON file, for importing into Algolia search service
 .then(function () {
 	return new Promise(function (resolve, reject) {
-		if (algoliaJSON) {
-			console.log('\nExporting the combined JSON to ' + algoliaJSONFile + '\n');
+		if (algoliaCardsJSON) {
+			console.log('\nExporting the combined JSON to ' + algoliaCardsJSONFile + '\n');
 
-			fs.writeFile(algoliaJSONFile, JSON.stringify(algoliaJSON), 'utf-8', function (err) {
+			fs.writeFile(algoliaCardsJSONFile, JSON.stringify(algoliaCardsJSON), 'utf-8', function (err) {
 				if (err) {
 					reject(err);
 				} else {
@@ -607,6 +616,37 @@ create().then(function () {
 
 		syncThumbnail();
 	});
+})
+
+// Grab all feed post markdown directories based upon local file structure
+.then(function () {
+	var promiseArray = feedMarkdownDirectories.map(function (feedMarkdownDirectory) {
+		return new Promise(function (resolve, reject) {
+			fs.readdir(feedMarkdownDirectory, function (err, files) {
+				files = files.map(function (file) {
+					return feedMarkdownDirectory + file;
+				});
+
+				if (err) {
+					reject(err);
+				} else {
+					allFeedMarkdowns = allFeedMarkdowns.concat(files);
+					resolve();
+				}
+			});
+		});
+	});
+
+	return Promise.all(promiseArray);
+})
+
+// Process the hard-coded feed front-matter and markdown into HTML
+.then(function () {
+	console.log('\nGenerating HTML from feed post markdown ...\n');
+
+	allFeedMarkdowns = removeSystemFiles(allFeedMarkdowns);
+
+	console.log(allFeedMarkdowns);
 }).then(function () {
 	console.log("\nAll done and no issues.");
 
