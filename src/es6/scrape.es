@@ -13,6 +13,8 @@ const
 	Thumbnail = require('thumbnail'),
 	GPlus = require('./gplus').default,
 	loadJsonFile = require('load-json-file'),
+	frontMatter = require('front-matter'),
+	pageDown = require('pagedown'),
 
 	port = 27017,
 	host = "localhost",
@@ -32,13 +34,15 @@ const
 		'img/feeds/halton-arp-the-modern-galileo/conceptual/',
 		'img/feeds/halton-arp-the-modern-galileo/narrative/'],
 	prototypeJSONFile = 'json/halton-arp.json',
-	algoliaJSONFile = 'json/algolia.json',
+	algoliaCardsJSONFile = 'json/algolia-cards.json',
+	algoliaFeedsJSONFile = 'json/algolia-feeds.json',
 	feedThumbnailSize = 506,
 	paragraphBreak = '<br /><br />';
 
 let db = null,
 	combinedJSON = [],
-	algoliaJSON = [],
+	algoliaCardsJSON = [],
+	algoliaFeedsJSON = [],
 	allFeedImages = [],
 	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards, // Mongo DB metacards reference
@@ -224,8 +228,11 @@ create()
 		})
 	})
 
-	// Compose hardcoded JSON and G+ collection controversy card data into a single object, combinedJSON for
-	// sending data to Algolia Search: We need slug, name, thumbnail, unique paragraph id and paragraph
+	// Compose hardcoded JSON and G+ collection controversy card data into a single object, algoliaCardsJSON for
+	// sending data to Algolia Search: We need slug, name, thumbnail, unique paragraph id and paragraph, but
+	// for searchable fields, there should be no redundancy.  The redundancy should all occur with the metadata.
+
+	// Also using this area to save the combined JSON to Mongo
 	.then((JSONCards) => {
 		return new Promise((resolve, reject) => {
 			if (savedCount === 0 && shouldScrape) {
@@ -249,24 +256,24 @@ create()
 					// Save card name
 					let cardNameJSON = Object.assign({}, { name: gplusCard.name }, json[0], algoliaMetadata);
 
-					algoliaJSON = algoliaJSON.concat(cardNameJSON);
+					algoliaCardsJSON = algoliaCardsJSON.concat(cardNameJSON);
 
 					// Save card category
 					let categoryJSON = Object.assign({}, { category: gplusCard.category }, json[0], algoliaMetadata);
 
-					algoliaJSON = algoliaJSON.concat(categoryJSON);
+					algoliaCardsJSON = algoliaCardsJSON.concat(categoryJSON);
 
 					// Save card summary
 					let summaryJSON = Object.assign({}, { summary: gplusCard.summary }, json[0], algoliaMetadata);
 
-					algoliaJSON = algoliaJSON.concat(summaryJSON);
+					algoliaCardsJSON = algoliaCardsJSON.concat(summaryJSON);
 
 					// Save all paragraphs for card
 					let smallerChunkJSON = splitByParagraph.map(paragraphJSON => 
 						Object.assign({}, paragraphJSON, json[0], algoliaMetadata)
 					);
 
-					algoliaJSON = algoliaJSON.concat(smallerChunkJSON);
+					algoliaCardsJSON = algoliaCardsJSON.concat(smallerChunkJSON);
 
 					combinedJSON.push(Object.assign({}, gplusCard, json[0]));
 				});
@@ -297,10 +304,10 @@ create()
 	// Export that composed object to a JSON file, for importing into Algolia search service
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			if (algoliaJSON) {
-				console.log('\nExporting the combined JSON to ' + algoliaJSONFile + '\n');
+			if (algoliaCardsJSON) {
+				console.log('\nExporting the combined JSON to ' + algoliaCardsJSONFile + '\n');
 
-				fs.writeFile(algoliaJSONFile, JSON.stringify(algoliaJSON), 'utf-8', (err) => {
+				fs.writeFile(algoliaCardsJSONFile, JSON.stringify(algoliaCardsJSON), 'utf-8', (err) => {
 					if (err) {
 						reject(err);
 					} else {

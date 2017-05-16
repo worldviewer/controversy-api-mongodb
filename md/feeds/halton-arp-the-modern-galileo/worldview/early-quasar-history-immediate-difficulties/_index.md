@@ -1,0 +1,26 @@
+---
+title: "Halton Arp Explains the Early Observational History of Quasars"
+controversy: "Halton Arp, the Modern Galileo"
+discourse_level: "worldview"
+authors: ["worldviewer"]
+date: "2017-04-30"
+lastmod: "2017-04-30"
+project_url: ""
+categories: ["astronomy", "astrophysics", "cosmology", "redshift", "quasars", "halton arp", "quasars, redshifts and controversies"]
+metrics: []
+---
+
+_Quasars, Redshifts and Controversies_
+Halton Arp
+
+_"But among radio sources that were identified with visible objects, an even more mysterious class than radio galaxies was found. These were the quasars. Optically they looked like point sources of light -- like stars -- hence their name 'quasi-stellar' radio source, a term soon shortened to quasar. The first of these objects was identified by Allan Sandage and Thomas Matthews in 1963 in a collaboration between an optical and a radio astronomer. Then Maarten Schmidt, an astronomer at Caltech, found the key to the spectrum by showing the initially puzzling lines were those of familiar elements but shifted very far to the red. This was the shock. Why, when the highest redshifted galaxies known had maximum redshifts of 20 to 40 percent the velocity of light, did these stellar-looking objects suddenly appear with redshifts of 80 or 90 percent the velocity of light? It was briefly considered whether some other mechanism than velocity of recession could be responsible for quasar redshifts. For example, redshifting (which is equivalently a loss of energy of a photon) might by caused by a very strong gravitational field. Such explanations were quickly discarded, however, and it was decided that quasars were the most luminous objects in the universe, seen at such great distances that the expansion of the universe was giving them the largest possible recession velocities._
+
+_Difficulties were encountered almost immediately. In the first place, how could an object be so luminous? There was a problem of creating so much energy from known kinds of galaxies. Then, the calculated density of charged particles was so high in some quasars, that there was a problem of actually getting the photons, by which we see the objects, out from the interior. Then, very accurate positional measures by radio telescopes (very long base-line interferometry) revealed the astounding fact that some quasars appeared to be expanding with up to ten times the velocity of light. This was a flat-out violation of the known law of Einsteinian physics that the speed of light is a physical constant that cannot be exceeded in nature. Rather than move the quasars to lesser distances, which would give quite modest expansion velocities, the conventional theorists set up a small industry for rationalizations. They explained, by extremely complicated models, the faster-than-light expansions as an illusion caused by very special, assumed conditions such as ejection toward the observer at nearly the speed of light. They, of course, ignored the direct evidence that the quasars were associated with galaxies which were much closer to us in space._
+
+_When enough quasars were identified over the sky it became clear that anomalies also existed in the increase of their numbers with apparent faintness. For constant space density their numbers should have increased in proportion to the increased volumes enclosed at successively fainter apparent magnitudes. What was observed was completely different. This gave rise to another 'gee whiz, isn't the universe wonderful' explanation. In this case, it was concluded that as we look out in space, and therefore back in time, we encounter a higher and higher density of quasars until suddenly -- at a certain point -- the quasars ceased to exist! In the present book, however, I do not debate whether this peculiar evolution of quasars is a priori improbable. I try to concentrate on the hard evidence of what they actually are and where they are located in space. In that process, we come again and again to observational evidence that redshift is not a good indicator of distances for quasars._
+
+_Now the debate takes a curious turn. The conventional wisdom says quasars are just abnormal galaxies (superluminous, etc.) and that galaxies can only have redshifts caused by velocity. I say yes. I, myself, pointed out originally that quasars are physically continuous with galaxies. But a large body of evidence now exists showing that galaxies also can violate the redshift-distance relation. In fact, it is just the most peculiar galaxies, those most like the quasars, for which the most compelling evidence for nonvelocity redshifts exists._
+
+_This has two consequences: First, it enormously strengthens the case that the redshift-distance law can be broken. After all, it only requires one well-proven, discordant case of quasar or galaxy to establish that an additional cause of redshift -- other than velocity -- must be in operation. Because of the connection of quasars with galaxies we now have many, interlocking proofs of the phenomenon._
+
+_But secondly it means that the mechanism for causing this nonvelocity shift must be capable of operating on an entire extended assemblage of stars, gas, and dust. This is much more difficult than finding a mechanism to operate on the more compact, more mysterious quasars."_

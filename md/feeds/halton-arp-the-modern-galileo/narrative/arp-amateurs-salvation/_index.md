@@ -1,0 +1,40 @@
+---
+title: "Halton Arp in 1998 - The Reformation of Astronomy Will Come From Outsiders and Non-Professionals"
+discourse_level: "narrative"
+authors: ["worldviewer"]
+date: "2017-04-30"
+lastmod: "2017-04-30"
+project_url: ""
+categories: ["astronomy", "astrophysics", "cosmology", "redshift", "quasars", "halton arp", "seeing red", "amateurs", "professionals"]
+metrics: []
+---
+
+Halton Arp's preface to _Seeing Red_ looks both backward and forward in time, and I think it's importance derives from the narrative-busting case he makes for the role of amateur outsiders and non-professionals in the reformation of modern astronomy.  His message is very clear: Nothing will change unless the people who are paying attention decide to do something about it.
+
+Preface to _Seeing Red: Redshifts, Cosmology and Academic Science_, by Halton Arp (1998)
+
+_"My purpose in publishing this book is to communicate information which would not otherwise be accessible. About 10 years ago my first book on this subject appeared: Quasars, Redshifts and Controversies. That first book had really been written between 1984 and 1985, but it took a seemingly interminable two years to publish because uncountable numbers of publishers turned it down. One university press, that of my alma mater, was enthusiastic about it until they gave it to a member of the Astronomy faculty to read. Another, Cambridge University Press, declined to publish it, but once it was published bought a large number of copies at very low cost to sell through their distribution. (At least the distribution was a useful step)._
+
+_Finally, Donald Goldsmith came to the rescue of what I view as academic freedom of communication and published it under the aegis of his small company, Interstellar Media. I felt enormously grateful to him for enabling the observational material to be presented, regardless of what he or any one else felt about the ultimate outcome of the debate. Of course, I was hoping that once all the evidence was correlated and described in a way not allowed by referees, scientists would turn their instruments and analysis to investigating the many crucial objects which contradicted current theory._
+
+_Instead, the book became a list of topics and objects to be avoided at all cost. Most professional astronomers had no intention of reading about things that were contrary to what they knew to be correct. Their interest usually reached only as far as using the library copy to see if their name was in the index. But before that disappointment really registered with me, something rather wonderful happened. I started getting letters from scientists in small colleges, in different disciplines, from amateurs, students and lay people. The amateurs in particular amazed and delighted me, because it quickly became clear that they really looked at pictures, knew various objects and reasoned for themselves while maintaining a healthy skepticism toward official interpretations. As an example, Canadian physics students brought me from Europe to address their annual convention. I was stunned when they ushered me into a room where a table was piled high with copies of my book to autograph. I realized that these were books they had bought on their own initiative and with their own money. In the end, the book was translated into Italian and Spanish, and I still hear from people all over the world who are interested in how it is all going to turn out. So regardless of the difficulties and frustrations, and no matter what else happens, I feel that book was the most important and rewarding work I have ever undertaken._
+
+_More than 10 years have passed and, in spite of determined opposition, I believe the observational evidence has become overwhelming, and the Big Bang has in reality been toppled. There is now a need to communicate the new observations, the connections between objects and the new insights into the workings of the universe -- all the primary obligations of academic science, which has generally tried to suppress or ignore such dissident information. In spite of -- or because of -- the success of the first book, it is even more necessary now to secure independent and effective publication of these kinds of science books. The present volume is a bigger book with prospects for wider circulation. In consideration of these aspects, with Don Goldsmith’s advice and assistance, I feel fortunate that the present publisher, Roy Keys, is presenting this new work, Seeing Red: Redshifts, Cosmology and Academic Science._
+
+_One useful aspect of the present book is that it illustrates what can develop from one simple assumption, such as the nature of extragalactic redshifts. Both sides in the dispute have complex, rather fully worked out views which they believe to be empirically supported and logically required. Yet one side must be completely and catastrophically wrong. It makes one wonder, perhaps with profit, whether there are other uncertain assumptions on which much of our lives are built, but of which we are innocently overconfident._
+
+_The present book is sure to outrage many academic scientists. Many of my professional friends will be greatly pained. Why then do I write it? First, everyone has to tell the truth as they see it, especially about important things. The fact that the majority of professionals are intolerant of even opinions which are discordant makes change a necessity. Those friends of mine who also struggle to get the mainstream of astronomy back on track mostly feel that presenting evidence and championing new theories is sufficient to cause change, and that it is improper to criticize an enterprise to which they belong and value highly. I disagree, in that I think if we do not understand why science is failing to self-correct, it will not be possible to fix it._
+
+_Briefly, I suppose my view is that science never matured through the 'age of enlightenment.' When society at long last learned that major decisions were too important to be left in the hands of kings and generals, a more democratic process was evolved. But science always insisted that only those who possessed arcane knowledge were capable of deciding what was true and what was not true in the world of natural phenomena._
+
+_Now we have a situation where new facts are judged by whether they fit old theories. If they do not, they are condemned with the judgment:_
+
+_'There is no way of explaining these observations, so they cannot be true.'_
+
+_That encourages the dissident to come up with an explanation of how it could be true. It disagrees with convention. Then the jaws of the trap spring shut and the theory is labeled:_
+
+_'... prima facie evidence that the proponent is a crackpot and the evidence is false.'_
+
+_This, then, is the crisis for the reasonable members of the profession. With so many alternative, contradictory theories, many of them fitting the evidence very badly, abandoning the accepted theory is a frightening step into chaos. At this point, I believe we must look for salvation from the non-specialists, amateurs and interdisciplinary thinkers -- those who form judgments on the general thrust of the evidence, those who are skeptical about any explanation, particularly official ones, and above all are tolerant of other people’s theories. (When the complete answer is not known, in a sense everyone is a crackpot -- Gasp!)._
+
+_The only hope I see is for the more ethical professionals and the more attentive, open-minded non-professionals to combine their efforts to form a more democratic science with better judgment, and slowly transform the subject into an enlightened, more useful activity of society. This is the deeper reason I wrote this book and, although it will cause distress, I believe a painfully honest debate is the only exercise capable of galvanizing meaningful change ..."_
