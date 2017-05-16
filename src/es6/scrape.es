@@ -33,6 +33,12 @@ const
 		'img/feeds/halton-arp-the-modern-galileo/propositional/',
 		'img/feeds/halton-arp-the-modern-galileo/conceptual/',
 		'img/feeds/halton-arp-the-modern-galileo/narrative/'],
+	feedMarkdownDirectories = [
+		'md/feeds/halton-arp-the-modern-galileo/worldview/',
+		'md/feeds/halton-arp-the-modern-galileo/model/',
+		'md/feeds/halton-arp-the-modern-galileo/propositional/',
+		'md/feeds/halton-arp-the-modern-galileo/conceptual/',
+		'md/feeds/halton-arp-the-modern-galileo/narrative/'],
 	prototypeJSONFile = 'json/halton-arp.json',
 	algoliaCardsJSONFile = 'json/algolia-cards.json',
 	algoliaFeedsJSONFile = 'json/algolia-feeds.json',
@@ -44,6 +50,7 @@ let db = null,
 	algoliaCardsJSON = [],
 	algoliaFeedsJSON = [],
 	allFeedImages = [],
+	allFeedMarkdowns = [],
 	gplusMetacards, // Controversy card metadata from G+
 	mongoMetacards, // Mongo DB metacards reference
 	mongoCards,
@@ -628,6 +635,35 @@ create()
 
 			syncThumbnail();
 		});
+	})
+
+	// Grab all feed post markdown directories based upon local file structure
+	.then(() => {
+		let promiseArray = feedMarkdownDirectories.map((feedMarkdownDirectory) => {
+			return new Promise((resolve, reject) => {
+				fs.readdir(feedMarkdownDirectory, (err, files) => {
+					files = files.map(file => feedMarkdownDirectory + file);
+
+					if (err) {
+						reject(err);
+					} else {
+						allFeedMarkdowns = allFeedMarkdowns.concat(files);
+						resolve();
+					}
+				})
+			});
+		});
+
+		return Promise.all(promiseArray);
+	})
+
+	// Process the hard-coded feed front-matter and markdown into HTML
+	.then(() => {
+		console.log('\nGenerating HTML from feed post markdown ...\n');
+
+		allFeedMarkdowns = removeSystemFiles(allFeedMarkdowns);
+
+		console.log(allFeedMarkdowns);
 	})
 
 	.then(() => {
