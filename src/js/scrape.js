@@ -18,6 +18,7 @@ var Db = require('mongodb').Db,
     loadJsonFile = require('load-json-file'),
     frontMatter = require('front-matter'),
     pageDown = require('pagedown'),
+    markdownConverter = pageDown.getSanitizingConverter(),
     port = 27017,
     host = "localhost",
     dbName = "controversies",
@@ -33,7 +34,8 @@ var Db = require('mongodb').Db,
     algoliaCardsJSONFile = 'json/algolia-cards.json',
     algoliaFeedsJSONFile = 'json/algolia-feeds.json',
     feedThumbnailSize = 506,
-    paragraphBreak = '<br /><br />';
+    cardParagraphBreak = '<br /><br />',
+    feedParagraphBreak = '\n\n';
 
 var db = null,
     combinedJSON = [],
@@ -46,10 +48,12 @@ var db = null,
 mongoMetacards = void 0,
     // Mongo DB metacards reference
 mongoCards = void 0,
+    feedPosts = [],
     savedCount = void 0,
     mongoMetadata = void 0,
     shouldScrape = false,
-    prototypeCard = void 0;
+    prototypeCard = void 0,
+    algoliaFeedPosts = []; // Raw posts, not yet sliced by paragraphs
 
 function create() {
 	return new Promise(function (resolve, reject) {
@@ -92,7 +96,7 @@ function saveImage(url, destination, resolve, reject) {
 }
 
 function splitText(slug, card) {
-	return card.text.split(paragraphBreak).map(function (paragraph, i) {
+	return card.text.split(cardParagraphBreak).map(function (paragraph, i) {
 		return {
 			id: slug + '-paragraph-' + i,
 			paragraph: paragraph
@@ -640,13 +644,68 @@ create().then(function () {
 	return Promise.all(promiseArray);
 })
 
-// Process the hard-coded feed front-matter and markdown into HTML
+// Fetch all feed posts from local file structure
 .then(function () {
-	console.log('\nGenerating HTML from feed post markdown ...\n');
+	console.log('\nFetching from local directories all feed posts ...\n');
 
 	allFeedMarkdowns = removeSystemFiles(allFeedMarkdowns);
 
-	console.log(allFeedMarkdowns);
+	var feedMarkdownCount = 0;
+
+	return new Promise(function (resolve, reject) {
+		var syncMarkdown = function syncMarkdown() {
+			fs.readdir(allFeedMarkdowns[feedMarkdownCount], function (readdir_err, files) {
+
+				if (readdir_err) {
+					reject(readdir_err);
+				}
+
+				console.log('Fetching post for ' + allFeedMarkdowns[feedMarkdownCount]);
+
+				fs.readFile(allFeedMarkdowns[feedMarkdownCount] + '/_index.md', 'utf8', function (err, feedPost) {
+					if (err) {
+						reject(err);
+					} else {
+						feedPosts.push(feedPost);
+					}
+
+					if (feedMarkdownCount < allFeedMarkdowns.length) {
+						syncMarkdown();
+					} else {
+						resolve();
+					}
+				});
+
+				feedMarkdownCount++;
+			});
+		};
+
+		syncMarkdown();
+	});
+})
+
+// Process the hard-coded feed front-matter and markdown into HTML and JSON
+.then(function () {
+	console.log('\nConverting all markdown into HTML ...\n');
+
+	var promiseArray = feedPosts.map(function (post) {
+		return new Promise(function (resolve, reject) {
+			var feedPostObject = frontMatter(post),
+			    feedPostAttributes = feedPostObject.attributes,
+			    feedPostHTML = markdownConverter.makeHtml(feedPostObject.body),
+			    algoliaFeedPostObject = Object.assign({}, feedPostAttributes, { text: feedPostHTML });
+
+			resolve(algoliaFeedPosts.push(algoliaFeedPostObject));
+		});
+	});
+
+	return Promise.all(promiseArray);
+})
+
+// Split all feed posts by paragraph for Algolia, then save to disk
+.then(function () {
+	console.log(algoliaFeedPosts[0]);
+	console.log(algoliaFeedPosts.length);
 }).then(function () {
 	console.log("\nAll done and no issues.");
 
