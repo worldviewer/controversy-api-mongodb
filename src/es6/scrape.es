@@ -1,10 +1,8 @@
-// TODO: Consider just dropping table every time, then recreating.
-// TODO: Refactor to also update mLab database
-
 const
 	Db = require('mongodb').Db,
 	Server = require('mongodb').Server,
 	MongoClient = require('mongodb').MongoClient,
+
 	fs = require('fs'),
 	request = require('request'),
 	slugify = require('slugify'),
@@ -12,50 +10,75 @@ const
 	ObjectId = require('mongodb').ObjectId,
 	Thumbnail = require('thumbnail'),
 	GPlus = require('./gplus').default,
-	loadJsonFile = require('load-json-file'),
+	loadJSONFile = require('load-json-file'),
 	frontMatter = require('front-matter'),
 	pageDown = require('pagedown'),
-	markdownConverter = pageDown.getSanitizingConverter(),
+	markdownConverter = pageDown.getSanitizingConverter();
 
-	// MongoDB configuration
-	port = 27017,
-	host = "localhost",
-	dbName = "controversies",
-	url = `mongodb://${host}:${port}/${dbName}`,
+// MongoDB configuration
+let mongo = {
+		port: 27017,
+		host: 'localhost',
+		dbName: 'controversies'
+	};
 
+	mongo.url = `mongodb://${mongo.host}:${mongo.port}/${mongo.dbName}`;
+
+const
 	METACARDS = 'metacards',
 	CARDS = 'cards',
 	prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
+	feedThumbnailSize = 506,
 
 	// Hard-coded local data directory structures
-	cardImageDirectory = 'img/cards/',
-	feedImageDirectories = [
-		'img/feeds/halton-arp-the-modern-galileo/worldview/',
-		'img/feeds/halton-arp-the-modern-galileo/model/',
-		'img/feeds/halton-arp-the-modern-galileo/propositional/',
-		'img/feeds/halton-arp-the-modern-galileo/conceptual/',
-		'img/feeds/halton-arp-the-modern-galileo/narrative/'],
-	feedMarkdownDirectories = [
-		'md/feeds/halton-arp-the-modern-galileo/worldview/',
-		'md/feeds/halton-arp-the-modern-galileo/model/',
-		'md/feeds/halton-arp-the-modern-galileo/propositional/',
-		'md/feeds/halton-arp-the-modern-galileo/conceptual/',
-		'md/feeds/halton-arp-the-modern-galileo/narrative/'],
+	dir = {
+		images: {
+			cards: 'img/cards/',
+			feeds: [
+				'img/feeds/halton-arp-the-modern-galileo/worldview/',
+				'img/feeds/halton-arp-the-modern-galileo/model/',
+				'img/feeds/halton-arp-the-modern-galileo/propositional/',
+				'img/feeds/halton-arp-the-modern-galileo/conceptual/',
+				'img/feeds/halton-arp-the-modern-galileo/narrative/'
+			]
+		},
+		md: {
+			feeds: [
+				'md/feeds/halton-arp-the-modern-galileo/worldview/',
+				'md/feeds/halton-arp-the-modern-galileo/model/',
+				'md/feeds/halton-arp-the-modern-galileo/propositional/',
+				'md/feeds/halton-arp-the-modern-galileo/conceptual/',
+				'md/feeds/halton-arp-the-modern-galileo/narrative/'
+			]
+		}
+	},
 
 	// Asset CDN's
-	feedAssetsURL = 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
-	cardAssetsURL = 'https://controversy-cards-images.s3.amazonaws.com/',
+	url = {
+		feeds: 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
+		cards: 'https://controversy-cards-images.s3.amazonaws.com/'
+	},
 
 	// Hard-coded JSON data input
-	prototypeJSONFile = 'json/halton-arp.json',
-	algoliaCardsJSONFile = 'json/algolia-cards.json',
-	algoliaFeedsJSONFile = 'json/algolia-feeds.json',
-	cardsInputJSONFile = 'json/cards.json',
-	feedsInputJSONFile = 'json/feeds.json',
+	input = {
+		prototype: 'json/halton-arp.json',
+		cards: 'json/cards.json',
+		feeds: 'json/feeds.json'
+	},
 
-	feedThumbnailSize = 506,
-	cardParagraphBreak = '<br /><br />',
-	feedParagraphBreak = '\n\n';
+	// JSON outputs for Algolia Search
+	output = {
+		cards: 'json/algolia-cards.json',
+		feeds: 'json/algolia-feeds.json'
+	},
+
+	// Algolia Search requires that paragraphs are chunked into separate records.
+	// This split string differs by markdown processor; Google+ uses a pair of <br>'s,
+	// whereas pageDown uses a pair of carriage returns.
+	stop = {
+		cards: '<br /><br />',
+		feeds: '\n\n'
+	};
 
 let db = null,
 	combinedJSON = [],
@@ -75,13 +98,13 @@ let db = null,
 
 function create() {
 	return new Promise((resolve, reject) => {
-		resolve(new Db(dbName, new Server(host, port)));		
+		resolve(new Db(mongo.dbName, new Server(mongo.host, mongo.port)));		
 	})
 }
 
 function open() {
 	return new Promise((resolve, reject) => {
-		MongoClient.connect(url, (err, database) => {
+		MongoClient.connect(mongo.url, (err, database) => {
 			if (err) {
 				reject(err);
 			} else {
@@ -102,7 +125,7 @@ function createSlug(cardName) {
 
 function saveImage(url, destination, resolve, reject) {
 	request.get({url, encoding: 'binary'}, (err, response, body) => {
-		fs.writeFile(destination, body, 'binary', (err) => {
+		fs.writeFile(destination, body, 'binary', err => {
 			if (err) { 
 				reject(err);
 			} else {
@@ -162,7 +185,7 @@ function scrapeCollection(resolve, reject) {
 	// GPlus class handles aggregation of data
 	let getPage = function() {
 		gplus.scrapeCards().then(
-			(data) => {
+			data => {
 				// Send back an array of the card titles which have been added
 				if (gplus.nextPageToken && gplus.more) {
 					getPage();
@@ -200,14 +223,14 @@ create()
 	})
 
 	// Save a reference to the metacards MongoDB collection
-	.then((database) => {
+	.then(database => {
 		return new Promise((resolve, reject) => {
 			resolve(db.collection(METACARDS));
 		});
 	})
 
 	// Save all controversy card data from G+ collection
-	.then((collection) => {
+	.then(collection => {
 		mongoMetacards = collection;
 
 		console.log("\nChecking for Google+ API Keys in local environment.");
@@ -226,7 +249,7 @@ create()
 	})
 
 	// Delete the metacards collection in MongoDB
-	.then((collection) => {
+	.then(collection => {
 		gplusMetacards = collection;
 
 		return new Promise((resolve, reject) => {
@@ -237,14 +260,8 @@ create()
 	// Grab the metadata which has been manually typed in for each controversy card
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			fs.readFile(cardsInputJSONFile, 'utf8', (err, cards) => {
-				if (err) {
-					reject(err);
-				} else {
-					resolve(JSON.parse(cards));
-				}
-			});			
-		})
+			resolve(loadJSONFile(input.cards));
+		});
 	})
 
 	// Compose hardcoded JSON and G+ collection controversy card data into a single object, algoliaCardsJSON for
@@ -252,7 +269,7 @@ create()
 	// for searchable fields, there should be no redundancy.  The redundancy should all occur with the metadata.
 
 	// Also using this area to save the combined JSON to Mongo
-	.then((cardsJSON) => {
+	.then(cardsJSON => {
 		return new Promise((resolve, reject) => {
 
 			console.log("\nSaving Scraped data to MongoDB");
@@ -260,7 +277,7 @@ create()
 			gplusMetacards.forEach((gplusCard) => {
 				let slug = createSlug(gplusCard.name),
 					json = cardsJSON.filter((el) => el.slug === slug ? true : false)[0],
-					splitByParagraph = splitText(slug, gplusCard.text, cardParagraphBreak),
+					splitByParagraph = splitText(slug, gplusCard.text, stop.cards),
 					algoliaMetadata = {
 						slug: json.slug,
 						gplusUrl: gplusCard.url,
@@ -270,15 +287,15 @@ create()
 						metrics: [],
 						images: {
 							large: {
-								url: cardAssetsURL + slug + '/large.jpg',
+								url: url.cards + slug + '/large.jpg',
 								width: json.images.large.width,
 								height: json.images.large.height
 							},
 							thumbnail: {
-								url: cardAssetsURL + slug + '/thumbnail.jpg'
+								url: url.cards + slug + '/thumbnail.jpg'
 							},
 							pyramid: {
-								url: cardAssetsURL + slug + '/pyramid_files/',
+								url: url.cards + slug + '/pyramid_files/',
 								maxZoomLevel: json.images.pyramid.maxZoomLevel,
 								TileSize: json.images.pyramid.TileSize
 							}
@@ -318,9 +335,9 @@ create()
 	.then(() => {
 		return new Promise((resolve, reject) => {
 			if (algoliaCardsJSON) {
-				console.log('\nExporting the combined JSON to ' + algoliaCardsJSONFile);
+				console.log('\nExporting the combined JSON to ' + output.cards);
 
-				fs.writeFile(algoliaCardsJSONFile, JSON.stringify(algoliaCardsJSON), 'utf-8', (err) => {
+				fs.writeFile(output.cards, JSON.stringify(algoliaCardsJSON), 'utf-8', (err) => {
 					if (err) {
 						reject(err);
 					} else {
@@ -341,7 +358,7 @@ create()
 	})	
 
 	// Load the Halton Arp hardcoded JSON for the animated infographic
-	.then((count) => {
+	.then(count => {
 		savedCount = count;
 
 		console.log("\nThere are now " + savedCount +
@@ -350,12 +367,12 @@ create()
 		console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 		return new Promise((resolve, reject) => {
-			resolve(loadJsonFile(prototypeJSONFile));
+			resolve(loadJSONFile(input.prototype));
 		});
 	})
 
 	// Get reference to the prototype data in MongoDB
-	.then((json) => {
+	.then(json => {
 		// Fix the prototype ObjectId
 		prototypeCard = Object.assign({}, json, {"_id": new ObjectId(prototypeObjectId)});
 
@@ -365,7 +382,7 @@ create()
 	})
 
 	// Count number of cards stored in MongoDB prototype dataset
-	.then((collection) => {
+	.then(collection => {
 		mongoCards = collection;
 
 		return new Promise((resolve, reject) => {
@@ -375,7 +392,7 @@ create()
 
 	// Observe that it's necessary to delete existing cards data in MongoDB before it will save
 	// mongo --> use controversies; --> db.cards.drop();
-	.then((count) => {
+	.then(count => {
 		return new Promise((resolve, reject) => {
 			if (count === 0) {
 				console.log("\nThere is no prototype controversy card to test frontend with.  Adding.")
@@ -405,19 +422,19 @@ create()
 	// create directory from card id, download and save image into that directory, then rename that file to large.jpg
 
 	// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
-	.then((cards) => {
+	.then(cards => {
 		mongoMetadata = cards;
 
 		console.log('\nSaving images to local directory. I recommend checking the images afterwards to make sure that the downloads were all successful. The scrape script appears to require a couple of scrapes to fully download all of them, probably due to the large amount of image data ...\n');
 
-		let promiseArray = cards.map((card) => {
+		let promiseArray = cards.map(card => {
 			return new Promise((resolve, reject) => {
 
 				let slug = createSlug(card.name),
-					imageDirectory = cardImageDirectory + slug;
+					imageDirectory = dir.images.cards + slug;
 
 				// Check if we have read/write access to the directory
-				fs.access(imageDirectory, fs.constants.R_OK | fs.constants.W_OK, (access_err) => {
+				fs.access(imageDirectory, fs.constants.R_OK | fs.constants.W_OK, access_err => {
 
 					// Slug-named directory does not exist
 					if (access_err) {
@@ -459,7 +476,7 @@ create()
 	// grab all controversy card image directories
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			fs.readdir(cardImageDirectory, (err, files) => {
+			fs.readdir(dir.images.cards, (err, files) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -478,12 +495,12 @@ create()
 	// 		return promiseChain.then(() => new Promise((resolve, reject) => {
 
 	// 			if (directory !== '.DS_Store') {
-	// 				fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
+	// 				fs.readdir(dir.images.cards + directory, (readdir_err, files) => {
 	// 					if (readdir_err) {
 	// 						return Promise.reject(readdir_err);
 
 	// 					} else if (!files.includes('pyramid_files')) {
-	// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory + '/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
+	// 						execSync('./magick-slicer.sh ' + dir.images.cards + directory + '/large.jpg -o ' + dir.images.cards + directory + '/pyramid',
 	// 							(error, stdout, stderr) => {
 
 	// 							console.log('Slicing ' + directory);
@@ -520,14 +537,14 @@ create()
 	// 		let syncSliceImages = function() {
 	// 			let directory = directories[controversyCardCount];
 
-	// 			fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
+	// 			fs.readdir(dir.images.cards + directory, (readdir_err, files) => {
 	// 				if (readdir_err) {
 	// 					reject(readdir_err);
 
 	// 				} else if (!files.includes('pyramid_files')) {
 	// 					if (controversyCardCount < directories.length) {
-	// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory +
-	// 							'/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
+	// 						execSync('./magick-slicer.sh ' + dir.images.cards + directory +
+	// 							'/large.jpg -o ' + dir.images.cards + directory + '/pyramid',
 	// 							(slice_error, stdout, stderr) => {
 
 	// 							console.log('Slicing ' + directory);
@@ -558,10 +575,10 @@ create()
 	.then(() => {
 		console.log('\nSaving the controversy card thumbnails ...\n');
 
-		let promiseArray = mongoMetadata.map((card) => {
+		let promiseArray = mongoMetadata.map(card => {
 			return new Promise((resolve, reject) => {
 				let slug = createSlug(card.name),
-					thumbnailDirectory = cardImageDirectory + slug;
+					thumbnailDirectory = dir.images.cards + slug;
 
 				fs.readdir(thumbnailDirectory, (readdir_err, files) => {
 					if (readdir_err) {
@@ -584,7 +601,7 @@ create()
 
 	// Grab all feed post image directories based upon local file structure
 	.then(() => {
-		let promiseArray = feedImageDirectories.map((feedImageDirectory) => {
+		let promiseArray = dir.images.feeds.map((feedImageDirectory) => {
 			return new Promise((resolve, reject) => {
 				fs.readdir(feedImageDirectory, (err, files) => {
 					files = files.map(file => feedImageDirectory + file);
@@ -645,7 +662,7 @@ create()
 
 	// Grab all feed post markdown directories based upon local file structure
 	.then(() => {
-		let promiseArray = feedMarkdownDirectories.map((feedMarkdownDirectory) => {
+		let promiseArray = dir.md.feeds.map((feedMarkdownDirectory) => {
 			return new Promise((resolve, reject) => {
 				fs.readdir(feedMarkdownDirectory, (err, files) => {
 					files = files.map(file => feedMarkdownDirectory + file);
@@ -706,14 +723,8 @@ create()
 	// Grab the metadata which has been manually typed in for the example Halton Arp feed posts
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			fs.readFile(feedsInputJSONFile, 'utf8', (err, posts) => {
-				if (err) {
-					reject(err);
-				} else {
-					resolve(JSON.parse(posts));
-				}
-			});			
-		})
+			resolve(loadJSONFile(input.feeds));		
+		});
 	})
 
 	// Process the hard-coded feed front-matter and markdown into HTML and JSON
@@ -730,7 +741,7 @@ create()
 
 
 
-				let feedPostParagraphs = splitText(slug, feedPostHTML, feedParagraphBreak),
+				let feedPostParagraphs = splitText(slug, feedPostHTML, stop.feeds),
 					algoliaFeedPost = [],
 					algoliaMetadata = {
 						card: feedPostAttributes.controversy,
@@ -743,15 +754,15 @@ create()
 						metrics: feedPostAttributes.metrics,
 						images: {
 							large: {
-								url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg'
+								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg'
 								// width: ,
 								// height: 
 							},
 							thumbnail: {
-								url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
+								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
 							},
 							pyramid: {
-								url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
+								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
 								// maxZoomLevel: ,
 								// TileSize: 
 							}
@@ -782,9 +793,9 @@ create()
 	.then(() => {
 		return new Promise((resolve, reject) => {
 			if (algoliaFeedsJSON) {
-				console.log('\nExporting the feeds JSON to ' + algoliaFeedsJSONFile);
+				console.log('\nExporting the feeds JSON to ' + output.feeds);
 
-				fs.writeFile(algoliaFeedsJSONFile, JSON.stringify(algoliaFeedsJSON), 'utf-8', (err) => {
+				fs.writeFile(output.feeds, JSON.stringify(algoliaFeedsJSON), 'utf-8', err => {
 					if (err) {
 						reject(err);
 					} else {
@@ -803,7 +814,7 @@ create()
 		close(db);	
 	})
 
-	.catch((error) => {
+	.catch(error => {
 		console.log("\nAn error has occurred ...");
 
 		if (error) {

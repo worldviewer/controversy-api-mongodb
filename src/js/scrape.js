@@ -2,9 +2,6 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-// TODO: Consider just dropping table every time, then recreating.
-// TODO: Refactor to also update mLab database
-
 var Db = require('mongodb').Db,
     Server = require('mongodb').Server,
     MongoClient = require('mongodb').MongoClient,
@@ -15,45 +12,67 @@ var Db = require('mongodb').Db,
     ObjectId = require('mongodb').ObjectId,
     Thumbnail = require('thumbnail'),
     GPlus = require('./gplus').default,
-    loadJsonFile = require('load-json-file'),
+    loadJSONFile = require('load-json-file'),
     frontMatter = require('front-matter'),
     pageDown = require('pagedown'),
-    markdownConverter = pageDown.getSanitizingConverter(),
-
+    markdownConverter = pageDown.getSanitizingConverter();
 
 // MongoDB configuration
-port = 27017,
-    host = "localhost",
-    dbName = "controversies",
-    url = 'mongodb://' + host + ':' + port + '/' + dbName,
+var mongo = {
+	port: 27017,
+	host: 'localhost',
+	dbName: 'controversies'
+};
 
-// assert = require('assert'),
+mongo.url = 'mongodb://' + mongo.host + ':' + mongo.port + '/' + mongo.dbName;
 
-METACARDS = 'metacards',
+var METACARDS = 'metacards',
     CARDS = 'cards',
     prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
+    feedThumbnailSize = 506,
 
 
 // Hard-coded local data directory structures
-cardImageDirectory = 'img/cards/',
-    feedImageDirectories = ['img/feeds/halton-arp-the-modern-galileo/worldview/', 'img/feeds/halton-arp-the-modern-galileo/model/', 'img/feeds/halton-arp-the-modern-galileo/propositional/', 'img/feeds/halton-arp-the-modern-galileo/conceptual/', 'img/feeds/halton-arp-the-modern-galileo/narrative/'],
-    feedMarkdownDirectories = ['md/feeds/halton-arp-the-modern-galileo/worldview/', 'md/feeds/halton-arp-the-modern-galileo/model/', 'md/feeds/halton-arp-the-modern-galileo/propositional/', 'md/feeds/halton-arp-the-modern-galileo/conceptual/', 'md/feeds/halton-arp-the-modern-galileo/narrative/'],
+dir = {
+	images: {
+		cards: 'img/cards/',
+		feeds: ['img/feeds/halton-arp-the-modern-galileo/worldview/', 'img/feeds/halton-arp-the-modern-galileo/model/', 'img/feeds/halton-arp-the-modern-galileo/propositional/', 'img/feeds/halton-arp-the-modern-galileo/conceptual/', 'img/feeds/halton-arp-the-modern-galileo/narrative/']
+	},
+	md: {
+		feeds: ['md/feeds/halton-arp-the-modern-galileo/worldview/', 'md/feeds/halton-arp-the-modern-galileo/model/', 'md/feeds/halton-arp-the-modern-galileo/propositional/', 'md/feeds/halton-arp-the-modern-galileo/conceptual/', 'md/feeds/halton-arp-the-modern-galileo/narrative/']
+	}
+},
 
 
 // Asset CDN's
-feedAssetsURL = 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
-    cardAssetsURL = 'https://controversy-cards-images.s3.amazonaws.com/',
+url = {
+	feeds: 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
+	cards: 'https://controversy-cards-images.s3.amazonaws.com/'
+},
 
 
 // Hard-coded JSON data input
-prototypeJSONFile = 'json/halton-arp.json',
-    algoliaCardsJSONFile = 'json/algolia-cards.json',
-    algoliaFeedsJSONFile = 'json/algolia-feeds.json',
-    cardsInputJSONFile = 'json/metacards.json',
-    feedsInputJSONFile = 'json/feeds.json',
-    feedThumbnailSize = 506,
-    cardParagraphBreak = '<br /><br />',
-    feedParagraphBreak = '\n\n';
+input = {
+	prototype: 'json/halton-arp.json',
+	cards: 'json/cards.json',
+	feeds: 'json/feeds.json'
+},
+
+
+// JSON outputs for Algolia Search
+output = {
+	cards: 'json/algolia-cards.json',
+	feeds: 'json/algolia-feeds.json'
+},
+
+
+// Algolia Search requires that paragraphs are chunked into separate records.
+// This split string differs by markdown processor; Google+ uses a pair of <br>'s,
+// whereas pageDown uses a pair of carriage returns.
+stop = {
+	cards: '<br /><br />',
+	feeds: '\n\n'
+};
 
 var db = null,
     combinedJSON = [],
@@ -75,13 +94,13 @@ mongoCards = void 0,
 
 function create() {
 	return new Promise(function (resolve, reject) {
-		resolve(new Db(dbName, new Server(host, port)));
+		resolve(new Db(mongo.dbName, new Server(mongo.host, mongo.port)));
 	});
 }
 
 function open() {
 	return new Promise(function (resolve, reject) {
-		MongoClient.connect(url, function (err, database) {
+		MongoClient.connect(mongo.url, function (err, database) {
 			if (err) {
 				reject(err);
 			} else {
@@ -235,13 +254,7 @@ create().then(function () {
 // Grab the metadata which has been manually typed in for each controversy card
 .then(function () {
 	return new Promise(function (resolve, reject) {
-		fs.readFile(cardsInputJSONFile, 'utf8', function (err, cards) {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(JSON.parse(cards));
-			}
-		});
+		resolve(loadJSONFile(input.cards));
 	});
 })
 
@@ -260,7 +273,7 @@ create().then(function () {
 			    json = cardsJSON.filter(function (el) {
 				return el.slug === slug ? true : false;
 			})[0],
-			    splitByParagraph = splitText(slug, gplusCard.text, cardParagraphBreak),
+			    splitByParagraph = splitText(slug, gplusCard.text, stop.cards),
 			    algoliaMetadata = {
 				slug: json.slug,
 				gplusUrl: gplusCard.url,
@@ -270,15 +283,15 @@ create().then(function () {
 				metrics: [],
 				images: {
 					large: {
-						url: cardAssetsURL + slug + '/large.jpg',
+						url: url.cards + slug + '/large.jpg',
 						width: json.images.large.width,
 						height: json.images.large.height
 					},
 					thumbnail: {
-						url: cardAssetsURL + slug + '/thumbnail.jpg'
+						url: url.cards + slug + '/thumbnail.jpg'
 					},
 					pyramid: {
-						url: cardAssetsURL + slug + '/pyramid_files/',
+						url: url.cards + slug + '/pyramid_files/',
 						maxZoomLevel: json.images.pyramid.maxZoomLevel,
 						TileSize: json.images.pyramid.TileSize
 					}
@@ -318,9 +331,9 @@ create().then(function () {
 .then(function () {
 	return new Promise(function (resolve, reject) {
 		if (algoliaCardsJSON) {
-			console.log('\nExporting the combined JSON to ' + algoliaCardsJSONFile);
+			console.log('\nExporting the combined JSON to ' + output.cards);
 
-			fs.writeFile(algoliaCardsJSONFile, JSON.stringify(algoliaCardsJSON), 'utf-8', function (err) {
+			fs.writeFile(output.cards, JSON.stringify(algoliaCardsJSON), 'utf-8', function (err) {
 				if (err) {
 					reject(err);
 				} else {
@@ -349,7 +362,7 @@ create().then(function () {
 	console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 	return new Promise(function (resolve, reject) {
-		resolve(loadJsonFile(prototypeJSONFile));
+		resolve(loadJSONFile(input.prototype));
 	});
 })
 
@@ -412,7 +425,7 @@ create().then(function () {
 		return new Promise(function (resolve, reject) {
 
 			var slug = createSlug(card.name),
-			    imageDirectory = cardImageDirectory + slug;
+			    imageDirectory = dir.images.cards + slug;
 
 			// Check if we have read/write access to the directory
 			fs.access(imageDirectory, fs.constants.R_OK | fs.constants.W_OK, function (access_err) {
@@ -457,7 +470,7 @@ create().then(function () {
 // grab all controversy card image directories
 .then(function () {
 	return new Promise(function (resolve, reject) {
-		fs.readdir(cardImageDirectory, function (err, files) {
+		fs.readdir(dir.images.cards, function (err, files) {
 			if (err) {
 				reject(err);
 			} else {
@@ -476,12 +489,12 @@ create().then(function () {
 // 		return promiseChain.then(() => new Promise((resolve, reject) => {
 
 // 			if (directory !== '.DS_Store') {
-// 				fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
+// 				fs.readdir(dir.images.cards + directory, (readdir_err, files) => {
 // 					if (readdir_err) {
 // 						return Promise.reject(readdir_err);
 
 // 					} else if (!files.includes('pyramid_files')) {
-// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory + '/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
+// 						execSync('./magick-slicer.sh ' + dir.images.cards + directory + '/large.jpg -o ' + dir.images.cards + directory + '/pyramid',
 // 							(error, stdout, stderr) => {
 
 // 							console.log('Slicing ' + directory);
@@ -518,14 +531,14 @@ create().then(function () {
 // 		let syncSliceImages = function() {
 // 			let directory = directories[controversyCardCount];
 
-// 			fs.readdir(cardImageDirectory + directory, (readdir_err, files) => {
+// 			fs.readdir(dir.images.cards + directory, (readdir_err, files) => {
 // 				if (readdir_err) {
 // 					reject(readdir_err);
 
 // 				} else if (!files.includes('pyramid_files')) {
 // 					if (controversyCardCount < directories.length) {
-// 						execSync('./magick-slicer.sh ' + cardImageDirectory + directory +
-// 							'/large.jpg -o ' + cardImageDirectory + directory + '/pyramid',
+// 						execSync('./magick-slicer.sh ' + dir.images.cards + directory +
+// 							'/large.jpg -o ' + dir.images.cards + directory + '/pyramid',
 // 							(slice_error, stdout, stderr) => {
 
 // 							console.log('Slicing ' + directory);
@@ -559,7 +572,7 @@ create().then(function () {
 	var promiseArray = mongoMetadata.map(function (card) {
 		return new Promise(function (resolve, reject) {
 			var slug = createSlug(card.name),
-			    thumbnailDirectory = cardImageDirectory + slug;
+			    thumbnailDirectory = dir.images.cards + slug;
 
 			fs.readdir(thumbnailDirectory, function (readdir_err, files) {
 				if (readdir_err) {
@@ -580,7 +593,7 @@ create().then(function () {
 
 // Grab all feed post image directories based upon local file structure
 .then(function () {
-	var promiseArray = feedImageDirectories.map(function (feedImageDirectory) {
+	var promiseArray = dir.images.feeds.map(function (feedImageDirectory) {
 		return new Promise(function (resolve, reject) {
 			fs.readdir(feedImageDirectory, function (err, files) {
 				files = files.map(function (file) {
@@ -640,7 +653,7 @@ create().then(function () {
 
 // Grab all feed post markdown directories based upon local file structure
 .then(function () {
-	var promiseArray = feedMarkdownDirectories.map(function (feedMarkdownDirectory) {
+	var promiseArray = dir.md.feeds.map(function (feedMarkdownDirectory) {
 		return new Promise(function (resolve, reject) {
 			fs.readdir(feedMarkdownDirectory, function (err, files) {
 				files = files.map(function (file) {
@@ -703,13 +716,7 @@ create().then(function () {
 // Grab the metadata which has been manually typed in for the example Halton Arp feed posts
 .then(function () {
 	return new Promise(function (resolve, reject) {
-		fs.readFile(feedsInputJSONFile, 'utf8', function (err, posts) {
-			if (err) {
-				reject(err);
-			} else {
-				resolve(JSON.parse(posts));
-			}
-		});
+		resolve(loadJSONFile(input.feeds));
 	});
 })
 
@@ -725,7 +732,7 @@ create().then(function () {
 			    feedPostAttributes = feedPostObject.attributes,
 			    feedPostHTML = markdownConverter.makeHtml(feedPostObject.body);
 
-			var feedPostParagraphs = splitText(slug, feedPostHTML, feedParagraphBreak),
+			var feedPostParagraphs = splitText(slug, feedPostHTML, stop.feeds),
 			    algoliaFeedPost = [],
 			    algoliaMetadata = {
 				card: feedPostAttributes.controversy,
@@ -738,15 +745,15 @@ create().then(function () {
 				metrics: feedPostAttributes.metrics,
 				images: {
 					large: {
-						url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg'
+						url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg'
 						// width: ,
 						// height: 
 					},
 					thumbnail: {
-						url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
+						url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
 					},
 					pyramid: {
-						url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
+						url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
 						// maxZoomLevel: ,
 						// TileSize: 
 					}
@@ -771,9 +778,9 @@ create().then(function () {
 .then(function () {
 	return new Promise(function (resolve, reject) {
 		if (algoliaFeedsJSON) {
-			console.log('\nExporting the feeds JSON to ' + algoliaFeedsJSONFile);
+			console.log('\nExporting the feeds JSON to ' + output.feeds);
 
-			fs.writeFile(algoliaFeedsJSONFile, JSON.stringify(algoliaFeedsJSON), 'utf-8', function (err) {
+			fs.writeFile(output.feeds, JSON.stringify(algoliaFeedsJSON), 'utf-8', function (err) {
 				if (err) {
 					reject(err);
 				} else {
