@@ -17,16 +17,17 @@ const
 	pageDown = require('pagedown'),
 	markdownConverter = pageDown.getSanitizingConverter(),
 
+	// MongoDB configuration
 	port = 27017,
 	host = "localhost",
 	dbName = "controversies",
 	url = `mongodb://${host}:${port}/${dbName}`,
-	assert = require('assert'),
 
 	METACARDS = 'metacards',
 	CARDS = 'cards',
 	prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
 
+	// Hard-coded local data directory structures
 	cardImageDirectory = 'img/cards/',
 	feedImageDirectories = [
 		'img/feeds/halton-arp-the-modern-galileo/worldview/',
@@ -40,11 +41,18 @@ const
 		'md/feeds/halton-arp-the-modern-galileo/propositional/',
 		'md/feeds/halton-arp-the-modern-galileo/conceptual/',
 		'md/feeds/halton-arp-the-modern-galileo/narrative/'],
+
+	// Asset CDN's
 	feedAssetsURL = 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
 	cardAssetsURL = 'https://controversy-cards-images.s3.amazonaws.com/',
+
+	// Hard-coded JSON data input
 	prototypeJSONFile = 'json/halton-arp.json',
 	algoliaCardsJSONFile = 'json/algolia-cards.json',
 	algoliaFeedsJSONFile = 'json/algolia-feeds.json',
+	cardsInputJSONFile = 'json/cards.json',
+	feedsInputJSONFile = 'json/feeds.json',
+
 	feedThumbnailSize = 506,
 	cardParagraphBreak = '<br /><br />',
 	feedParagraphBreak = '\n\n';
@@ -217,21 +225,19 @@ create()
 		});
 	})
 
-	// Get the current number of controversy cards in MongoDB
+	// Delete the metacards collection in MongoDB
 	.then((collection) => {
 		gplusMetacards = collection;
 
 		return new Promise((resolve, reject) => {
-			resolve(mongoMetacards.count());
+			resolve(mongoMetacards.drop());
 		});
 	})
 
 	// Grab the metadata which has been manually typed in for each controversy card
-	.then((count) => {
-		savedCount = count;
-
+	.then(() => {
 		return new Promise((resolve, reject) => {
-			fs.readFile('json/metacards.json', 'utf8', (err, cards) => {
+			fs.readFile(cardsInputJSONFile, 'utf8', (err, cards) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -246,72 +252,65 @@ create()
 	// for searchable fields, there should be no redundancy.  The redundancy should all occur with the metadata.
 
 	// Also using this area to save the combined JSON to Mongo
-	.then((JSONCards) => {
+	.then((cardsJSON) => {
 		return new Promise((resolve, reject) => {
-			if (savedCount === 0 && shouldScrape) {
 
-				console.log("\nThere are currently " + savedCount +
-					" metacards in the controversies collection.");
-				console.log("\nSaving Scraped data to MongoDB");
+			console.log("\nSaving Scraped data to MongoDB");
 
-				gplusMetacards.forEach((gplusCard) => {
-					let slug = createSlug(gplusCard.name),
-						json = JSONCards.filter((el) => el.slug === slug ? true : false),
-						splitByParagraph = splitText(slug, gplusCard.text, cardParagraphBreak),
-						algoliaMetadata = {
-							image: cardAssetsURL + slug + '/large.jpg',
-							thumbnail: cardAssetsURL + slug + '/thumbnail.jpg',
-							pyramid: cardAssetsURL + slug + '/pyramid_files/',
-							url: gplusCard.url,
-							publishDate: gplusCard.publishDate,
-							updateDate: gplusCard.updateDate
-						};
+			gplusMetacards.forEach((gplusCard) => {
+				let slug = createSlug(gplusCard.name),
+					json = cardsJSON.filter((el) => el.slug === slug ? true : false)[0],
+					splitByParagraph = splitText(slug, gplusCard.text, cardParagraphBreak),
+					algoliaMetadata = {
+						slug: json.slug,
+						gplusUrl: gplusCard.url,
+						publishDate: gplusCard.publishDate,
+						updateDate: gplusCard.updateDate,
+						projectUrl: '',
+						metrics: [],
+						images: {
+							large: {
+								url: cardAssetsURL + slug + '/large.jpg',
+								width: json.images.large.width,
+								height: json.images.large.height
+							},
+							thumbnail: {
+								url: cardAssetsURL + slug + '/thumbnail.jpg'
+							},
+							pyramid: {
+								url: cardAssetsURL + slug + '/pyramid_files/',
+								maxZoomLevel: json.images.pyramid.maxZoomLevel,
+								TileSize: json.images.pyramid.TileSize
+							}
+						}
+					};
 
-					// Save card name
-					let cardNameJSON = Object.assign({}, { name: gplusCard.name }, json[0], algoliaMetadata);
+				// Save card name
+				let cardNameJSON = Object.assign({}, { name: gplusCard.name }, algoliaMetadata);
 
-					algoliaCardsJSON = algoliaCardsJSON.concat(cardNameJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(cardNameJSON);
 
-					// Save card category
-					let categoryJSON = Object.assign({}, { category: gplusCard.category }, json[0], algoliaMetadata);
+				// Save card category
+				let categoryJSON = Object.assign({}, { category: gplusCard.category }, algoliaMetadata);
 
-					algoliaCardsJSON = algoliaCardsJSON.concat(categoryJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(categoryJSON);
 
-					// Save card summary
-					let summaryJSON = Object.assign({}, { summary: gplusCard.summary }, json[0], algoliaMetadata);
+				// Save card summary
+				let summaryJSON = Object.assign({}, { summary: gplusCard.summary }, algoliaMetadata);
 
-					algoliaCardsJSON = algoliaCardsJSON.concat(summaryJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(summaryJSON);
 
-					// Save all paragraphs for card
-					let smallerChunkJSON = splitByParagraph.map(paragraphJSON => 
-						Object.assign({}, paragraphJSON, json[0], algoliaMetadata)
-					);
+				// Save all paragraphs for card
+				let smallerChunkJSON = splitByParagraph.map(paragraphJSON => 
+					Object.assign({}, paragraphJSON, algoliaMetadata)
+				);
 
-					algoliaCardsJSON = algoliaCardsJSON.concat(smallerChunkJSON);
+				algoliaCardsJSON = algoliaCardsJSON.concat(smallerChunkJSON);
 
-					combinedJSON.push(Object.assign({}, gplusCard, json[0]));
-				});
+				combinedJSON.push(Object.assign({}, gplusCard, json[0]));
+			});
 
-				resolve(mongoMetacards.insertMany(combinedJSON));
-
-			} else if (gplusMetacards && gplusMetacards.length > savedCount) {
-
-				console.log("\nThere are currently " + savedCount +
-					" metacards in the controversies collection.");				
-				console.log("\nThere are new G+ posts since last scrape.");
-				resolve();
-
-			} else if (gplusMetacards && gplusMetacards.length === savedCount) {
-
-				console.log("\nThere are no new G+ posts since last scrape.");
-				resolve();
-
-			} else if (!shouldScrape) {
-
-				console.log("\nWill set up backend without G+ metadata.  See README for more information.");
-				resolve();
-
-			}
+			resolve(mongoMetacards.insertMany(combinedJSON));
 		});
 	})
 
@@ -704,8 +703,21 @@ create()
 		});		
 	})
 
-	// Process the hard-coded feed front-matter and markdown into HTML and JSON
+	// Grab the metadata which has been manually typed in for the example Halton Arp feed posts
 	.then(() => {
+		return new Promise((resolve, reject) => {
+			fs.readFile(feedsInputJSONFile, 'utf8', (err, posts) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(JSON.parse(posts));
+				}
+			});			
+		})
+	})
+
+	// Process the hard-coded feed front-matter and markdown into HTML and JSON
+	.then((postsJSON) => {
 		console.log('\nConverting all markdown into HTML ...');
 
 		let promiseArray = feedPosts.map((post, postCount) => {
@@ -716,20 +728,34 @@ create()
 					feedPostAttributes = feedPostObject.attributes,
 					feedPostHTML = markdownConverter.makeHtml(feedPostObject.body);
 
+
+
 				let feedPostParagraphs = splitText(slug, feedPostHTML, feedParagraphBreak),
 					algoliaFeedPost = [],
 					algoliaMetadata = {
 						card: feedPostAttributes.controversy,
-						discourse_level: feedPostAttributes.discourse_level,
+						discourseLevel: feedPostAttributes.discourse_level,
 						authors: feedPostAttributes.authors,
-						date: feedPostAttributes.date,
-						lastmod: feedPostAttributes.lastmod,
-						project_url: feedPostAttributes.project_url,
+						publishDate: feedPostAttributes.date,
+						updateDate: feedPostAttributes.lastmod,
+						projectUrl: feedPostAttributes.project_url,
 						categories: feedPostAttributes.categories,
 						metrics: feedPostAttributes.metrics,
-						image: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg',
-						thumbnail: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg',
-						pyramid: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
+						images: {
+							large: {
+								url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg'
+								// width: ,
+								// height: 
+							},
+							thumbnail: {
+								url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
+							},
+							pyramid: {
+								url: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
+								// maxZoomLevel: ,
+								// TileSize: 
+							}
+						}
 					};
 
 				algoliaFeedsJSON = algoliaFeedsJSON.concat(Object.assign({},
