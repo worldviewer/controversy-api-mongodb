@@ -95,8 +95,8 @@ function saveImage(url, destination, resolve, reject) {
 	});
 }
 
-function splitText(slug, card) {
-	return card.text.split(cardParagraphBreak).map(function (paragraph, i) {
+function splitText(slug, text, breakString) {
+	return text.split(breakString).map(function (paragraph, i) {
 		return {
 			id: slug + '-paragraph-' + i,
 			paragraph: paragraph
@@ -246,7 +246,7 @@ create().then(function () {
 				    json = JSONCards.filter(function (el) {
 					return el.slug === slug ? true : false;
 				}),
-				    splitByParagraph = splitText(slug, gplusCard),
+				    splitByParagraph = splitText(slug, gplusCard.text, cardParagraphBreak),
 				    algoliaMetadata = {
 					image: gplusCard.image,
 					thumbnail: gplusCard.thumbnail,
@@ -302,7 +302,7 @@ create().then(function () {
 .then(function () {
 	return new Promise(function (resolve, reject) {
 		if (algoliaCardsJSON) {
-			console.log('\nExporting the combined JSON to ' + algoliaCardsJSONFile + '\n');
+			console.log('\nExporting the combined JSON to ' + algoliaCardsJSONFile);
 
 			fs.writeFile(algoliaCardsJSONFile, JSON.stringify(algoliaCardsJSON), 'utf-8', function (err) {
 				if (err) {
@@ -686,26 +686,60 @@ create().then(function () {
 
 // Process the hard-coded feed front-matter and markdown into HTML and JSON
 .then(function () {
-	console.log('\nConverting all markdown into HTML ...\n');
+	console.log('\nConverting all markdown into HTML ...');
 
-	var promiseArray = feedPosts.map(function (post) {
+	var promiseArray = feedPosts.map(function (post, postCount) {
 		return new Promise(function (resolve, reject) {
 			var feedPostObject = frontMatter(post),
+			    longSlug = allFeedMarkdowns[postCount].split('/'),
+			    slug = longSlug[longSlug.length - 1],
 			    feedPostAttributes = feedPostObject.attributes,
-			    feedPostHTML = markdownConverter.makeHtml(feedPostObject.body),
-			    algoliaFeedPostObject = Object.assign({}, feedPostAttributes, { text: feedPostHTML });
+			    feedPostHTML = markdownConverter.makeHtml(feedPostObject.body);
 
-			resolve(algoliaFeedPosts.push(algoliaFeedPostObject));
+			var feedPostParagraphs = splitText(slug, feedPostHTML, feedParagraphBreak),
+			    algoliaFeedPost = [],
+			    algoliaMetadata = {
+				card: feedPostAttributes.controversy,
+				discourse_level: feedPostAttributes.discourse_level,
+				authors: feedPostAttributes.authors,
+				date: feedPostAttributes.date,
+				lastmod: feedPostAttributes.lastmod,
+				project_url: feedPostAttributes.project_url,
+				categories: feedPostAttributes.categories,
+				metrics: feedPostAttributes.metrics
+			};
+
+			algoliaFeedsJSON = algoliaFeedsJSON.concat(Object.assign({}, { title: feedPostAttributes.title }, algoliaMetadata));
+
+			feedPostParagraphs.forEach(function (paragraph) {
+				algoliaFeedPost.push(Object.assign({}, { id: paragraph.id }, algoliaMetadata, { paragraph: paragraph.paragraph }));
+			});
+
+			algoliaFeedsJSON = algoliaFeedsJSON.concat(algoliaFeedPost);
+			resolve();
 		});
 	});
 
 	return Promise.all(promiseArray);
 })
 
-// Split all feed posts by paragraph for Algolia, then save to disk
+// Export that composed object to a JSON file, for importing into Algolia search service
 .then(function () {
-	console.log(algoliaFeedPosts[0]);
-	console.log(algoliaFeedPosts.length);
+	return new Promise(function (resolve, reject) {
+		if (algoliaFeedsJSON) {
+			console.log('\nExporting the feeds JSON to ' + algoliaFeedsJSONFile);
+
+			fs.writeFile(algoliaFeedsJSONFile, JSON.stringify(algoliaFeedsJSON), 'utf-8', function (err) {
+				if (err) {
+					reject(err);
+				} else {
+					resolve();
+				}
+			});
+		} else {
+			console.log('\nSkipping the export of the feeds JSON because it is empty.\n');
+		}
+	});
 }).then(function () {
 	console.log("\nAll done and no issues.");
 
