@@ -1,7 +1,7 @@
 ---
 title: "Gee Whiz Science"
 controversy: "Halton Arp, the Modern Galileo"
-discourse_level: "concept"
+discourse_level: "conceptual"
 authors: ["worldviewer"]
 date: "2017-04-30"
 lastmod: "2017-04-30"

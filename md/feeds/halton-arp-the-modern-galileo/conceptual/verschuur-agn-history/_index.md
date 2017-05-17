@@ -1,6 +1,6 @@
 ---
 title: "Radio Astronomer Gerrit Verschuur Tells the History of Quasars and the Grand Unification of AGN"
-discourse_level: "concept"
+discourse_level: "conceptual"
 authors: ["worldviewer"]
 date: "2017-04-30"
 lastmod: "2017-04-30"

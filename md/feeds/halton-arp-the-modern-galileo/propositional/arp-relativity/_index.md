@@ -1,7 +1,7 @@
 ---
 title: "Is Relativity More Hindrance or Help in Explaining the Creation of Low-Mass Matter in AGNs?"
 controversy: "Halton Arp, the Modern Galileo"
-discourse_level: "proposition"
+discourse_level: "propositional"
 authors: ["worldviewer"]
 date: "2017-04-30"
 lastmod: "2017-04-30"

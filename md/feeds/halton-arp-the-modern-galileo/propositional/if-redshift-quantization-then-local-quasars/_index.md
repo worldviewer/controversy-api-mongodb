@@ -1,7 +1,7 @@
 ---
 title: "Claim - If Redshift Quantization is Real, the Quasars Must Be Local"
 controversy: "Halton Arp, the Modern Galileo"
-discourse_level: "proposition"
+discourse_level: "propositional"
 authors: ["worldviewer"]
 date: "2017-04-30"
 lastmod: "2017-04-30"

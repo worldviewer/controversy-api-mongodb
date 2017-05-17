@@ -1,7 +1,7 @@
 ---
 title: "Is Gravitational Lensing Falsifiable Science?"
 controversy: "Halton Arp, the Modern Galileo"
-discourse_level: "proposition"
+discourse_level: "propositional"
 authors: ["worldviewer"]
 date: "2017-04-30"
 lastmod: "2017-04-30"

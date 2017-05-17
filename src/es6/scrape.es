@@ -40,6 +40,8 @@ const
 		'md/feeds/halton-arp-the-modern-galileo/propositional/',
 		'md/feeds/halton-arp-the-modern-galileo/conceptual/',
 		'md/feeds/halton-arp-the-modern-galileo/narrative/'],
+	feedAssetsURL = 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
+	cardAssetsURL = 'https://controversy-cards-images.s3.amazonaws.com/',
 	prototypeJSONFile = 'json/halton-arp.json',
 	algoliaCardsJSONFile = 'json/algolia-cards.json',
 	algoliaFeedsJSONFile = 'json/algolia-feeds.json',
@@ -257,8 +259,9 @@ create()
 						json = JSONCards.filter((el) => el.slug === slug ? true : false),
 						splitByParagraph = splitText(slug, gplusCard.text, cardParagraphBreak),
 						algoliaMetadata = {
-							image: gplusCard.image,
-							thumbnail: gplusCard.thumbnail,
+							image: cardAssetsURL + slug + '/large.jpg',
+							thumbnail: cardAssetsURL + slug + '/thumbnail.jpg',
+							pyramid: cardAssetsURL + slug + '/pyramid_files/',
 							url: gplusCard.url,
 							publishDate: gplusCard.publishDate,
 							updateDate: gplusCard.updateDate
@@ -724,10 +727,13 @@ create()
 						project_url: feedPostAttributes.project_url,
 						categories: feedPostAttributes.categories,
 						metrics: feedPostAttributes.metrics,
+						image: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg',
+						thumbnail: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg',
+						pyramid: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
 					};
 
 				algoliaFeedsJSON = algoliaFeedsJSON.concat(Object.assign({},
-					{ title: feedPostAttributes.title },
+					{ name: feedPostAttributes.title },
 					algoliaMetadata
 				));
 

@@ -1,7 +1,7 @@
 ---
 title: "Is Transverse Redshift Factor Used as Justification to Avoid Detailed Proper Motion Studies of Quasars?"
 controversy: "Halton Arp, the Modern Galileo"
-discourse_level: "proposition"
+discourse_level: "propositional"
 authors: ["worldviewer"]
 date: "2017-04-30"
 lastmod: "2017-04-30"

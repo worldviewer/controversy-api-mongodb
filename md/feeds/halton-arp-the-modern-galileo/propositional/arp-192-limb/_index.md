@@ -1,7 +1,7 @@
 ---
 title: "You Decide - Was the Limb in Arp 192 an Artifact?"
 controversy: "Halton Arp, the Modern Galileo"
-discourse_level: "proposition"
+discourse_level: "propositional"
 authors: ["worldviewer"]
 date: "2017-04-30"
 lastmod: "2017-04-30"

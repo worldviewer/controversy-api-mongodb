@@ -30,6 +30,8 @@ var Db = require('mongodb').Db,
     cardImageDirectory = 'img/cards/',
     feedImageDirectories = ['img/feeds/halton-arp-the-modern-galileo/worldview/', 'img/feeds/halton-arp-the-modern-galileo/model/', 'img/feeds/halton-arp-the-modern-galileo/propositional/', 'img/feeds/halton-arp-the-modern-galileo/conceptual/', 'img/feeds/halton-arp-the-modern-galileo/narrative/'],
     feedMarkdownDirectories = ['md/feeds/halton-arp-the-modern-galileo/worldview/', 'md/feeds/halton-arp-the-modern-galileo/model/', 'md/feeds/halton-arp-the-modern-galileo/propositional/', 'md/feeds/halton-arp-the-modern-galileo/conceptual/', 'md/feeds/halton-arp-the-modern-galileo/narrative/'],
+    feedAssetsURL = 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
+    cardAssetsURL = 'https://controversy-cards-images.s3.amazonaws.com/',
     prototypeJSONFile = 'json/halton-arp.json',
     algoliaCardsJSONFile = 'json/algolia-cards.json',
     algoliaFeedsJSONFile = 'json/algolia-feeds.json',
@@ -248,8 +250,9 @@ create().then(function () {
 				}),
 				    splitByParagraph = splitText(slug, gplusCard.text, cardParagraphBreak),
 				    algoliaMetadata = {
-					image: gplusCard.image,
-					thumbnail: gplusCard.thumbnail,
+					image: cardAssetsURL + slug + '/large.jpg',
+					thumbnail: cardAssetsURL + slug + '/thumbnail.jpg',
+					pyramid: cardAssetsURL + slug + '/pyramid_files/',
 					url: gplusCard.url,
 					publishDate: gplusCard.publishDate,
 					updateDate: gplusCard.updateDate
@@ -706,10 +709,13 @@ create().then(function () {
 				lastmod: feedPostAttributes.lastmod,
 				project_url: feedPostAttributes.project_url,
 				categories: feedPostAttributes.categories,
-				metrics: feedPostAttributes.metrics
+				metrics: feedPostAttributes.metrics,
+				image: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg',
+				thumbnail: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg',
+				pyramid: feedAssetsURL + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
 			};
 
-			algoliaFeedsJSON = algoliaFeedsJSON.concat(Object.assign({}, { title: feedPostAttributes.title }, algoliaMetadata));
+			algoliaFeedsJSON = algoliaFeedsJSON.concat(Object.assign({}, { name: feedPostAttributes.title }, algoliaMetadata));
 
 			feedPostParagraphs.forEach(function (paragraph) {
 				algoliaFeedPost.push(Object.assign({}, { id: paragraph.id }, algoliaMetadata, { paragraph: paragraph.paragraph }));
