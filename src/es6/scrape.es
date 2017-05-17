@@ -2,27 +2,30 @@ const
 	Db = require('mongodb').Db,
 	Server = require('mongodb').Server,
 	MongoClient = require('mongodb').MongoClient,
+	ObjectId = require('mongodb').ObjectId;
 
+let db = null;
+
+const
 	fs = require('fs'),
 	request = require('request'),
 	slugify = require('slugify'),
 	execSync = require('child_process').execSync,
-	ObjectId = require('mongodb').ObjectId,
 	Thumbnail = require('thumbnail'),
 	GPlus = require('./gplus').default,
 	loadJSONFile = require('load-json-file'),
 	frontMatter = require('front-matter'),
-	pageDown = require('pagedown'),
+	pageDown = require('pagedown'), // Markdown processor used by Stack Overflow
 	markdownConverter = pageDown.getSanitizingConverter();
 
 // MongoDB configuration
-let mongo = {
+let mongodb = {
 		port: 27017,
 		host: 'localhost',
 		dbName: 'controversies'
 	};
 
-	mongo.url = `mongodb://${mongo.host}:${mongo.port}/${mongo.dbName}`;
+	mongodb.url = `mongodb://${mongodb.host}:${mongodb.port}/${mongodb.dbName}`;
 
 const
 	METACARDS = 'metacards',
@@ -61,7 +64,7 @@ const
 
 	// Hard-coded JSON data input
 	input = {
-		prototype: 'json/halton-arp.json',
+		proto: 'json/halton-arp.json',
 		cards: 'json/cards.json',
 		feeds: 'json/feeds.json'
 	},
@@ -80,31 +83,45 @@ const
 		feeds: '\n\n'
 	};
 
-let db = null,
-	combinedJSON = [],
-	algoliaCardsJSON = [],
-	algoliaFeedsJSON = [],
-	allFeedImages = [],
-	allFeedMarkdowns = [],
-	gplusMetacards, // Controversy card metadata from G+
-	mongoMetacards, // Mongo DB metacards reference
-	mongoCards,
-	feedPosts = [],
-	savedCount,
-	mongoMetadata,
-	shouldScrape = false,
-	prototypeCard,
-	algoliaFeedPosts = []; // Raw posts, not yet sliced by paragraphs
+let savedCardCount,
+	gplusKeysExist = false,
+
+	mongo = {
+		cards: { // react-worldviewer-app
+			collection: null,
+			data: null
+		},
+		proto: { // react-worldviewer-prototype
+			collection: null,
+			data: null
+		}
+	},
+
+	algolia = {
+		sliced: {
+			feeds: [],
+			cards: []
+		},
+		feed: {
+			posts: [], // raw feed post content
+			images: [], // full local image pathnames
+			markdowns: [] // feed post markdown only
+		}
+	},
+
+	google = {
+		cards: null // from G+ API
+	};
 
 function create() {
 	return new Promise((resolve, reject) => {
-		resolve(new Db(mongo.dbName, new Server(mongo.host, mongo.port)));		
+		resolve(new Db(mongodb.dbName, new Server(mongodb.host, mongodb.port)));		
 	})
 }
 
 function open() {
 	return new Promise((resolve, reject) => {
-		MongoClient.connect(mongo.url, (err, database) => {
+		MongoClient.connect(mongodb.url, (err, database) => {
 			if (err) {
 				reject(err);
 			} else {
@@ -123,6 +140,7 @@ function createSlug(cardName) {
 	return slugFinal;
 }
 
+// Captures image from URL to local disk
 function saveImage(url, destination, resolve, reject) {
 	request.get({url, encoding: 'binary'}, (err, response, body) => {
 		fs.writeFile(destination, body, 'binary', err => {
@@ -136,6 +154,7 @@ function saveImage(url, destination, resolve, reject) {
 	});
 }
 
+// Algolia Search requires chunking by paragraph
 function splitText(slug, text, breakString) {
 	return text.split(breakString).map((paragraph, i) => {
 		return {
@@ -217,7 +236,7 @@ create()
 	// Check that G+ API keys exist
 	.then((database) => {
 		db = database;
-		shouldScrape = GPlus.keysExist();
+		gplusKeysExist = GPlus.keysExist();
 
 		return database;
 	})
@@ -231,12 +250,12 @@ create()
 
 	// Save all controversy card data from G+ collection
 	.then(collection => {
-		mongoMetacards = collection;
+		mongo.cards.collection = collection;
 
 		console.log("\nChecking for Google+ API Keys in local environment.");
 
 		return new Promise((resolve, reject) => {
-			if (!shouldScrape) {
+			if (!gplusKeysExist) {
 				console.log("\nNo keys found, will not scrape metadata.");
 
 				resolve(null);
@@ -250,10 +269,10 @@ create()
 
 	// Delete the metacards collection in MongoDB
 	.then(collection => {
-		gplusMetacards = collection;
+		google.cards = collection;
 
 		return new Promise((resolve, reject) => {
-			resolve(mongoMetacards.drop());
+			resolve(mongo.cards.collection.drop());
 		});
 	})
 
@@ -264,17 +283,18 @@ create()
 		});
 	})
 
-	// Compose hardcoded JSON and G+ collection controversy card data into a single object, algoliaCardsJSON for
+	// Compose hardcoded JSON and G+ collection controversy card data into a single object, algolia.sliced.cards for
 	// sending data to Algolia Search: We need slug, name, thumbnail, unique paragraph id and paragraph, but
 	// for searchable fields, there should be no redundancy.  The redundancy should all occur with the metadata.
 
 	// Also using this area to save the combined JSON to Mongo
 	.then(cardsJSON => {
 		return new Promise((resolve, reject) => {
+			let mongoCards = [];
 
 			console.log("\nSaving Scraped data to MongoDB");
 
-			gplusMetacards.forEach((gplusCard) => {
+			google.cards.forEach((gplusCard) => {
 				let slug = createSlug(gplusCard.name),
 					json = cardsJSON.filter((el) => el.slug === slug ? true : false)[0],
 					splitByParagraph = splitText(slug, gplusCard.text, stop.cards),
@@ -305,39 +325,39 @@ create()
 				// Save card name
 				let cardNameJSON = Object.assign({}, { name: gplusCard.name }, algoliaMetadata);
 
-				algoliaCardsJSON = algoliaCardsJSON.concat(cardNameJSON);
+				algolia.sliced.cards = algolia.sliced.cards.concat(cardNameJSON);
 
 				// Save card category
 				let categoryJSON = Object.assign({}, { category: gplusCard.category }, algoliaMetadata);
 
-				algoliaCardsJSON = algoliaCardsJSON.concat(categoryJSON);
+				algolia.sliced.cards = algolia.sliced.cards.concat(categoryJSON);
 
 				// Save card summary
 				let summaryJSON = Object.assign({}, { summary: gplusCard.summary }, algoliaMetadata);
 
-				algoliaCardsJSON = algoliaCardsJSON.concat(summaryJSON);
+				algolia.sliced.cards = algolia.sliced.cards.concat(summaryJSON);
 
 				// Save all paragraphs for card
 				let smallerChunkJSON = splitByParagraph.map(paragraphJSON => 
 					Object.assign({}, paragraphJSON, algoliaMetadata)
 				);
 
-				algoliaCardsJSON = algoliaCardsJSON.concat(smallerChunkJSON);
+				algolia.sliced.cards = algolia.sliced.cards.concat(smallerChunkJSON);
 
-				combinedJSON.push(Object.assign({}, gplusCard, json[0]));
+				mongoCards.push(Object.assign({}, gplusCard, json[0]));
 			});
 
-			resolve(mongoMetacards.insertMany(combinedJSON));
+			resolve(mongo.cards.collection.insertMany(mongoCards));
 		});
 	})
 
 	// Export that composed object to a JSON file, for importing into Algolia search service
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			if (algoliaCardsJSON) {
+			if (algolia.sliced.cards) {
 				console.log('\nExporting the combined JSON to ' + output.cards);
 
-				fs.writeFile(output.cards, JSON.stringify(algoliaCardsJSON), 'utf-8', (err) => {
+				fs.writeFile(output.cards, JSON.stringify(algolia.sliced.cards), 'utf-8', (err) => {
 					if (err) {
 						reject(err);
 					} else {
@@ -353,28 +373,28 @@ create()
 	// Check number of controversy cards in MongoDB post-save
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			resolve(mongoMetacards.count());
+			resolve(mongo.cards.collection.count());
 		});
 	})	
 
 	// Load the Halton Arp hardcoded JSON for the animated infographic
 	.then(count => {
-		savedCount = count;
+		savedCardCount = count;
 
-		console.log("\nThere are now " + savedCount +
+		console.log("\nThere are now " + savedCardCount +
 			" metacards in the controversies collection.");
 		console.log("\nNow adding prototype card data for Halton Arp controversy card.");
 		console.log("(Note that any trailing commas within the JSON may cause an 'Invalid property descriptor' error.)");
 
 		return new Promise((resolve, reject) => {
-			resolve(loadJSONFile(input.prototype));
+			resolve(loadJSONFile(input.proto));
 		});
 	})
 
 	// Get reference to the prototype data in MongoDB
 	.then(json => {
 		// Fix the prototype ObjectId
-		prototypeCard = Object.assign({}, json, {"_id": new ObjectId(prototypeObjectId)});
+		mongo.proto.data = Object.assign({}, json, {"_id": new ObjectId(prototypeObjectId)});
 
 		return new Promise((resolve, reject) => {
 			resolve(db.collection(CARDS));
@@ -383,10 +403,10 @@ create()
 
 	// Count number of cards stored in MongoDB prototype dataset
 	.then(collection => {
-		mongoCards = collection;
+		mongo.proto.collection = collection;
 
 		return new Promise((resolve, reject) => {
-			resolve(mongoCards.count());
+			resolve(mongo.proto.collection.count());
 		});		
 	})
 
@@ -397,7 +417,7 @@ create()
 			if (count === 0) {
 				console.log("\nThere is no prototype controversy card to test frontend with.  Adding.")
 
-				resolve(mongoCards.insertOne(prototypeCard));
+				resolve(mongo.proto.collection.insertOne(mongo.proto.data));
 			} else {
 				console.log("\nThe prototype controversy card has already been added.");
 
@@ -423,7 +443,7 @@ create()
 
 	// WARNING: It's a good idea to double-check that the images are valid images after saving.  Note as well that the Google API does not always serve a high-quality image, so they must sometimes be manually downloaded (Really dumb).
 	.then(cards => {
-		mongoMetadata = cards;
+		mongo.cards.data = cards;
 
 		console.log('\nSaving images to local directory. I recommend checking the images afterwards to make sure that the downloads were all successful. The scrape script appears to require a couple of scrapes to fully download all of them, probably due to the large amount of image data ...\n');
 
@@ -575,7 +595,7 @@ create()
 	.then(() => {
 		console.log('\nSaving the controversy card thumbnails ...\n');
 
-		let promiseArray = mongoMetadata.map(card => {
+		let promiseArray = mongo.cards.data.map(card => {
 			return new Promise((resolve, reject) => {
 				let slug = createSlug(card.name),
 					thumbnailDirectory = dir.images.cards + slug;
@@ -609,7 +629,7 @@ create()
 					if (err) {
 						reject(err);
 					} else {
-						allFeedImages = allFeedImages.concat(files);
+						algolia.feed.images = algolia.feed.images.concat(files);
 						resolve();
 					}
 				})
@@ -623,26 +643,26 @@ create()
 	.then(() => {
 		console.log('\nGenerating thumbnails from feed posts ...\n');
 
-		allFeedImages = removeSystemFiles(allFeedImages);
+		algolia.feed.images = removeSystemFiles(algolia.feed.images);
 		let feedCardCount = 0;
 
 		return new Promise((resolve, reject) => {
 			let syncThumbnail = function() {
-				fs.readdir(allFeedImages[feedCardCount], (readdir_err, files) => {
+				fs.readdir(algolia.feed.images[feedCardCount], (readdir_err, files) => {
 
 					if (readdir_err) {
 						reject(readdir_err);
 					}
 
-					createThumbnail(allFeedImages[feedCardCount],
-						allFeedImages[feedCardCount], files.includes('thumbnail.jpg')).then(
+					createThumbnail(algolia.feed.images[feedCardCount],
+						algolia.feed.images[feedCardCount], files.includes('thumbnail.jpg')).then(
 						() => {
 
 						if (!files.includes('thumbnail.jpg')) {
-							console.log('Thumbnail generated for ' + allFeedImages[feedCardCount]);
+							console.log('Thumbnail generated for ' + algolia.feed.images[feedCardCount]);
 						}
 
-						if (feedCardCount < allFeedImages.length) {
+						if (feedCardCount < algolia.feed.images.length) {
 							syncThumbnail();
 						} else {
 							resolve();
@@ -670,7 +690,7 @@ create()
 					if (err) {
 						reject(err);
 					} else {
-						allFeedMarkdowns = allFeedMarkdowns.concat(files);
+						algolia.feed.markdowns = algolia.feed.markdowns.concat(files);
 						resolve();
 					}
 				})
@@ -684,28 +704,28 @@ create()
 	.then(() => {
 		console.log('\nFetching from local directories all feed posts ...\n');
 
-		allFeedMarkdowns = removeSystemFiles(allFeedMarkdowns);
+		algolia.feed.markdowns = removeSystemFiles(algolia.feed.markdowns);
 
 		let feedMarkdownCount = 0;
 
 		return new Promise((resolve, reject) => {
 			let syncMarkdown = function() {
-				fs.readdir(allFeedMarkdowns[feedMarkdownCount], (readdir_err, files) => {
+				fs.readdir(algolia.feed.markdowns[feedMarkdownCount], (readdir_err, files) => {
 
 					if (readdir_err) {
 						reject(readdir_err);
 					}
 
-					console.log('Fetching post for ' + allFeedMarkdowns[feedMarkdownCount]);
+					console.log('Fetching post for ' + algolia.feed.markdowns[feedMarkdownCount]);
 
-					fs.readFile(allFeedMarkdowns[feedMarkdownCount] + '/_index.md', 'utf8', (err, feedPost) => {
+					fs.readFile(algolia.feed.markdowns[feedMarkdownCount] + '/_index.md', 'utf8', (err, feedPost) => {
 						if (err) {
 							reject(err);
 						} else {
-							feedPosts.push(feedPost);
+							algolia.feed.posts.push(feedPost);
 						}
 
-						if (feedMarkdownCount < allFeedMarkdowns.length) {
+						if (feedMarkdownCount < algolia.feed.markdowns.length) {
 							syncMarkdown();
 						} else {
 							resolve();
@@ -731,10 +751,10 @@ create()
 	.then((postsJSON) => {
 		console.log('\nConverting all markdown into HTML ...');
 
-		let promiseArray = feedPosts.map((post, postCount) => {
+		let promiseArray = algolia.feed.posts.map((post, postCount) => {
 			return new Promise((resolve, reject) => {
 				let feedPostObject = frontMatter(post),
-					longSlug = allFeedMarkdowns[postCount].split('/'),
+					longSlug = algolia.feed.markdowns[postCount].split('/'),
 					slug = longSlug[longSlug.length-1],
 					feedPostAttributes = feedPostObject.attributes,
 					feedPostHTML = markdownConverter.makeHtml(feedPostObject.body);
@@ -769,7 +789,7 @@ create()
 						}
 					};
 
-				algoliaFeedsJSON = algoliaFeedsJSON.concat(Object.assign({},
+				algolia.sliced.feeds = algolia.sliced.feeds.concat(Object.assign({},
 					{ name: feedPostAttributes.title },
 					algoliaMetadata
 				));
@@ -781,7 +801,7 @@ create()
 						{ paragraph: paragraph.paragraph }))
 				});
 
-				algoliaFeedsJSON = algoliaFeedsJSON.concat(algoliaFeedPost);
+				algolia.sliced.feeds = algolia.sliced.feeds.concat(algoliaFeedPost);
 				resolve();
 			});
 		});
@@ -792,10 +812,10 @@ create()
 	// Export that composed object to a JSON file, for importing into Algolia search service
 	.then(() => {
 		return new Promise((resolve, reject) => {
-			if (algoliaFeedsJSON) {
+			if (algolia.sliced.feeds) {
 				console.log('\nExporting the feeds JSON to ' + output.feeds);
 
-				fs.writeFile(output.feeds, JSON.stringify(algoliaFeedsJSON), 'utf-8', err => {
+				fs.writeFile(output.feeds, JSON.stringify(algolia.sliced.feeds), 'utf-8', err => {
 					if (err) {
 						reject(err);
 					} else {
