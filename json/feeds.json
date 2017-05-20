@@ -1,883 +1,1022 @@
-{ "card" : "halton-arp-the-modern-galileo",
-	"worldview" : [
-		{
-			"slug" : "3C273-superluminal-expansion",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "aa-rejection",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "apparent-interaction",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "arp-associations",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1536,
-					"width" : 1536
-				}
-			}
-		},
-		{
-			"slug" : "arp-bayes",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "arp-rejection",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1574,
-					"width" : 1574
-				}
-			}
-		},
-		{
-			"slug" : "arp-speaking",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "blog-crackpot-theory",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "clumping-problem",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "einstein-cross-quote",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1000,
-					"width" : 1000
-				}
-			}
-		},
-		{
-			"slug" : "einstein-rings-expectations-observations",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 5,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1500,
-					"width" : 1500
-				}
-			}
-		},
-		{
-			"slug" : "first-lens-claim",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "fred-hoyle-complication-quote",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1400,
-					"width" : 1400
-				}
-			}
-		},
-		{
-			"slug" : "grb-surprise",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "hide-the-null-result",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "hogan-and-the-graduate",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "hoyles-disproof",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "immediate-difficulties",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "importance-of-deep-photographs",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "karlsson-effect",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "knacke-disproof",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "largest-structure-in-the-universe",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "nereids-defense-of-transparent-bulge",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "ngc7319-debate",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1560,
-					"width" : 1560
-				}
-			}
-		},
-		{
-			"slug" : "ngc7603-rejected",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1020,
-					"width" : 1020
-				}
-			}
-		},
-		{
-			"slug" : "not-a-chance",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1544,
-					"width" : 1544
-				}
-			}
-		},
-		{
-			"slug" : "periodicity-findings",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 8,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 6144,
-					"width" : 6144
-				}
-			}
-		},
-		{
-			"slug" : "quantization-debate",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 3072,
-					"width" : 3072
-				}
-			}
-		},
-		{
-			"slug" : "quasar-axes-alignment",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 800,
-					"width" : 800
-				}
-			}
-		},
-		{
-			"slug" : "quasar-books",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "quasar-perspective",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "quasar-proper-motion",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "quasar-redshift-interpretation",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "quasar-time-dilation",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "setterfield-quantized-redshifts",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "statistics-battle",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 6,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 3072,
-					"width" : 3072
-				}
-			}
-		},
-		{
-			"slug" : "telescope-time",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1544,
-					"width" : 1544
-				}
-			}
-		},
-		{
-			"slug" : "x-ray-heresy",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 2092,
-					"width" : 2092
-				}
+[
+	{
+		"slug" : "10-times-quasar-superluminal-motion",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
 			}
 		}
-	],
-	"model" : [
-		{
-			"slug" : "arp-narlikar-cosmology",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "arp-obit",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1536,
-					"width" : 1536
-				}
-			}
-		},
-		{
-			"slug" : "dwarf-galaxy-anomaly",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1536,
-					"width" : 1536
-				}
-			}
-		},
-		{
-			"slug" : "first-quadruple-quasar",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 1024,
-					"width" : 1024
-				}
-			}
-		},
-		{
-			"slug" : "matter-creation",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "periodicity-investigators",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "plasma-focus-agn",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
+	},
+	{
+		"slug" : "galaxy-quasar-statistical-arguments",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
 			}
 		}
-	],
-	"propositional" : [
-		{
-			"slug" : "are-agns-common",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "arp-192-limb",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 5,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 2358,
-					"width" : 2358
-				}
-			}
-		},
-		{
-			"slug" : "arp-density-quantization-conjecture",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "arp-relativity",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 4,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "do-not-question-authority",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "gravitational-lens-falsifiable",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 9,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 3072,
-					"width" : 3072
-				}
-			}
-		},
-		{
-			"slug" : "low-mass-electrons",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 7,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 4096,
-					"width" : 4096
-				}
+	},
+	{
+		"slug" : "mark205-ngc4319-interaction",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
 			}
 		}
-	],
-	"conceptual" : [
-		{
-			"slug" : "anomalous-redshifts-conventional-view",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "arp-explains-quasar-conventional",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "disrupted-galaxy",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "gee-whiz-science",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "isophote",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "mitchell-explains-redshift",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 1.5,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "nereid-quasar-definition",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "proper-motion",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "redshift-components",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "redshift-vs-recession-velocity",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 4,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1536,
-					"width" : 1536
-				}
-			}
-		},
-		{
-			"slug" : "time-dilation",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 3,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "verschuur-agn-history",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "x-ray-sources",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 4,
-					"TileSize" : 256
-				},
-				"large" : {
-					"height" : 1536,
-					"width" : 1536
-				}
+	},
+	{
+		"slug" : "galaxy-quasar-association-statistics",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1536,
+				"width" : 1536
 			}
 		}
-	],
-	"narrative" : [
-		{
-			"slug" : "arp-amateurs-salvation",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 2,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
-			}
-		},
-		{
-			"slug" : "telescope-time-gang",
-			"images" : {
-				"pyramid" : {
-					"maxZoomLevel" : 1.7,
-					"TileSize" : 512
-				},
-				"large" : {
-					"height" : 2048,
-					"width" : 2048
-				}
+	},
+	{
+		"slug" : "arp-bayes-theorem",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
 			}
 		}
-	]
-}
+	},
+	{
+		"slug" : "arp-rejection",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1574,
+				"width" : 1574
+			}
+		}
+	},
+	{
+		"slug" : "arp-vindications",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "galactic-interactions-critique",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "quasar-clumping-problem",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "gravitational-lensing-origin",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1000,
+				"width" : 1000
+			}
+		}
+	},
+	{
+		"slug" : "einstein-rings-expectations-vs-observations",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1500,
+				"width" : 1500
+			}
+		}
+	},
+	{
+		"slug" : "first-lens-claim",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "fred-hoyle-complication-quote",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1400,
+				"width" : 1400
+			}
+		}
+	},
+	{
+		"slug" : "grb-sightline-problem",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "hide-the-null-result",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "hogan-and-the-graduate",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "hoyles-disproof",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "early-quasar-history-immediate-difficulties",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "importance-of-deep-photographs",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "karlsson-effect",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "a-peculiar-disproof",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "largest-structure-in-the-universe",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "nereids-defense-of-transparent-bulge",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "high-redshift-quasar-in-front-of-low-redshift-galaxy",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1560,
+				"width" : 1560
+			}
+		}
+	},
+	{
+		"slug" : "galaxy-quasar-paper-rejection",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1020,
+				"width" : 1020
+			}
+		}
+	},
+	{
+		"slug" : "one-in-one-hundred-thousand-billion-chance",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1544,
+				"width" : 1544
+			}
+		}
+	},
+	{
+		"slug" : "redshift-periodicity-observations",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 8,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 6144,
+				"width" : 6144
+			}
+		}
+	},
+	{
+		"slug" : "redshift-quantization-debate",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 3072,
+				"width" : 3072
+			}
+		}
+	},
+	{
+		"slug" : "quasar-axes-alignment",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 800,
+				"width" : 800
+			}
+		}
+	},
+	{
+		"slug" : "quasar-books",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "what-about-unassociated-quasars",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "quasar-proper-motion",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "quasar-redshift-interpretation",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "quasar-time-dilation",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "setterfield-quantized-redshifts",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "arp-statistics-battle",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 6,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 3072,
+				"width" : 3072
+			}
+		}
+	},
+	{
+		"slug" : "importance-of-telescope-time",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1544,
+				"width" : 1544
+			}
+		}
+	},
+	{
+		"slug" : "x-ray-heresy",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "worldview",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 2092,
+				"width" : 2092
+			}
+		}
+	},
+	{
+		"slug" : "arp-narlikar-cosmology",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "model",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "arp-obit",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "model",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1536,
+				"width" : 1536
+			}
+		}
+	},
+	{
+		"slug" : "dwarf-galaxy-anomaly",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "model",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1536,
+				"width" : 1536
+			}
+		}
+	},
+	{
+		"slug" : "first-quadruple-quasar",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "model",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 1024,
+				"width" : 1024
+			}
+		}
+	},
+	{
+		"slug" : "matter-creation",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "model",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "periodicity-investigators",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "model",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "plasma-focus-agn",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "model",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "are-agns-common",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "arp-192-limb",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 5,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 2358,
+				"width" : 2358
+			}
+		}
+	},
+	{
+		"slug" : "arp-density-quantization-conjecture",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "arp-relativity",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 4,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "if-redshift-quantization-then-local-quasars",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "transverse-redshift-factor",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "gravitational-lens-falsifiable",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 9,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 3072,
+				"width" : 3072
+			}
+		}
+	},
+	{
+		"slug" : "low-mass-electrons",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "propositional",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 7,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 4096,
+				"width" : 4096
+			}
+		}
+	},
+	{
+		"slug" : "anomalous-redshifts-conventional-view",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "arp-explains-quasar-conventional",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "disrupted-galaxy",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "gee-whiz-science",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "isophote",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "mitchell-explains-redshift",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 1.5,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "nereid-quasar-definition",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "proper-motion",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "redshift-components",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "redshift-vs-recession-velocity",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1536,
+				"width" : 1536
+			}
+		}
+	},
+	{
+		"slug" : "time-dilation",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 3,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "verschuur-agn-history",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "x-ray-sources",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "conceptual",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 4,
+				"TileSize" : 256
+			},
+			"large" : {
+				"height" : 1536,
+				"width" : 1536
+			}
+		}
+	},
+	{
+		"slug" : "arp-amateurs-salvation",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "narrative",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 2,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	},
+	{
+		"slug" : "telescope-time-gang",
+		"card" : "halton-arp-the-modern-galileo",
+		"level" : "narrative",
+		"images" : {
+			"pyramid" : {
+				"maxZoomLevel" : 1.7,
+				"TileSize" : 512
+			},
+			"large" : {
+				"height" : 2048,
+				"width" : 2048
+			}
+		}
+	}
+]

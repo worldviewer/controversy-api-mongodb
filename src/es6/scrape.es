@@ -28,9 +28,6 @@ let mongodb = {
 	mongodb.url = `mongodb://${mongodb.host}:${mongodb.port}/${mongodb.dbName}`;
 
 const
-	METACARDS = 'metacards',
-	CARDS = 'cards',
-	prototypeObjectId = '58b8f1f7b2ef4ddae2fb8b17',
 	feedThumbnailSize = 506,
 
 	// Hard-coded local data directory structures
@@ -89,11 +86,14 @@ let savedCardCount,
 	mongo = {
 		cards: { // react-worldviewer-app
 			collection: null,
-			data: null
+			data: null,
+			ref: 'metacards'
 		},
 		proto: { // react-worldviewer-prototype
 			collection: null,
-			data: null
+			data: null,
+			id: '58b8f1f7b2ef4ddae2fb8b17',
+			ref: 'cards'
 		}
 	},
 
@@ -244,7 +244,7 @@ create()
 	// Save a reference to the metacards MongoDB collection
 	.then(database => {
 		return new Promise((resolve, reject) => {
-			resolve(db.collection(METACARDS));
+			resolve(db.collection(mongo.cards.ref));
 		});
 	})
 
@@ -298,6 +298,7 @@ create()
 				let slug = createSlug(gplusCard.name),
 					json = cardsJSON.filter((el) => el.slug === slug ? true : false)[0],
 					splitByParagraph = splitText(slug, gplusCard.text, stop.cards),
+
 					algoliaMetadata = {
 						slug: json.slug,
 						gplusUrl: gplusCard.url,
@@ -323,23 +324,23 @@ create()
 					};
 
 				// Save card name
-				let cardNameJSON = Object.assign({}, { name: gplusCard.name }, algoliaMetadata);
+				let cardNameJSON = Object.assign({}, { cardName: gplusCard.name }, algoliaMetadata);
 
 				algolia.sliced.cards = algolia.sliced.cards.concat(cardNameJSON);
 
 				// Save card category
-				let categoryJSON = Object.assign({}, { category: gplusCard.category }, algoliaMetadata);
+				let categoryJSON = Object.assign({}, { cardCategory: gplusCard.category }, algoliaMetadata);
 
 				algolia.sliced.cards = algolia.sliced.cards.concat(categoryJSON);
 
 				// Save card summary
-				let summaryJSON = Object.assign({}, { summary: gplusCard.summary }, algoliaMetadata);
+				let summaryJSON = Object.assign({}, { cardSummary: gplusCard.summary }, algoliaMetadata);
 
 				algolia.sliced.cards = algolia.sliced.cards.concat(summaryJSON);
 
 				// Save all paragraphs for card
 				let smallerChunkJSON = splitByParagraph.map(paragraphJSON => 
-					Object.assign({}, paragraphJSON, algoliaMetadata)
+					Object.assign({}, {id: paragraphJSON.id, cardParagraph: paragraphJSON.paragraph}, algoliaMetadata)
 				);
 
 				algolia.sliced.cards = algolia.sliced.cards.concat(smallerChunkJSON);
@@ -394,10 +395,10 @@ create()
 	// Get reference to the prototype data in MongoDB
 	.then(json => {
 		// Fix the prototype ObjectId
-		mongo.proto.data = Object.assign({}, json, {"_id": new ObjectId(prototypeObjectId)});
+		mongo.proto.data = Object.assign({}, json, {"_id": new ObjectId(mongo.proto.id)});
 
 		return new Promise((resolve, reject) => {
-			resolve(db.collection(CARDS));
+			resolve(db.collection(mongo.proto.ref));
 		});		
 	})
 
@@ -428,7 +429,7 @@ create()
 
 	// Get all controversy card data from MongoDB
 	.then(() => {
-		return db.collection(METACARDS)
+		return mongo.cards.collection
 			.find({})
 			.map(x => { return {
 				'image': x.image,
@@ -757,12 +758,23 @@ create()
 					longSlug = algolia.feed.markdowns[postCount].split('/'),
 					slug = longSlug[longSlug.length-1],
 					feedPostAttributes = feedPostObject.attributes,
-					feedPostHTML = markdownConverter.makeHtml(feedPostObject.body);
+					feedPostHTML = markdownConverter.makeHtml(feedPostObject.body),
+					inputFeedsJSON = [];
 
+				postsJSON.forEach(post => {
+					inputFeedsJSON.push(post);
+				});
 
+				let json = inputFeedsJSON.filter((el) => el.slug === slug ? true : false)[0];
 
-				let feedPostParagraphs = splitText(slug, feedPostHTML, stop.feeds),
+				if (!json) {
+					reject('It is quite likely that there is a mismatch between directory structure in /md and /img directories.  It appears that the problem relates to feed post ' + slug + '\n');
+				}
+
+				let
+					feedPostParagraphs = splitText(slug, feedPostHTML, stop.feeds),
 					algoliaFeedPost = [],
+
 					algoliaMetadata = {
 						card: feedPostAttributes.controversy,
 						discourseLevel: feedPostAttributes.discourse_level,
@@ -774,23 +786,23 @@ create()
 						metrics: feedPostAttributes.metrics,
 						images: {
 							large: {
-								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg'
-								// width: ,
-								// height: 
+								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/large.jpg',
+								width: json.images.large.width,
+								height: json.images.large.height
 							},
 							thumbnail: {
 								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
 							},
 							pyramid: {
-								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/'
-								// maxZoomLevel: ,
-								// TileSize: 
+								url: url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/pyramid_files/',
+								maxZoomLevel: json.images.pyramid.maxZoomLevel,
+								TileSize: json.images.pyramid.TileSize
 							}
 						}
 					};
 
 				algolia.sliced.feeds = algolia.sliced.feeds.concat(Object.assign({},
-					{ name: feedPostAttributes.title },
+					{ postName: feedPostAttributes.title },
 					algoliaMetadata
 				));
 
@@ -798,7 +810,7 @@ create()
 					algoliaFeedPost.push(Object.assign({},
 						{ id: paragraph.id },
 						algoliaMetadata,
-						{ paragraph: paragraph.paragraph }))
+						{ postParagraph: paragraph.paragraph }))
 				});
 
 				algolia.sliced.feeds = algolia.sliced.feeds.concat(algoliaFeedPost);
