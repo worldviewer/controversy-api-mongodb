@@ -1,6 +1,7 @@
 [
 	{
 		"slug" : "2-sociologists-tell-the-story-of-cold-fusion",
+		"short-slug" : "cold-fusion-story",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -14,6 +15,7 @@
 	},
 	{
 		"slug" : "3-types-of-collective-intelligence-problems",
+		"short-slug" : "collective-intelligence",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -27,6 +29,7 @@
 	},
 	{
 		"slug" : "an-expert-in-science-misconceptions-explains-critical-thinking",
+		"short-slug" : "critical-thinking",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -40,6 +43,7 @@
 	},
 	{
 		"slug" : "anthony-peratt",
+		"short-slug" : "peratt",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -53,6 +57,7 @@
 	},
 	{
 		"slug" : "apodnereid",
+		"short-slug" : "apodnereid",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -66,6 +71,7 @@
 	},
 	{
 		"slug" : "ausubels-six-principles-of-knowledge-construction",
+		"short-slug" : "ausubel",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 13,
@@ -79,6 +85,7 @@
 	},
 	{
 		"slug" : "bertrand-russells-10-commandments-of-teaching",
+		"short-slug" : "bertrand-russell-commandments",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.8,
@@ -92,6 +99,7 @@
 	},
 	{
 		"slug" : "big-science",
+		"short-slug" : "big-science",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -105,6 +113,7 @@
 	},
 	{
 		"slug" : "black-hole-babble",
+		"short-slug" : "black-hole-babble",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -118,6 +127,7 @@
 	},
 	{
 		"slug" : "cancer-as-a-fungus",
+		"short-slug" : "cancer-as-a-fungus",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -131,6 +141,7 @@
 	},
 	{
 		"slug" : "changing-radioactive-decay-rate-as-a-solar-flare-predictor",
+		"short-slug" : "solar-flare-predictor",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -144,6 +155,7 @@
 	},
 	{
 		"slug" : "controversy-first-science-education",
+		"short-slug" : "controversy-first-science-education",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -157,6 +169,7 @@
 	},
 	{
 		"slug" : "cosmology-in-crisis",
+		"short-slug" : "cosmology-in-crisis",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -170,6 +183,7 @@
 	},
 	{
 		"slug" : "crank-dot-net",
+		"short-slug" : "crank-dot-net",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -183,6 +197,7 @@
 	},
 	{
 		"slug" : "crowding-out",
+		"short-slug" : "crowding-out",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -196,6 +211,7 @@
 	},
 	{
 		"slug" : "dark-earth",
+		"short-slug" : "dark-earth",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -209,6 +225,7 @@
 	},
 	{
 		"slug" : "debye-screening",
+		"short-slug" : "debye-screening",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -222,6 +239,7 @@
 	},
 	{
 		"slug" : "dendrochronology",
+		"short-slug" : "dendrochronology",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -235,6 +253,7 @@
 	},
 	{
 		"slug" : "dingles-paradox",
+		"short-slug" : "dingles-paradox",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -248,6 +267,7 @@
 	},
 	{
 		"slug" : "distributed-or-multiple-representations-in-multiple-agents",
+		"short-slug" : "multiple-representations",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -261,6 +281,7 @@
 	},
 	{
 		"slug" : "donald-w-braben",
+		"short-slug" : "braben",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -274,6 +295,7 @@
 	},
 	{
 		"slug" : "electric-discharge-machining",
+		"short-slug" : "edm",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 20,
@@ -287,6 +309,7 @@
 	},
 	{
 		"slug" : "electron-theory-as-worldview",
+		"short-slug" : "electron-theory",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -300,6 +323,7 @@
 	},
 	{
 		"slug" : "exploration-vs-exploitation",
+		"short-slug" : "exploration-vs-exploitation",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -313,6 +337,7 @@
 	},
 	{
 		"slug" : "gerald-pollack",
+		"short-slug" : "pollack",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -326,6 +351,7 @@
 	},
 	{
 		"slug" : "gerrit-verschuur",
+		"short-slug" : "verschuur",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -339,6 +365,7 @@
 	},
 	{
 		"slug" : "groupthink-and-the-snowball-effect",
+		"short-slug" : "groupthink",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -352,6 +379,7 @@
 	},
 	{
 		"slug" : "groupthink-vs-conformity-vs-social-proof-vs-herding",
+		"short-slug" : "groupthink-vs-conformity-vs-social-proof-vs-herding",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -365,6 +393,7 @@
 	},
 	{
 		"slug" : "halton-arp-the-modern-galileo",
+		"short-slug" : "arp",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 20,
@@ -377,7 +406,8 @@
 		}
 	},
 	{
-		"slug" : "heinsons-chronology",
+		"slug" : "heinsohns-chronology",
+		"short-slug" : "heinsohn",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 18,
@@ -391,6 +421,7 @@
 	},
 	{
 		"slug" : "hindsight-bias-in-science",
+		"short-slug" : "hindsight-bias",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.7,
@@ -404,6 +435,7 @@
 	},
 	{
 		"slug" : "ian-tresman",
+		"short-slug" : "tresman",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -417,6 +449,7 @@
 	},
 	{
 		"slug" : "ignorance",
+		"short-slug" : "ignorance",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -430,6 +463,7 @@
 	},
 	{
 		"slug" : "immanuel-velikovsky",
+		"short-slug" : "velikovsky",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -443,6 +477,7 @@
 	},
 	{
 		"slug" : "innovation-starvation",
+		"short-slug" : "innovation-starvation",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -456,6 +491,7 @@
 	},
 	{
 		"slug" : "innovations-long-tail",
+		"short-slug" : "long-tail",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -469,6 +505,7 @@
 	},
 	{
 		"slug" : "jeff-schmidt",
+		"short-slug" : "schmidt",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -482,6 +519,7 @@
 	},
 	{
 		"slug" : "john-taylor-gatto",
+		"short-slug" : "gatto",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -495,6 +533,7 @@
 	},
 	{
 		"slug" : "joshua-schroeder-aka-scienceapologist",
+		"short-slug" : "scienceapologist",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -508,6 +547,7 @@
 	},
 	{
 		"slug" : "kristian-birkelands-terrella",
+		"short-slug" : "birkelands-terrella",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7.5,
@@ -521,6 +561,7 @@
 	},
 	{
 		"slug" : "lightning-to-space",
+		"short-slug" : "lightning-to-space",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 14,
@@ -534,6 +575,7 @@
 	},
 	{
 		"slug" : "martin-lopez-corredoira",
+		"short-slug" : "corredoira",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -547,6 +589,7 @@
 	},
 	{
 		"slug" : "maxwells-spinning-cell-model",
+		"short-slug" : "maxwells-cells",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -560,6 +603,7 @@
 	},
 	{
 		"slug" : "nuclear-half-life-modification-technology",
+		"short-slug" : "nuclear-half-life-modification-technology",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -573,6 +617,7 @@
 	},
 	{
 		"slug" : "over-specialization",
+		"short-slug" : "over-specialization",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.7,
@@ -586,6 +631,7 @@
 	},
 	{
 		"slug" : "panspermia-and-the-endospore",
+		"short-slug" : "panspermia-endospore",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -599,6 +645,7 @@
 	},
 	{
 		"slug" : "platos-reveal",
+		"short-slug" : "plato",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2.4,
@@ -612,6 +659,7 @@
 	},
 	{
 		"slug" : "please-stop-saying-that-the-1919-eclipse-expedition-verified-relativity",
+		"short-slug" : "1919-eclipse",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4.5,
@@ -625,6 +673,7 @@
 	},
 	{
 		"slug" : "quasi-neutrality",
+		"short-slug" : "quasi-neutrality",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 8,
@@ -638,6 +687,7 @@
 	},
 	{
 		"slug" : "rational-skepticism-vs-denialism",
+		"short-slug" : "rational-skepticism-vs-denialism",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.7,
@@ -651,6 +701,7 @@
 	},
 	{
 		"slug" : "reacting-vs-creating",
+		"short-slug" : "reacting-vs-creating",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 8,
@@ -664,6 +715,7 @@
 	},
 	{
 		"slug" : "rote-memorization-vs-meaningful-learning",
+		"short-slug" : "meaningful-learning",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -677,6 +729,7 @@
 	},
 	{
 		"slug" : "science-as-a-golum",
+		"short-slug" : "science-as-a-golum",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -690,6 +743,7 @@
 	},
 	{
 		"slug" : "science-its-not-just-a-process-of-elimination",
+		"short-slug" : "sherlock-holmes",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -703,6 +757,7 @@
 	},
 	{
 		"slug" : "science-vs-religion",
+		"short-slug" : "science-vs-religion",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -716,6 +771,7 @@
 	},
 	{
 		"slug" : "sciences-gatekeeping-problem",
+		"short-slug" : "gatekeeping",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3.5,
@@ -729,6 +785,7 @@
 	},
 	{
 		"slug" : "scientific-research-as-a-truth-machine",
+		"short-slug" : "truth-machine",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3.5,
@@ -742,6 +799,7 @@
 	},
 	{
 		"slug" : "scientism",
+		"short-slug" : "scientism",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -755,6 +813,7 @@
 	},
 	{
 		"slug" : "string-theory-as-not-even-wrong",
+		"short-slug" : "string-theory",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -768,6 +827,7 @@
 	},
 	{
 		"slug" : "the-5-stages-of-the-mind",
+		"short-slug" : "the-5-stages-of-the-mind",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -781,6 +841,7 @@
 	},
 	{
 		"slug" : "the-aether-experiments",
+		"short-slug" : "aether-experiments",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -794,6 +855,7 @@
 	},
 	{
 		"slug" : "the-age-of-the-earth",
+		"short-slug" : "earth-age",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -807,6 +869,7 @@
 	},
 	{
 		"slug" : "the-annotation-of-scientific-papers",
+		"short-slug" : "annotations",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -820,6 +883,7 @@
 	},
 	{
 		"slug" : "the-anti-pattern-of-settled-science",
+		"short-slug" : "settled-science",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -833,6 +897,7 @@
 	},
 	{
 		"slug" : "the-arctic-subtropic",
+		"short-slug" : "arctic-subtropic",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -846,6 +911,7 @@
 	},
 	{
 		"slug" : "the-astronomical-nature-of-mythology",
+		"short-slug" : "astronomical-mythology",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -859,6 +925,7 @@
 	},
 	{
 		"slug" : "the-believable-narrative",
+		"short-slug" : "believable-narrative",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -872,6 +939,7 @@
 	},
 	{
 		"slug" : "the-bias-of-a-visible-universe",
+		"short-slug" : "visible-universe-bias",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -885,6 +953,7 @@
 	},
 	{
 		"slug" : "the-bias-of-being-in-a-thin-atmosphere-in-a-plasma-universe",
+		"short-slug" : "thin-atmosphere-bias",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -898,6 +967,7 @@
 	},
 	{
 		"slug" : "the-big-bangs-big-redshift-assumption",
+		"short-slug" : "redshift",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2.5,
@@ -911,6 +981,7 @@
 	},
 	{
 		"slug" : "the-bug-in-sciences-machine",
+		"short-slug" : "the-bug-in-sciences-machine",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -924,6 +995,7 @@
 	},
 	{
 		"slug" : "the-burnham-model-for-stellar-distances",
+		"short-slug" : "burnham",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -937,6 +1009,7 @@
 	},
 	{
 		"slug" : "the-changing-radioactive-decay-rate",
+		"short-slug" : "changing-radioactive-decay",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 18,
@@ -950,6 +1023,7 @@
 	},
 	{
 		"slug" : "the-cherry-picking-of-radiocarbon-dates",
+		"short-slug" : "radiocarbon-date-picking",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -963,6 +1037,7 @@
 	},
 	{
 		"slug" : "the-clovis-police",
+		"short-slug" : "the-clovis-police",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -976,6 +1051,7 @@
 	},
 	{
 		"slug" : "the-collapse-of-the-roman-civilization-as-a-lesson-for-the-scientific-community",
+		"short-slug" : "rome",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -989,6 +1065,7 @@
 	},
 	{
 		"slug" : "the-college-experience",
+		"short-slug" : "college",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1002,6 +1079,7 @@
 	},
 	{
 		"slug" : "the-comet-of-justinian",
+		"short-slug" : "justinian",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1015,6 +1093,7 @@
 	},
 	{
 		"slug" : "the-connector",
+		"short-slug" : "connector",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -1028,6 +1107,7 @@
 	},
 	{
 		"slug" : "the-constructivist-revolution",
+		"short-slug" : "constructivism",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1041,6 +1121,7 @@
 	},
 	{
 		"slug" : "the-controversy-campaign",
+		"short-slug" : "controversy-campaign",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -1054,6 +1135,7 @@
 	},
 	{
 		"slug" : "the-controversy-channel",
+		"short-slug" : "controversy-channel",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -1067,6 +1149,7 @@
 	},
 	{
 		"slug" : "the-controversy-graph",
+		"short-slug" : "controversy-graph",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6.5,
@@ -1080,6 +1163,7 @@
 	},
 	{
 		"slug" : "the-copernican-myths",
+		"short-slug" : "copernican",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -1093,6 +1177,7 @@
 	},
 	{
 		"slug" : "the-critical-analytical-vocabulary",
+		"short-slug" : "critical-analytical",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 11,
@@ -1106,6 +1191,7 @@
 	},
 	{
 		"slug" : "the-crowdsourcing-of-scientific-controversies",
+		"short-slug" : "crowdsourcing",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -1119,6 +1205,7 @@
 	},
 	{
 		"slug" : "the-dark-energy-fudge-factor",
+		"short-slug" : "dark-energy",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9.5,
@@ -1132,6 +1219,7 @@
 	},
 	{
 		"slug" : "the-debate-over-dendrochronology",
+		"short-slug" : "dendrochronology-debate",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -1145,6 +1233,7 @@
 	},
 	{
 		"slug" : "the-debate-over-phantom-centuries-using-eclipse-data",
+		"short-slug" : "phantom-debate",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -1158,6 +1247,7 @@
 	},
 	{
 		"slug" : "the-debate-over-the-science-futures-market",
+		"short-slug" : "science-futures-debate",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -1171,6 +1261,7 @@
 	},
 	{
 		"slug" : "the-decline-in-conceptual-revolutions",
+		"short-slug" : "conceptual-revolutions",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -1184,6 +1275,7 @@
 	},
 	{
 		"slug" : "the-denial-of-the-failure-of-planetary-formation-theory",
+		"short-slug" : "planetary-formation-theory",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -1197,6 +1289,7 @@
 	},
 	{
 		"slug" : "the-dolomite-problem",
+		"short-slug" : "dolomite",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 16,
@@ -1210,6 +1303,7 @@
 	},
 	{
 		"slug" : "the-empty-vacuum-of-space-mistake",
+		"short-slug" : "empty-vacuum-mistake",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 18,
@@ -1223,6 +1317,7 @@
 	},
 	{
 		"slug" : "the-extinction-of-the-mammoths",
+		"short-slug" : "mammoths",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 18,
@@ -1236,6 +1331,7 @@
 	},
 	{
 		"slug" : "the-extrinsic-motivator",
+		"short-slug" : "extrinsic-motivator",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1249,6 +1345,7 @@
 	},
 	{
 		"slug" : "the-fact-and-the-ritual-of-accuracy",
+		"short-slug" : "fact",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1262,6 +1359,7 @@
 	},
 	{
 		"slug" : "the-force-concept-inventory-test",
+		"short-slug" : "fci",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1275,6 +1373,7 @@
 	},
 	{
 		"slug" : "the-generalist",
+		"short-slug" : "generalist",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1288,6 +1387,7 @@
 	},
 	{
 		"slug" : "the-hedgehog-vs-the-fox",
+		"short-slug" : "hedgehog-vs-the-fox",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1301,6 +1401,7 @@
 	},
 	{
 		"slug" : "the-history-of-peer-review",
+		"short-slug" : "peer-review-history",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1314,6 +1415,7 @@
 	},
 	{
 		"slug" : "the-history-of-the-birkeland-current",
+		"short-slug" : "birkeland-current-history",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 18,
@@ -1327,6 +1429,7 @@
 	},
 	{
 		"slug" : "the-illusion-of-the-scientific-hero",
+		"short-slug" : "scientific-hero-illusion",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1340,6 +1443,7 @@
 	},
 	{
 		"slug" : "the-incoherence-of-black-hole-mathematics",
+		"short-slug" : "black-hole-math",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 13,
@@ -1353,6 +1457,7 @@
 	},
 	{
 		"slug" : "the-inevitability-of-dark-energy-and-the-higgs-boson",
+		"short-slug" : "higgs-boson-inevitability",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -1366,6 +1471,7 @@
 	},
 	{
 		"slug" : "the-information-cascade-vs-the-independent-thinker",
+		"short-slug" : "information-cascade",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1379,6 +1485,7 @@
 	},
 	{
 		"slug" : "the-institute-for-venture-science-process",
+		"short-slug" : "ivs-process",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -1392,6 +1499,7 @@
 	},
 	{
 		"slug" : "the-journal-oligopoly",
+		"short-slug" : "journal-oligopoly",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.6,
@@ -1405,6 +1513,7 @@
 	},
 	{
 		"slug" : "the-language-of-mathematics",
+		"short-slug" : "language-of-mathematics",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1418,6 +1527,7 @@
 	},
 	{
 		"slug" : "the-lesson-of-the-cracking-of-enigma",
+		"short-slug" : "enigma",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1431,6 +1541,7 @@
 	},
 	{
 		"slug" : "the-lorentz-force-and-marklund-convection-the-alternative-to-gravitational-accretion",
+		"short-slug" : "marklund",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 11,
@@ -1444,6 +1555,7 @@
 	},
 	{
 		"slug" : "the-low-energy-nuclear-reaction",
+		"short-slug" : "lenr",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1457,6 +1569,7 @@
 	},
 	{
 		"slug" : "the-many-assumptions-of-radiocarbon-dating",
+		"short-slug" : "radiocarbon-assumptions",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -1470,6 +1583,7 @@
 	},
 	{
 		"slug" : "the-map-is-not-the-territory",
+		"short-slug" : "map",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1483,6 +1597,7 @@
 	},
 	{
 		"slug" : "the-men-of-science",
+		"short-slug" : "men-of-science",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1496,6 +1611,7 @@
 	},
 	{
 		"slug" : "the-method-of-multiple-working-hypotheses",
+		"short-slug" : "multiple-hypotheses",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1509,6 +1625,7 @@
 	},
 	{
 		"slug" : "the-microbiome",
+		"short-slug" : "microbiome",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -1522,6 +1639,7 @@
 	},
 	{
 		"slug" : "the-misbehaving-fundamental-constants",
+		"short-slug" : "constants",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -1535,6 +1653,7 @@
 	},
 	{
 		"slug" : "the-misconception-of-the-cell-membrane-as-a-container",
+		"short-slug" : "cell-membrane",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -1548,6 +1667,7 @@
 	},
 	{
 		"slug" : "the-misconceptions-of-expertise",
+		"short-slug" : "expertise",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 8,
@@ -1561,6 +1681,7 @@
 	},
 	{
 		"slug" : "the-myth-of-galileo",
+		"short-slug" : "galileo",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -1574,6 +1695,7 @@
 	},
 	{
 		"slug" : "the-narrative-of-scientific-discovery",
+		"short-slug" : "discovery-narrative",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -1587,6 +1709,7 @@
 	},
 	{
 		"slug" : "the-neutrino-sunspot-anti-correlation",
+		"short-slug" : "neutrino-sunspot-anti-correlation",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -1600,6 +1723,7 @@
 	},
 	{
 		"slug" : "the-observers-expectation",
+		"short-slug" : "expectations",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 7,
@@ -1613,6 +1737,7 @@
 	},
 	{
 		"slug" : "the-origin-of-the-solar-cycle",
+		"short-slug" : "solar-cycle",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2.3,
@@ -1626,6 +1751,7 @@
 	},
 	{
 		"slug" : "the-petroglyphs-as-records-of-cosmic-events",
+		"short-slug" : "petroglyphs",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 11,
@@ -1639,6 +1765,7 @@
 	},
 	{
 		"slug" : "the-phantom-time-hypothesis",
+		"short-slug" : "phantom-time",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -1652,6 +1779,7 @@
 	},
 	{
 		"slug" : "the-plasma-double-layer",
+		"short-slug" : "double-layer",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 22,
@@ -1665,6 +1793,7 @@
 	},
 	{
 		"slug" : "the-positivists-vs-the-constructivists",
+		"short-slug" : "positivists-vs-constructivists",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -1678,6 +1807,7 @@
 	},
 	{
 		"slug" : "the-post-idea-world",
+		"short-slug" : "post-idea",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -1691,6 +1821,7 @@
 	},
 	{
 		"slug" : "the-pre-scientific-judgment-of-new-ideas",
+		"short-slug" : "pre-scientific-judgment",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -1704,6 +1835,7 @@
 	},
 	{
 		"slug" : "the-pressure-to-publish",
+		"short-slug" : "pressure-to-publish",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 8,
@@ -1717,6 +1849,7 @@
 	},
 	{
 		"slug" : "the-problematic-age-of-coal",
+		"short-slug" : "age-of-coal",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 15,
@@ -1730,6 +1863,7 @@
 	},
 	{
 		"slug" : "the-problematic-origin-of-the-sodium-pump-hypothesis",
+		"short-slug" : "sodium-pump-hypothesis",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -1743,6 +1877,7 @@
 	},
 	{
 		"slug" : "the-problematic-weight-of-the-dinosaurs",
+		"short-slug" : "dinosaur-weight",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 15,
@@ -1756,6 +1891,7 @@
 	},
 	{
 		"slug" : "the-pseudo-mysteries-of-lightning",
+		"short-slug" : "lightning",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 15,
@@ -1769,6 +1905,7 @@
 	},
 	{
 		"slug" : "the-questionable-origins-of-earths-sand",
+		"short-slug" : "sand-origin",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1782,6 +1919,7 @@
 	},
 	{
 		"slug" : "the-rejection-of-epigenetics",
+		"short-slug" : "epigenetics",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -1795,6 +1933,7 @@
 	},
 	{
 		"slug" : "the-rejection-of-radio-waves-from-space",
+		"short-slug" : "radio-waves",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -1808,6 +1947,7 @@
 	},
 	{
 		"slug" : "the-rejection-of-the-maser-the-precursor-to-the-laser",
+		"short-slug" : "laser",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -1821,6 +1961,7 @@
 	},
 	{
 		"slug" : "the-safe-space",
+		"short-slug" : "safe-space",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -1834,6 +1975,7 @@
 	},
 	{
 		"slug" : "the-science-celebrity",
+		"short-slug" : "celebrity",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -1847,6 +1989,7 @@
 	},
 	{
 		"slug" : "the-science-futures-market",
+		"short-slug" : "science-futures-market",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1860,6 +2003,7 @@
 	},
 	{
 		"slug" : "the-science-journalist",
+		"short-slug" : "journalist",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1873,6 +2017,7 @@
 	},
 	{
 		"slug" : "the-science-troll",
+		"short-slug" : "troll",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -1886,6 +2031,7 @@
 	},
 	{
 		"slug" : "the-scientific-attitude",
+		"short-slug" : "attitude",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -1899,6 +2045,7 @@
 	},
 	{
 		"slug" : "the-simulation-as-a-black-box",
+		"short-slug" : "simulation",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1912,6 +2059,7 @@
 	},
 	{
 		"slug" : "the-skywave",
+		"short-slug" : "skywave",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 10,
@@ -1925,6 +2073,7 @@
 	},
 	{
 		"slug" : "the-solar-neutrino-problem",
+		"short-slug" : "solar-neutrino",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -1938,6 +2087,7 @@
 	},
 	{
 		"slug" : "the-speed-of-gravity",
+		"short-slug" : "speed-of-gravity",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -1951,6 +2101,7 @@
 	},
 	{
 		"slug" : "the-stoner-thought-experiment",
+		"short-slug" : "thought-experiment",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 14,
@@ -1964,6 +2115,7 @@
 	},
 	{
 		"slug" : "the-strong-inference-plus-method",
+		"short-slug" : "strong-inference",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 16,
@@ -1977,6 +2129,7 @@
 	},
 	{
 		"slug" : "the-structure-of-science",
+		"short-slug" : "structure-of-science",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -1990,6 +2143,7 @@
 	},
 	{
 		"slug" : "the-sudden-appearance-of-earths-sand",
+		"short-slug" : "sands-sudden-appearance",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 13,
@@ -2003,6 +2157,7 @@
 	},
 	{
 		"slug" : "the-texas-sharpshooter-fallacy",
+		"short-slug" : "texas-sharpshooter",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -2016,6 +2171,7 @@
 	},
 	{
 		"slug" : "the-textbook-mythologies-of-aether-and-relativity",
+		"short-slug" : "textbook-mythologies",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -2029,6 +2185,7 @@
 	},
 	{
 		"slug" : "the-third-story",
+		"short-slug" : "third-story",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -2042,6 +2199,7 @@
 	},
 	{
 		"slug" : "the-tree-ring",
+		"short-slug" : "tree-ring",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -2055,6 +2213,7 @@
 	},
 	{
 		"slug" : "the-trouble-with-neutron-stars",
+		"short-slug" : "neutron-stars",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -2068,6 +2227,7 @@
 	},
 	{
 		"slug" : "the-trouble-with-sands-color",
+		"short-slug" : "sands-color",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 13,
@@ -2081,6 +2241,7 @@
 	},
 	{
 		"slug" : "the-two-systems-of-the-mind",
+		"short-slug" : "two-systems",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -2094,6 +2255,7 @@
 	},
 	{
 		"slug" : "the-unknown-graduate-student",
+		"short-slug" : "bandwagon-research",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -2107,6 +2269,7 @@
 	},
 	{
 		"slug" : "the-unlearning-of-creativity",
+		"short-slug" : "creativity",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 2,
@@ -2120,6 +2283,7 @@
 	},
 	{
 		"slug" : "the-village-venus-effect",
+		"short-slug" : "village-venus",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -2133,6 +2297,7 @@
 	},
 	{
 		"slug" : "the-weakest-force-gravity",
+		"short-slug" : "gravity",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -2146,6 +2311,7 @@
 	},
 	{
 		"slug" : "the-wisdom-of-crowds",
+		"short-slug" : "crowds",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -2159,6 +2325,7 @@
 	},
 	{
 		"slug" : "tourists-vs-explorers",
+		"short-slug" : "tourists-vs-explorers",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -2172,6 +2339,7 @@
 	},
 	{
 		"slug" : "tribalism-in-science",
+		"short-slug" : "tribalism",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -2185,6 +2353,7 @@
 	},
 	{
 		"slug" : "turning-data-into-insight",
+		"short-slug" : "insight",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
@@ -2198,6 +2367,7 @@
 	},
 	{
 		"slug" : "uniformitarianism-vs-catastrophism",
+		"short-slug" : "uniformitarianism-vs-catastrophism",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 11,
@@ -2211,6 +2381,7 @@
 	},
 	{
 		"slug" : "velikovskys-chronology",
+		"short-slug" : "velikovskys-chronology",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -2224,6 +2395,7 @@
 	},
 	{
 		"slug" : "vitrified-stonework",
+		"short-slug" : "vitrified-stonework",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -2237,6 +2409,7 @@
 	},
 	{
 		"slug" : "what-gives-venus-its-feminine-attribute",
+		"short-slug" : "feminine-venus",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -2250,6 +2423,7 @@
 	},
 	{
 		"slug" : "when-can-we-trust-expertise",
+		"short-slug" : "expertise-trust",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 5,
@@ -2263,6 +2437,7 @@
 	},
 	{
 		"slug" : "why-evolution-is-not-what-you-think-the-ebner-effect",
+		"short-slug" : "ebner",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 9,
@@ -2276,6 +2451,7 @@
 	},
 	{
 		"slug" : "why-its-probably-not-a-conspiracy",
+		"short-slug" : "not-a-conspiracy",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 4,
@@ -2289,6 +2465,7 @@
 	},
 	{
 		"slug" : "why-mythology-is-so-controversial",
+		"short-slug" : "controversial-mythology",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 13,
@@ -2302,6 +2479,7 @@
 	},
 	{
 		"slug" : "why-outsider-mavericks-matter-in-science",
+		"short-slug" : "outsider-mavericks",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 3,
@@ -2315,6 +2493,7 @@
 	},
 	{
 		"slug" : "why-venus-is-not-a-greenhouse",
+		"short-slug" : "venus-greenhouse",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 15,
@@ -2328,6 +2507,7 @@
 	},
 	{
 		"slug" : "why-we-critique-science",
+		"short-slug" : "critique-science",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 1.5,
@@ -2341,6 +2521,7 @@
 	},
 	{
 		"slug" : "willard-libbys-nobel-fraud",
+		"short-slug" : "libby",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 12,
@@ -2354,6 +2535,7 @@
 	},
 	{
 		"slug" : "zombie-science",
+		"short-slug" : "zombie",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 6,
